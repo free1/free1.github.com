@@ -1,9 +1,18 @@
+---
+author: Free
+generator: Jekyll 1.0.2
+---
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<title>{{ page.title }}</title>
-	</head>
+<head>
+	<meta charset="UTF-8" />
+    <meta name="author" content="{{ page.author }}" />
+    <meta name="generator" content="{{ page.generator }}" />
+    <meta name="description" content="{{ page.description }}" />
+
+    <link rel="stylesheet" type="text/css" href="/css/main.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="/css/mobile.css" media="all and (max-width:1023px)" />
+</head>
 	<body>
 		{{ content }}
 	</body>
