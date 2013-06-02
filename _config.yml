@@ -1,1 +1,4 @@
-baseurl： /
+baseurl:  /
+markdown: redcarpet
+pygments: true
+exclude: [Rakefile, README.md]
