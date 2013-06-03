@@ -13,6 +13,9 @@ body {
 
 	font-family: 'DejaVu Sans Condensed', 'Arial';
 	font-size: 13px;
+
+	height: auto;
+	width: 960px;
 }
 
 /* 顶部 */
