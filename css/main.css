@@ -47,7 +47,7 @@ div#nav {
 
 div#nav li {
 	list-style-type: none;
-	float: right;
+	float: left;
 }
 
 /* 底部 */
