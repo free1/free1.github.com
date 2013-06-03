@@ -1,21 +1,9 @@
 /* 主体 */
-body {
-	background-attachment: fixed;
-	background-color: #6ca2e0;
-	background-image: url(/images/bg.jpg);
-	background-position: top center;
-	background-repeat: no-repeat;
 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-
-	font-family: 'DejaVu Sans Condensed', 'Arial';
-	font-size: 13px;
-
+div#mian {
 	height: auto;
 	width: 960px;
+	background-color: red;
 }
 
 /* 顶部 */
