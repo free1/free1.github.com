@@ -1,7 +1,7 @@
 body {
 	background-attachment: fixed;
 	background-color: #6ca2e0;
-	background-image: url("");
+	background-image: url("http://i.imgur.com/0eQ5v.jpg");
 	background-position: top center;
 	background-repeat: no-repeat;
 	
@@ -13,7 +13,7 @@ body {
 	font-family: 'DejaVu Sans Condensed', 'Arial';
 	font-size: 13px;
 } 
-
+/* 顶部 */
 div#divBanner {
 	position: absolute;
 	left: 38%;
@@ -31,12 +31,9 @@ div#divBanner div#divSignature {
     text-align: center;
 }
 
+/* 中部 */
 div#nav {
-	position: absolute;
-	left: 38%;
-    top: 128px;
-	width: 56%;
-    padding: 32px;
+	
 }
 
 div#nav li {
@@ -44,7 +41,7 @@ div#nav li {
 	float: right;
 }
 
-
+/* 底部 */
 
 
 
