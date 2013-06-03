@@ -70,21 +70,6 @@ div.Category {
 	color: #fff;
 }
 
-div.Category a {
-    color: #fff;
-	font-weight: bold;
-	text-decoration: none;
-	
-	transition: all 0.2s ease-in-out;
-	-webkit-transition: all 0.2s ease-out;
-	-moz-transition: all 0.2s ease-out;
-	-o-transition: all 0.2s ease-out;
-}
-
-div.Category a:hover {
-	color: #102040;
-}
-
 div.Category h1.hTitle1 {
 	position: relative;
 	top: -8px;
