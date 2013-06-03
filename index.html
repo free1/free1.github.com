@@ -3,56 +3,93 @@ layout: main
 description: Free's personal blog
 title: Summer's Mariner
 ---
-<!-- 顶部 -->
-<div id="top">
-    <!-- 左 -->
-    <div id="logo">
-        LOGO
-    </div>
+<div id="divLogo">
+    <img src="/images/mort.png" alt="mort" height="48px" />
+</div>
 
-    <!-- 右 -->
-    <div id="divBanner">
-        ☆﻿ blog by free<br />
-        <span style="font-size: 48px">
-            「Welcome」
-        </span><br />
-        <span style="font-size: 32px">
-            夏の航海士
-        </span><br />
-            V   o  y  a  g  e     <br />
-        <br /><br />
-        <div id="divSignature">
-            {% include Signature.html %}
-        </div>
+<div id="divBanner">
+    ☆﻿ blog by free<br />
+    <span style="font-size: 48px">
+        「Welcome」
+    </span><br />
+    <span style="font-size: 32px">
+        夏日航海士
+    </span><br />
+       Voyage        　<br />
+    <br /><br />
+    <div id="divSignature">
+        {% include Signature.html %}
     </div>
 </div>
 
-<!-- 中部 -->
-<div id="middle">
-        <!-- 导航 -->
-    <div id="nav">
-        <ul>
-            <li>博客</li>
-            <li>吐槽</li>
-            <li>照片</li>
-            <li>关于我</li>
-            <li>联系我</li>
-        </ul>
-    </div>
-</div>
+<div id="divSeparator1"></div>
+<div id="divSeparator2"></div>
 
-<!-- 底部 -->
-<div id="bottom">
+<div id="divMiddle">
+
+    <div class="divCategory">
+        <h1 class="hTitle1">博客</h1>
+        <hr />
+        {% include Posts_zh.html %}
+    </div>
+    
+    <div class="divCategory">
+        <h1 class="hTitle1">Posts</h1>
+        <hr />
+        {% include Posts_en.html %}
+    </div>
+    
+    <div class="divCategory">
+        <h1 class="hTitle2">Contact me</h1>
+        <hr />
+        {% include ContactMe.html %}
+    </div>
     
 </div>
-<div id="divnavigation">
-    <h2>{{ page.title }}</h2>
-    <p>最新文章</p>
-    <ul>
-        {% for post in site.posts %}
-        <li>{{ post.date | date_to_string }}
-            <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-        </li>
-        {% endfor %}
-    </ul>
+
+<div id="divRight">
+
+    <div class="divCategory">
+        <h1 class="hTitle1">Projects</h1>
+        <div class="divExtLinks">
+            <a href="https://github.com/soimort" target="_blank"><img src="/images/github.png" alt="github" title="GitHub" class="navDock" height="24" /></a>
+            <a href="https://gitorious.org/~mort" target="_blank"><img src="/images/gitorious.png" alt="gitorious" title="Gitorious" class="navDock" height="24" /></a>
+            <a href="https://bitbucket.org/soimort" target="_blank"><img src="/images/bitbucket.png" alt="bitbucket" title="BitBucket" class="navDock" height="24" /></a>
+            <a href="http://code.google.com/u/Mort.Yao/" target="_blank"><img src="/images/google-code.png" alt="google-code" title="Google Code" class="navDock" height="24" /></a>
+        </div>
+        <hr />
+        {% include Projects.html %}
+    </div>
+    
+    <div class="divCategory">
+        <h1 class="hTitle1">Photos</h1>
+        <div class="divExtLinks">
+            <a href="https://plus.google.com/photos/100974147585154622588/albums" target="_blank"><img src="/images/gplus-32.png" alt="gplus" title="Google+ Albums" class="navDock" height="24" /></a>
+        </div>
+        <hr />
+        {% include Photos.html %}
+    </div>
+    
+    <div class="divCategory">
+        <h1 class="hTitle1">Designs</h1>
+        <div class="divExtLinks">
+            <a href="http://soimort.deviantart.com" target="_blank"><img src="/images/deviantart.png" alt="deviantart" title="deviantArt" class="navDock" height="24" /></a>
+        </div>
+        <hr />
+        {% include Designs.html %}
+    </div>
+    
+    <div class="divCategory" style="visibility:hidden">
+        <h1 class="hTitle2">About me</h1>
+        <hr />
+        include AboutMe.html
+    </div>
+    
+    <div class="divCategory" style="visibility:hidden">
+        <h1 class="hTitle2">Links</h1>
+        <hr />
+        include Links.html
+    </div>
+    
+    <div id="div0"></div>
 </div>
