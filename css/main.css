@@ -54,6 +54,10 @@ div#Right {
 }
 
 
+
+
+
+
 div.Category {
 	position: relative;
 	padding: 16px;
@@ -95,6 +99,97 @@ div.Category h1.hTitle2 {
 	
 	font-size: 13px;
 	font-weight: bold;
+}
+
+div.Category div.divExtLinks {
+	position: absolute;
+	right: 16px;
+    top: 16px;
+	width: 50%;
+	
+	text-align: right;
+}
+
+div.Category article.articleScrap {
+	position: relative;
+	padding: 8px;
+	margin-top: 0px;
+	
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 0 0 8px 0 #102040;
+	opacity: 0.95;
+    color: #102040;
+}
+
+div.Category article.articleScrap a {
+    color: #102040;
+	font-weight: bold;
+    text-decoration: none;
+}
+
+div.Category article.articleScrap a:hover {
+    text-decoration: underline;
+}
+
+div.Category aside.asideScrap {
+	position: absolute;
+	left: 55%;
+	width: 40%;
+	
+	text-align: right;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+div.Category section.sectionScrap {
+	position: relative;
+	left: 0;
+	width: 100%;
+	
+	font-style: italic;
+}
+
+div.Category img.imgScrap {
+	border-radius: 4px;
+	
+	transition: all 0.2s ease-out;
+	-webkit-transition: all 0.2s ease-out;
+	-moz-transition: all 0.2s ease-out;
+	-o-transition: all 0.2s ease-out;
+}
+
+div.Category img.imgScrap:hover {
+	box-shadow: 0 0 8px 2px #102040;
+}
+
+div.Category div.divIndex {
+	position: relative;
+	margin-bottom: 4px;
+	
+	transition: all 0.2s ease-out;
+	-webkit-transition: all 0.2s ease-out;
+	-moz-transition: all 0.2s ease-out;
+	-o-transition: all 0.2s ease-out;
+}
+
+div.Category div.divIndex:hover {
+    border-radius: 4px;
+	box-shadow: 0 0 0 2px #102040;
+}
+
+div.Category div.divIndexTitle {
+	left: 0;
+	width: 100%;
+}
+
+div.Category div.divIndexDate {
+	position: relative;
+	left: 70%;
+    top: 0;
+	width: 30%;
+	
+	text-align: right;
 }
 
 
