@@ -1,9 +1,18 @@
 /* 主体 */
+body {
+	background-attachment: fixed;
+	background-color: #6ca2e0;
+	background-image: url(/images/bg.jpg);
+	background-position: top center;
+	background-repeat: no-repeat;
 
-div#mian {
-	height: auto;
-	width: 960px;
-	background-color: red;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+	-o-background-size: contain;
+	background-size: contain;
+
+	font-family: 'DejaVu Sans Condensed', 'Arial';
+	font-size: 13px;
 }
 
 /* 顶部 */
