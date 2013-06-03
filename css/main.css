@@ -32,11 +32,16 @@ div#divBanner div#divSignature {
 }
 
 div#nav {
-	float: right;
+	position: absolute;
+	left: 38%;
+    top: 128px;
+	width: 56%;
+    padding: 32px;
 }
 
 div#nav li {
-	list-style-type:none
+	list-style-type: none;
+	float: right;
 }
 
 
