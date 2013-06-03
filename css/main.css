@@ -48,6 +48,8 @@ div#nav {
 div#nav li {
 	list-style-type: none;
 	float: left;
+	margin-left: 6px;
+	margin-right: 6px;
 }
 
 /* 底部 */
