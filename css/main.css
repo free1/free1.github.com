@@ -6,6 +6,11 @@ div#main {
 	background-position: top center;
 	background-repeat: no-repeat;
 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+
 	font-family: 'DejaVu Sans Condensed', 'Arial';
 	font-size: 13px;
 }
