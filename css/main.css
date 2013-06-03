@@ -54,10 +54,6 @@ div#Right {
 }
 
 
-
-
-
-
 div.Category {
 	position: relative;
 	padding: 16px;
@@ -97,11 +93,4 @@ div.Category aside.asideScrap {
 	font-weight: bold;
 }
 
-div.Category section.sectionScrap {
-	position: relative;
-	left: 0;
-	width: 100%;
-	
-	font-style: italic;
-}
 
