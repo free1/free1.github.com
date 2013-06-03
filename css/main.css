@@ -32,10 +32,12 @@ div#divBanner div#divSignature {
 }
 
 div#nav {
-	list-style-type: none;
+
 }
 
-
+div#nav li {
+	list-style-type:none
+}
 
 
 
