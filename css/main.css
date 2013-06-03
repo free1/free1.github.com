@@ -6,10 +6,10 @@ body {
 	background-position: top center;
 	background-repeat: no-repeat;
 
-    -webkit-background-size: contain;
-    -moz-background-size: contain;
-	-o-background-size: contain;
-	background-size: contain;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 
 	font-family: 'DejaVu Sans Condensed', 'Arial';
 	font-size: 13px;
@@ -34,6 +34,13 @@ div#divBanner div#divSignature {
 }
 
 /* 中部 */
+div#middle {
+	position: absolute;
+	left: 38%;
+    top: 384px;
+	width: 28%;
+    padding-right: 32px;
+}
 div#nav {
 	
 }
