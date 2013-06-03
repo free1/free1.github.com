@@ -3,11 +3,11 @@ layout: main
 description: Free's personal blog
 title: Summer's Mariner
 ---
-<div id="divLogo">
+<div id="Logo">
     <img src="/images/mort.png" alt="mort" height="48px" />
 </div>
 
-<div id="divBanner">
+<div id="Banner">
     ☆﻿ blog by free<br />
     <span style="font-size: 48px">
         「Welcome」
@@ -17,28 +17,26 @@ title: Summer's Mariner
     </span><br />
        Voyage        　<br />
     <br /><br />
-    <div id="divSignature">
+    <div id="Signature">
         {% include Signature.html %}
     </div>
 </div>
 
+<div id="Middle">
 
-
-<div id="divMiddle">
-
-    <div class="divCategory">
+    <div class="Category">
         <h1 class="hTitle1">博客</h1>
         <hr />
         {% include Posts_zh.html %}
     </div>
     
-    <div class="divCategory">
+    <div class="Category">
         <h1 class="hTitle1">Posts</h1>
         <hr />
         {% include Posts_en.html %}
     </div>
     
-    <div class="divCategory">
+    <div class="Category">
         <h1 class="hTitle2">Contact me</h1>
         <hr />
         {% include ContactMe.html %}
@@ -46,45 +44,33 @@ title: Summer's Mariner
     
 </div>
 
-<div id="divRight">
+<div id="Right">
 
-    <div class="divCategory">
+    <div class="Category">
         <h1 class="hTitle1">Projects</h1>
-        <div class="divExtLinks">
-            <a href="https://github.com/soimort" target="_blank"><img src="/images/github.png" alt="github" title="GitHub" class="navDock" height="24" /></a>
-            <a href="https://gitorious.org/~mort" target="_blank"><img src="/images/gitorious.png" alt="gitorious" title="Gitorious" class="navDock" height="24" /></a>
-            <a href="https://bitbucket.org/soimort" target="_blank"><img src="/images/bitbucket.png" alt="bitbucket" title="BitBucket" class="navDock" height="24" /></a>
-            <a href="http://code.google.com/u/Mort.Yao/" target="_blank"><img src="/images/google-code.png" alt="google-code" title="Google Code" class="navDock" height="24" /></a>
-        </div>
         <hr />
         {% include Projects.html %}
     </div>
     
-    <div class="divCategory">
+    <div class="Category">
         <h1 class="hTitle1">Photos</h1>
-        <div class="divExtLinks">
-            <a href="https://plus.google.com/photos/100974147585154622588/albums" target="_blank"><img src="/images/gplus-32.png" alt="gplus" title="Google+ Albums" class="navDock" height="24" /></a>
-        </div>
         <hr />
         {% include Photos.html %}
     </div>
     
-    <div class="divCategory">
+    <div class="Category">
         <h1 class="hTitle1">Designs</h1>
-        <div class="divExtLinks">
-            <a href="http://soimort.deviantart.com" target="_blank"><img src="/images/deviantart.png" alt="deviantart" title="deviantArt" class="navDock" height="24" /></a>
-        </div>
         <hr />
         {% include Designs.html %}
     </div>
     
-    <div class="divCategory" style="visibility:hidden">
+    <div class="Category" style="visibility:hidden">
         <h1 class="hTitle2">About me</h1>
         <hr />
         include AboutMe.html
     </div>
     
-    <div class="divCategory" style="visibility:hidden">
+    <div class="Category" style="visibility:hidden">
         <h1 class="hTitle2">Links</h1>
         <hr />
         include Links.html
