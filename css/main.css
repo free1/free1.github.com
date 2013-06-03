@@ -32,7 +32,7 @@ div#divBanner div#divSignature {
 }
 
 div#nav {
-
+	float: right;
 }
 
 div#nav li {
