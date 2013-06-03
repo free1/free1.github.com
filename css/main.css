@@ -1,5 +1,5 @@
 /* 主体 */
-div#main {
+body {
 	background-attachment: fixed;
 	background-color: #6ca2e0;
 	background-image: url(/images/bg.jpg);
