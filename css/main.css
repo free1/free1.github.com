@@ -39,7 +39,7 @@ div#Banner div#Signature {
 
 div#Left {
 	position: absolute;
-	right: 70%;
+	right: 60%;
     top: 110px;
 	width: 28%;
     padding-right: 32px;
@@ -47,7 +47,7 @@ div#Left {
 
 div#Right {
 	position: absolute;
-	left: 70%;
+	left: 68%;
     top: 384px;
 	width: 28%;
     padding-left: 32px;
