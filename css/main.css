@@ -38,11 +38,16 @@ div#Banner div#Signature {
 }
 
 div#Left {
-	position: absolute;
-	left: 70%;
+	/*position: absolute;
+	left: %;
     top: 110px;
 	width: 28%;
     padding-right: 32px;
+    */
+
+    position: fixed;
+    left: 16px;
+    bottom: 80px;
 }
 
 div#Right {
