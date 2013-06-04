@@ -1,9 +1,14 @@
-{% for post in site.posts %}  
-
-<h2>{{ page.title }}</h2>
-<p>最新文章</p>
-<ul>
-	{% for post in site.posts %}
-	<li>{{ post.date | date_to_string }} <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
-	{% endfor %}
-</ul>
+{% for post in site.posts %}
+{% if post.layout == 'post'%}
+{% if post.permalink == nil %}
+<a href="{{ post.url }}">
+{% else %}
+<a href="{{ post.uri }}">
+{% endif %}
+    <div class="divIndex">
+        <div class="divIndexTitle">{{ post.title }}</div>
+        <div class="divIndexDate">{{ post.date | date_to_string }}</div>
+    </div>
+</a>
+{% endif %}
+{% endfor %}
