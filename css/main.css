@@ -37,10 +37,10 @@ div#Banner div#Signature {
     text-align: center;
 }
 
-div#Middle {
+div#Left {
 	position: absolute;
 	left: 38%;
-    top: 384px;
+    top: 100px;
 	width: 28%;
     padding-right: 32px;
 }
