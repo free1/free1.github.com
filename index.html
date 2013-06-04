@@ -27,13 +27,13 @@ title: Summer's Mariner
     <div class="Category">
         <h1 class="hTitle1">博客</h1>
         <hr />
-        {% include Posts_zh.html %}
+        {% include Posts.html %}
     </div>
     
     <div class="Category">
-        <h1 class="hTitle1">Posts</h1>
+        <h1 class="hTitle1">吐槽</h1>
         <hr />
-        {% include Posts_en.html %}
+        {% include Tucaos.html %}
     </div>
     
     <div class="Category">
@@ -47,9 +47,9 @@ title: Summer's Mariner
 <div id="Right">
 
     <div class="Category">
-        <h1 class="hTitle1">Projects</h1>
+        <h1 class="hTitle1">Notes</h1>
         <hr />
-        {% include Projects.html %}
+        {% include Notes.html %}
     </div>
     
     <div class="Category">
@@ -59,21 +59,9 @@ title: Summer's Mariner
     </div>
     
     <div class="Category">
-        <h1 class="hTitle1">Designs</h1>
+        <h1 class="hTitle1">About me</h1>
         <hr />
-        {% include Designs.html %}
-    </div>
-    
-    <div class="Category" style="visibility:hidden">
-        <h1 class="hTitle2">About me</h1>
-        <hr />
-        include AboutMe.html
-    </div>
-    
-    <div class="Category" style="visibility:hidden">
-        <h1 class="hTitle2">Links</h1>
-        <hr />
-        include Links.html
+        {% include AboutMe.html %}
     </div>
     
 </div>
