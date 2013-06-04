@@ -39,7 +39,7 @@ div#Banner div#Signature {
 
 div#Left {
 	position: absolute;
-	right: 66%;
+	right: 55%;
     top: 110px;
 	width: 28%;
     padding-right: 32px;
@@ -59,7 +59,7 @@ div.Category {
 	padding: 16px;
 	margin-bottom: 16px;
     
-	background-color: #BACACF;
+	background-color: #d5deea;
 	border-radius: 8px;
 	box-shadow: 0 0 16px 0 #fff;
 	opacity: 0.90;
