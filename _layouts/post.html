@@ -1,17 +1,39 @@
 ---
-layout: main
 author: Free
-description:
-disqus: false
+generator: Jekyll 1.0.2
 ---
-<div id="divTitle">
-    <h1>{{ page.title }}</h1>
-    <p><b>{{ page.date | date_to_string }}</b>, by <b>{{ page.author }}</b></p>
-    <p>{{ page.description }}</p>
-</div>
-<div id="divPost">
-    <article id="articlePost">
-        {{ content }}
-    </article>
-        评论：
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+    <meta name="author" content="{{ page.author }}" />
+    <meta name="generator" content="{{ page.generator }}" />
+    <meta name="description" content="{{ page.description }}" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="/css/post.css" media="all" />
+</head>
+	<body>
+		<div id="Previous">
+			<a href="#"> <-previous </a>
+		</div>
+
+		<div id="Title">
+	    	<h1>{{ page.title }}</h1>
+	    	<p><b>{{ page.date | date_to_string }}</b>, by <b>{{ page.author }}</b></p>
+	    	<p>{{ page.description }}</p>
+		</div>
+
+		<div id="Next">
+			<a href="#"> next-> </a>
+		</div>
+
+		<div id="Post">
+	    	<article id="articlePost">
+	        	{{ content }}
+	    	</article>
+	        		评论：
+		</div>
+	</body>
+</html>

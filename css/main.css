@@ -1,7 +1,7 @@
 body {
 	background-attachment: fixed;
 	/*background-color: #6ca2e0;*/
-	background-image: url(/images/bg.jpg);
+	background-image: url("/images/bg.jpg");
 	background-position: top center;
 	background-repeat: no-repeat;
 	
@@ -80,48 +80,4 @@ div.Category h1.hTitle2 {
 	
 	font-size: 13px;
 	font-weight: bold;
-}
-
-
-
-
-
-
-
-div#divTitle {
-	position: fixed;
-	left: 4%;
-    top: 128px;
-	width: 30%;
-	
-	text-align: center;
-    color: #102040;
-    text-shadow: 0 0 16px #fff;
-}
-
-div#divPost {
-	position: absolute;
-	left: 38%;
-    top: 128px;
-	width: 56%;
-	padding: 16px;
-	
-	background-color: #6ca2e0;
-	border-radius: 8px;
-	box-shadow: 0 0 8px 0 #fff;
-	opacity: 0.95;
-	color: #000;
-}
-
-div#divPost article#articlePost {
-	padding: 16px;
-    margin-bottom: 16px;
-    
-    background-color: #fff;
-	border-radius: 8px;
-	box-shadow: 0 0 8px 0 #102040;
-	opacity: 0.95;
-	font-size: 15px;
-	line-height: 150%;
-    color: #000;
 }
