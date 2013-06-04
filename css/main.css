@@ -57,13 +57,13 @@ div#Right {
 
 div.Category {
 	position: relative;
-	padding: 16px;
+	padding: 10px;
 	margin-bottom: 16px;
     
 	background-color: #3e7ac2;
 	border-radius: 8px;
 	box-shadow: 0 0 16px 0 #fff;
-	opacity: 0.95;
+	opacity: 0.90;
 	color: #fff;
 }
 
