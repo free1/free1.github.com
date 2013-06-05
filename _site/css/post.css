@@ -1,4 +1,7 @@
 body {
+	margin: 0;
+	padding: 0;
+
 	background-attachment: fixed;
 	/*background-color: #6ca2e0;*/
 	background-image: url("/images/bgp.jpg");
@@ -12,20 +15,6 @@ body {
     
 	font-family: 'DejaVu Sans Condensed', 'Arial';
 	font-size: 13px;
-}
-
-div#Previous {
-	position: fixed;
-	left: 25%;
-    top: 160px;
-	width: 30%;
-}
-
-div#Next {
-	position: fixed;
-	left: 75%;
-    top: 160px;
-	width: 30%;
 }
 
 div#Title {
@@ -71,3 +60,48 @@ div#Post article#articlePost {
 	line-height: 150%;
     color: #000;
 }
+
+div#Previous {
+	position: fixed;
+	left: 20%;
+    top: 160px;
+	width: 30%;
+}
+
+div#Next {
+	position: fixed;
+	left: 76%;
+    top: 160px;
+	width: 30%;
+}
+
+a {
+	font-size: 30px;
+	font-style: oblique;
+	font-weight: bold;
+	color: #e3f5f7;
+
+	text-decoration: none;
+}
+
+a:hover {
+	font-size: 35px;
+	color: red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,4 +1,7 @@
 body {
+	margin: 0;
+	padding: 0;
+
 	background-attachment: fixed;
 	/*background-color: #6ca2e0;*/
 	background-image: url("/images/bg.jpg");
@@ -81,3 +84,44 @@ div.Category h1.hTitle2 {
 	font-size: 13px;
 	font-weight: bold;
 }
+
+
+div.Category div.Index {
+	position: relative;
+	margin-bottom: 4px;
+	
+	transition: all 0.2s ease-out;
+	-webkit-transition: all 0.2s ease-out;
+	-moz-transition: all 0.2s ease-out;
+	-o-transition: all 0.2s ease-out;
+}
+
+div.Category div.Index:hover {
+    border-radius: 4px;
+	box-shadow: 0 0 0 2px #102040;
+
+
+	font-size: 14px;
+	color: gray;
+}
+
+div.Category div.IndexTitle {
+	left: 0;
+	width: 100%;
+}
+
+div.Category div.IndexDate {
+	position: relative;
+	left: 70%;
+    top: 0;
+	width: 30%;
+	
+	text-align: right;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+
