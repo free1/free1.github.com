@@ -77,12 +77,13 @@ div.Category h1.hTitle1 {
 	font-weight: bold;
 }
 
-div.Category h1.hTitle2 {
-	position: relative;
-	top: -15px;
+div.Category div.ExtLinks {
+	position: absolute;
+	right: 16px;
+    top: 16px;
+	width: 50%;
 	
-	font-size: 13px;
-	font-weight: bold;
+	text-align: right;
 }
 
 
@@ -123,5 +124,4 @@ a {
 	text-decoration: none;
 	color: black;
 }
-
 

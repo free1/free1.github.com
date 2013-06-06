@@ -18,7 +18,7 @@ body {
 }
 
 div#Title {
-	position: fixed;
+	position: absolute;
 	left: 36%;
     top: 128px;
 	width: 30%;
@@ -62,31 +62,25 @@ div#Post article#articlePost {
 }
 
 div#Previous {
-	position: fixed;
+	position: absolute;
 	left: 20%;
     top: 160px;
 	width: 30%;
 }
 
-div#Next {
-	position: fixed;
-	left: 76%;
-    top: 160px;
-	width: 30%;
-}
 
 a {
 	font-size: 30px;
 	font-style: oblique;
 	font-weight: bold;
-	color: #e3f5f7;
+	color: blue;
 
 	text-decoration: none;
 }
 
 a:hover {
 	font-size: 35px;
-	color: red;
+	color: #284360;
 }
 
 

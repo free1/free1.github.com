@@ -4,7 +4,7 @@ description: Free's personal blog
 title: Free
 ---
 <div id="Logo">
-    <img src="/images/logo.png" alt="free" height="48px" />
+    <a href="#"><img src="/images/logo.png" alt="free" height="48px" /></a>
 </div>
 
 <div id="Banner">
@@ -37,7 +37,7 @@ title: Free
     </div>
     
     <div class="Category">
-        <h1 class="hTitle2">About me</h1>
+        <h1 class="hTitle1">About me</h1>
         <hr />
         {% include AboutMe.html %}
     </div>
@@ -60,6 +60,12 @@ title: Free
     
     <div class="Category">
         <h1 class="hTitle1">Contact me</h1>
+          <div class="ExtLinks">
+            <a href="#" target="_blank"><img src="/images/twitter.png" alt="twitter" title="Twitter" class="navDock" height="24" /></a>
+            <a href="#" target="_blank"><img src="/images/facebook.png" alt="facebook" title="Facebook" class="navDock" height="24" /></a>
+            <a href="#" target="_blank"><img src="/images/github.png" alt="github" title="GitHub" class="navDock" height="24" /></a>
+            <a href="#" target="_blank"><img src="/images/linkedin.png" alt="linkedin" title="Linkedin" class="navDock" height="24" /></a>
+        </div>
         <hr />
         {% include ContactMe.html %}
     </div>
