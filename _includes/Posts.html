@@ -1,5 +1,5 @@
 {% for post in site.posts %}
-{% if post.layout == 'post'%}
+{% if post.layout == 'post' and post.category == 'posts' %}
 {% if post.permalink == nil %}
 <a href="{{ post.url }}">
 {% else %}
