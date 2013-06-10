@@ -32,8 +32,8 @@ div#Banner {
     
     text-align: right;
     font-size: 16px;
-    color: #BACACF;
-    text-shadow: 0 0 16px #BACACF;
+    color: #C9D186;
+    text-shadow: 0 0 16px #C9D186;
 }
 
 div#Banner div#Signature {
@@ -62,7 +62,7 @@ div.Category {
 	padding: 16px;
 	margin-bottom: 16px;
     
-	background-color: #7b9fc6;
+	background-color: #83a522;
 	border-radius: 8px;
 	box-shadow: 0 0 16px 0 #fff;
 	opacity: 0.85;
@@ -103,7 +103,7 @@ div.Category div.Index:hover {
 
 
 	font-size: 14px;
-	color: gray;
+	color: black;
 }
 
 div.Category div.IndexTitle {
@@ -122,6 +122,6 @@ div.Category div.IndexDate {
 
 a {
 	text-decoration: none;
-	color: black;
+	color: #fff;
 }
 
