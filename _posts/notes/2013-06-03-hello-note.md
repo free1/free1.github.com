@@ -2,7 +2,7 @@
 layout: post
 title: 你好，note
 category: notes
-description: aaa
-disqus: true
+description: description
+disqus: false
 ---
-我的
+我的note

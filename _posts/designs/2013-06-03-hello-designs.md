@@ -2,7 +2,7 @@
 layout: post
 title: 你好，designs
 category: designs
-description: qqq
-disqus: true
+description: description
+disqus: false
 ---
-我的de
+我的designs
