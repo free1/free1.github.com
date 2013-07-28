@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 方法, Proc, Lambda和闭包
+title: 方法规则
 category: ruby
 description: Ruby
 disqus: false
@@ -34,7 +34,7 @@ disqus: false
 
 
 ## 可变长度参数列表和数组(*,&在参数列表中只能有一个)
-* 接收任意参数，在参数前加*符：(*打头的参数要放在带有默认值参数的后面，其后可以再指定普通参数，但该普通参数需要放在&打头参数之前)。
+* 接收任意参数，在参数前加*符：(*打头的参数要放在带有默认值参数的后面，其后可以再指定普通参数，但该普通参数需要放在&打头参数之前，&参数必须在最后)。
 	def max(first, *rest)
 		max = first
 		rest.each { |x| max = x if x > max }
@@ -43,23 +43,24 @@ disqus: false
 
 
 
+## 代码块参数
+* yield方式：
+	def s(n, m, c)
+		i = 0
+		while(i < n)
+			yield i*m+c
+			i += 1
+		end
+	end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	s(5,3,3) {|x| puts x}
+* Proc的call方式：
+	def s(n, m, c，&b)
+		i = 0
+		while(i < n)
+			b.call(i*m+c)
+			i += 1
+		end
+	end
+	s(5,3,3) {|x| puts x}
 
