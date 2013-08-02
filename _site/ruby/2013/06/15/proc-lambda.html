@@ -33,107 +33,116 @@
 </ul>
 
 <h2>代码块，proc和lambda中的return语句。</h2>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">在一个代码块中的return语句不仅仅会从调用代码块的迭代器返回，
+它还会从调用迭代器的方法返回。   
 
-<ul>
-<li><p>在一个代码块中的return语句不仅仅会从调用代码块的迭代器返回，它还会从调用迭代器的方法返回。
-def text
-    puts &quot;ss&quot;
-    1.times { puts &quot;aa&quot;; return } (使text方法返回)
-    puts &quot;xxx&quot; (没有执行)
-end
-text</p></li>
-<li><p>proc与代码块类似。
-def text
-    puts &quot;ss&quot;
-    p = Proc.new { puts &quot;aa&quot;; return }
-    p.call     (调用proc使方法返回)
-    puts &quot;xxx&quot; (没有执行)
-end
-text</p>
+def text   
+    puts &quot;ss&quot;   
+    1.times { puts &quot;aa&quot;; return } (使text方法返回)   
+    puts &quot;xxx&quot; (没有执行)   
+end   
+text   
 
-<p>def procBuilder(message)
-    Proc.new { puts message; return }
-end
-def text
-    puts &quot;ee&quot;
-    p = procBuilder(&quot;ss&quot;)
-    p.call   (打印ss和LocalJumpError)
-    puts &quot;aa&quot;  (没有执行)
-end
-text</p></li>
-<li><p>lambda的return语句仅从lambda自身返回，而不会从产生lambda的方法中返回。
-def text
-    puts &quot;ss&quot;
-    p = lambda { puts &quot;aa&quot;; return }
-    p.call    (调用lambda但不使方法返回)
-    puts &quot;xxx&quot; (执行)
-end
-text</p>
 
-<p>def lambdaBuilder(message)
-    lambda { puts message; return }
-end
-def text
-    puts &quot;ee&quot;
-    l = lambdaBuilder(&quot;ss&quot;)
-    l.call   (打印ss)
-    puts &quot;aa&quot;  (执行)
-end
-text</p></li>
-</ul>
+proc与代码块类似。    
 
+def text   
+    puts &quot;ss&quot;   
+    p = Proc.new { puts &quot;aa&quot;; return }   
+    p.call     (调用proc使方法返回)   
+    puts &quot;xxx&quot; (没有执行)   
+end   
+text   
+
+def procBuilder(message)   
+    Proc.new { puts message; return }   
+end   
+def text   
+    puts &quot;ee&quot;   
+    p = procBuilder(&quot;ss&quot;)    
+    p.call   (打印ss和LocalJumpError)   
+    puts &quot;aa&quot;  (没有执行)   
+end   
+text   
+
+
+lambda的return语句仅从lambda自身返回，而不会从产生lambda的方法中返回。   
+
+def text   
+    puts &quot;ss&quot;   
+    p = lambda { puts &quot;aa&quot;; return }   
+    p.call    (调用lambda但不使方法返回)   
+    puts &quot;xxx&quot; (执行)   
+end   
+text   
+
+def lambdaBuilder(message)   
+    lambda { puts message; return }   
+end   
+def text   
+    puts &quot;ee&quot;   
+    l = lambdaBuilder(&quot;ss&quot;)   
+    l.call   (打印ss)   
+    puts &quot;aa&quot;  (执行)   
+end   
+text   
+</code></pre></div>
 <h2>代码块，proc和lambda中的break语句。</h2>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">代码块中break语句的行为: 它使该代码块返回到它的迭代器，然后该迭代器再返回
+到调用它的方法。用Proc.new创建一个proc时，这个Proc.new就是break语句返
+回的地方，所以以下代码不正确:   
 
-<ul>
-<li><p>代码块中break语句的行为: 它使该代码块返回到它的迭代器，然后该迭代器再返回到调用它的方法。
-用Proc.new创建一个proc时，这个Proc.new就是break语句返回的地方，所以以下代码不正确:
-def text
-    puts &quot;ss&quot;
-    proc = Proc.new { puts &quot;aa&quot;; break }
-    proc.call    (LocalJumpError: iterator has already returned)
-    puts &quot;xxx&quot;
-end
-text</p></li>
-<li><p>通过迭代器方法的&amp;参数方式创建proc，可以调用它让迭代器方法返回:
-def iterator(&amp;proc)
-    puts &quot;ss&quot;
-    proc.call 
-    puts &quot;aa&quot;  (没有执行)
-end</p>
+def text   
+    puts &quot;ss&quot;   
+    proc = Proc.new { puts &quot;aa&quot;; break }   
+    proc.call    (LocalJumpError: iterator has already returned)   
+    puts &quot;xxx&quot;   
+end   
+text   
 
-<p>def text
-    iterator { puts &quot;xx&quot;; break }
-end
-text</p></li>
-<li><p>lambda类似方法，不出现在循环或迭代方法中则break行为类似return:
-def test
-    puts &quot;ss&quot;
-    lambda = lambda { puts &quot;aa&quot;; break; puts &quot;xx&quot; }
-    lambda.call
-    puts &quot;xxx&quot;
-end
-test</p></li>
-</ul>
+通过迭代器方法的&amp;参数方式创建proc，可以调用它让迭代器方法返回:   
 
+def iterator(&amp;proc)   
+    puts &quot;ss&quot;   
+    proc.call    
+    puts &quot;aa&quot;  (没有执行)   
+end   
+
+def text   
+    iterator { puts &quot;xx&quot;; break }   
+end   
+text   
+
+lambda类似方法，不出现在循环或迭代方法中则break行为类似return:   
+
+def test   
+    puts &quot;ss&quot;   
+    lambda = lambda { puts &quot;aa&quot;; break; puts &quot;xx&quot; }   
+    lambda.call   
+    puts &quot;xxx&quot;   
+end   
+test   
+</code></pre></div>
 <h2>传递给proc和lambda的参数。</h2>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">调用proc使用的是yield语意:   
 
-<ul>
-<li><p>调用proc使用的是yield语意:
-p = Proc.new { |x,y| print x,y }
-p.call(1)         # Prints 1nil
-p.call(1,2)       # Prints 12
-p.call(1,2,3)     # Prints 12
-p.call([1,2])     # Prints 12
-proc处理参数可以抛弃多余参数，将nil赋给遗漏参数，拆开数组，当需要单个参数时可以把多个参数打包成数组。</p></li>
-<li><p>lambda则必须声明同样多的参数对它进行调用:
-l = lambda { |x,y| print x,y }
-l.call(1,2)      # 正常
-l.call(1)        # Wrong number of arguments
-l.call(1,2,3)    # Wrong number of arguments
-l.call([1,2])    # Wrong number of arguments
-l.call(*[1,2])   # 显式实现将数组解开</p></li>
-</ul>
+p = Proc.new { |x,y| print x,y }   
+p.call(1)         # Prints 1nil   
+p.call(1,2)       # Prints 12   
+p.call(1,2,3)     # Prints 12   
+p.call([1,2])     # Prints 12   
+proc处理参数可以抛弃多余参数，将nil赋给遗漏参数，拆开数组，
+当需要单个参数时可以把多个参数打包成数组。   
 
+lambda则必须声明同样多的参数对它进行调用:   
+
+l = lambda { |x,y| print x,y }   
+l.call(1,2)      # 正常   
+l.call(1)        # Wrong number of arguments   
+l.call(1,2,3)    # Wrong number of arguments   
+l.call([1,2])    # Wrong number of arguments   
+l.call(*[1,2])   # 显式实现将数组解开   
+</code></pre></div>
 	    	</article>
 
 	    	

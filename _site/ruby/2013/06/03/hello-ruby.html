@@ -56,50 +56,44 @@
 </ul>
 
 <h2>参数默认值</h2>
-
-<ul>
-<li>在参数名后加入等号和默认值。(参数默认值可以是常量，表达式，实例变量的引用，前面定义参数的引用)
-def prefix(s, len=1)
-    s[0,len]
-end</li>
-</ul>
-
+<div class="highlight"><pre><code class="text language-text" data-lang="text">在参数名后加入等号和默认值。
+(参数默认值可以是常量，表达式，实例变量的引用，前面定义参数的引用)   
+def prefix(s, len=1)   
+    s[0,len]   
+end   
+</code></pre></div>
 <h2>可变长度参数列表和数组(*,&amp;在参数列表中只能有一个)</h2>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">接收任意参数，在参数前加*符：(打头的参数要放在带有默认值参数的后面，
+其后可以再指定普通参数，但该普通参数需要放在&amp;打头参数之前，&amp;参数必须在最后)。   
 
-<ul>
-<li><p>接收任意参数，在参数前加<em>符：(</em>打头的参数要放在带有默认值参数的后面，其后可以再指定普通参数，但该普通参数需要放在&amp;打头参数之前，&amp;参数必须在最后)。</p>
-
-<p>def max(first, *rest)
-    max = first
-    rest.each { |x| max = x if x &gt; max }
-    max
-end</p></li>
-</ul>
-
+def max(first, *rest)   
+    max = first   
+    rest.each { |x| max = x if x &gt; max }   
+    max   
+end   
+</code></pre></div>
 <h2>代码块参数</h2>
 
-<ul>
-<li><p>yield方式：
-def s(n, m, c)
-    i = 0
-    while(i &lt; n)
-        yield i*m+c
-        i += 1
-    end
-end</p>
-
-<p>s(5,3,3) {|x| puts x}</p></li>
-<li><p>Proc的call方式：
-def s(n, m, c，&amp;b)
-    i = 0
-    while(i &lt; n)
-        b.call(i*m+c)
-        i += 1
-    end
-end
-s(5,3,3) {|x| puts x}</p></li>
-</ul>
-
+<p>yield方式:    </p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">def s(n, m, c)   
+    i = 0   
+    while(i &lt; n)   
+        yield i*m+c   
+        i += 1   
+    end   
+end    
+s(5,3,3) {|x| puts x}   
+</code></pre></div>
+<p>Proc的call方式:   </p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">def s(n, m, c，&amp;b)   
+    i = 0   
+    while(i &lt; n)   
+        b.call(i*m+c)   
+        i += 1   
+    end   
+end   
+s(5,3,3) {|x| puts x}   
+</code></pre></div>
 	    	</article>
 
 	    	

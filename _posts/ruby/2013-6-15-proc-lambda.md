@@ -11,104 +11,115 @@ disqus: false
 * lambda的 succ = lambda { |x| x+1 } 可以写成 succ = ->(x) { x+1 }
 
 ## 代码块，proc和lambda中的return语句。
-*	在一个代码块中的return语句不仅仅会从调用代码块的迭代器返回，它还会从调用迭代器的方法返回。
-	def text
-		puts "ss"
-		1.times { puts "aa"; return } (使text方法返回)
-		puts "xxx" (没有执行)
-	end
-	text
+	在一个代码块中的return语句不仅仅会从调用代码块的迭代器返回，
+	它还会从调用迭代器的方法返回。   
+
+	def text   
+		puts "ss"   
+		1.times { puts "aa"; return } (使text方法返回)   
+		puts "xxx" (没有执行)   
+	end   
+	text   
 
 
-*	proc与代码块类似。
-	def text
-		puts "ss"
-		p = Proc.new { puts "aa"; return }
-		p.call     (调用proc使方法返回)
-		puts "xxx" (没有执行)
-	end
-	text
+	proc与代码块类似。    
 
-	def procBuilder(message)
-		Proc.new { puts message; return }
-	end
-	def text
-		puts "ee"
-		p = procBuilder("ss")
-		p.call   (打印ss和LocalJumpError)
-		puts "aa"  (没有执行)
-	end
-	text
+	def text   
+		puts "ss"   
+		p = Proc.new { puts "aa"; return }   
+		p.call     (调用proc使方法返回)   
+		puts "xxx" (没有执行)   
+	end   
+	text   
+
+	def procBuilder(message)   
+		Proc.new { puts message; return }   
+	end   
+	def text   
+		puts "ee"   
+		p = procBuilder("ss")    
+		p.call   (打印ss和LocalJumpError)   
+		puts "aa"  (没有执行)   
+	end   
+	text   
 
 
-*	lambda的return语句仅从lambda自身返回，而不会从产生lambda的方法中返回。
-	def text
-		puts "ss"
-		p = lambda { puts "aa"; return }
-		p.call    (调用lambda但不使方法返回)
-		puts "xxx" (执行)
-	end
-	text
+	lambda的return语句仅从lambda自身返回，而不会从产生lambda的方法中返回。   
 
-	def lambdaBuilder(message)
-		lambda { puts message; return }
-	end
-	def text
-		puts "ee"
-		l = lambdaBuilder("ss")
-		l.call   (打印ss)
-		puts "aa"  (执行)
-	end
-	text
+	def text   
+		puts "ss"   
+		p = lambda { puts "aa"; return }   
+		p.call    (调用lambda但不使方法返回)   
+		puts "xxx" (执行)   
+	end   
+	text   
+
+	def lambdaBuilder(message)   
+		lambda { puts message; return }   
+	end   
+	def text   
+		puts "ee"   
+		l = lambdaBuilder("ss")   
+		l.call   (打印ss)   
+		puts "aa"  (执行)   
+	end   
+	text   
 
 ## 代码块，proc和lambda中的break语句。
-*	代码块中break语句的行为: 它使该代码块返回到它的迭代器，然后该迭代器再返回到调用它的方法。
-	用Proc.new创建一个proc时，这个Proc.new就是break语句返回的地方，所以以下代码不正确:
-	def text
-		puts "ss"
-		proc = Proc.new { puts "aa"; break }
-		proc.call    (LocalJumpError: iterator has already returned)
-		puts "xxx"
-	end
-	text
+	代码块中break语句的行为: 它使该代码块返回到它的迭代器，然后该迭代器再返回
+	到调用它的方法。用Proc.new创建一个proc时，这个Proc.new就是break语句返
+	回的地方，所以以下代码不正确:   
 
-*	通过迭代器方法的&参数方式创建proc，可以调用它让迭代器方法返回:
-	def iterator(&proc)
-		puts "ss"
-		proc.call 
-		puts "aa"  (没有执行)
-	end
+	def text   
+		puts "ss"   
+		proc = Proc.new { puts "aa"; break }   
+		proc.call    (LocalJumpError: iterator has already returned)   
+		puts "xxx"   
+	end   
+	text   
+ 
+	通过迭代器方法的&参数方式创建proc，可以调用它让迭代器方法返回:   
 
-	def text
-		iterator { puts "xx"; break }
-	end
-	text
+	def iterator(&proc)   
+		puts "ss"   
+		proc.call    
+		puts "aa"  (没有执行)   
+	end   
 
-*	lambda类似方法，不出现在循环或迭代方法中则break行为类似return:
-	def test
-		puts "ss"
-		lambda = lambda { puts "aa"; break; puts "xx" }
-		lambda.call
-		puts "xxx"
-	end
-	test
+	def text   
+		iterator { puts "xx"; break }   
+	end   
+	text   
+
+	lambda类似方法，不出现在循环或迭代方法中则break行为类似return:   
+
+	def test   
+		puts "ss"   
+		lambda = lambda { puts "aa"; break; puts "xx" }   
+		lambda.call   
+		puts "xxx"   
+	end   
+	test   
 
 ## 传递给proc和lambda的参数。
-*	调用proc使用的是yield语意:
-	p = Proc.new { |x,y| print x,y }
-	p.call(1)         # Prints 1nil
-	p.call(1,2)		  # Prints 12
-	p.call(1,2,3)	  # Prints 12
-	p.call([1,2])	  # Prints 12
-	proc处理参数可以抛弃多余参数，将nil赋给遗漏参数，拆开数组，当需要单个参数时可以把多个参数打包成数组。
+	调用proc使用的是yield语意:   
 
-*	lambda则必须声明同样多的参数对它进行调用:
-	l = lambda { |x,y| print x,y }
-	l.call(1,2)		 # 正常
-	l.call(1)		 # Wrong number of arguments
-	l.call(1,2,3)	 # Wrong number of arguments
-	l.call([1,2])	 # Wrong number of arguments
-	l.call(*[1,2])	 # 显式实现将数组解开
+	p = Proc.new { |x,y| print x,y }   
+	p.call(1)         # Prints 1nil   
+	p.call(1,2)		  # Prints 12   
+	p.call(1,2,3)	  # Prints 12   
+	p.call([1,2])	  # Prints 12   
+	proc处理参数可以抛弃多余参数，将nil赋给遗漏参数，拆开数组，
+	当需要单个参数时可以把多个参数打包成数组。   
+
+	lambda则必须声明同样多的参数对它进行调用:   
+
+	l = lambda { |x,y| print x,y }   
+	l.call(1,2)		 # 正常   
+	l.call(1)		 # Wrong number of arguments   
+	l.call(1,2,3)	 # Wrong number of arguments   
+	l.call([1,2])	 # Wrong number of arguments   
+	l.call(*[1,2])	 # 显式实现将数组解开   
 
 
 

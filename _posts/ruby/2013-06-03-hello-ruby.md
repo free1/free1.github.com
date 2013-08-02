@@ -27,41 +27,45 @@ disqus: false
 
 
 ## 参数默认值
-* 在参数名后加入等号和默认值。(参数默认值可以是常量，表达式，实例变量的引用，前面定义参数的引用)
-	def prefix(s, len=1)
-		s[0,len]
-	end
+	在参数名后加入等号和默认值。
+	(参数默认值可以是常量，表达式，实例变量的引用，前面定义参数的引用)   
+	def prefix(s, len=1)   
+		s[0,len]   
+	end   
 
 
 ## 可变长度参数列表和数组(*,&在参数列表中只能有一个)
-* 接收任意参数，在参数前加*符：(*打头的参数要放在带有默认值参数的后面，其后可以再指定普通参数，但该普通参数需要放在&打头参数之前，&参数必须在最后)。
+	接收任意参数，在参数前加*符：(打头的参数要放在带有默认值参数的后面，
+	其后可以再指定普通参数，但该普通参数需要放在&打头参数之前，&参数必须在最后)。   
 
-	def max(first, *rest)
-		max = first
-		rest.each { |x| max = x if x > max }
-		max
-	end
+	def max(first, *rest)   
+		max = first   
+		rest.each { |x| max = x if x > max }   
+		max   
+	end   
 
 
 
 ## 代码块参数
-* yield方式：
-	def s(n, m, c)
-		i = 0
-		while(i < n)
-			yield i*m+c
-			i += 1
-		end
-	end
+  yield方式:    
 
-	s(5,3,3) {|x| puts x}
-* Proc的call方式：
-	def s(n, m, c，&b)
-		i = 0
-		while(i < n)
-			b.call(i*m+c)
-			i += 1
-		end
-	end
-	s(5,3,3) {|x| puts x}
+	def s(n, m, c)   
+		i = 0   
+		while(i < n)   
+			yield i*m+c   
+			i += 1   
+		end   
+	end    
+	s(5,3,3) {|x| puts x}   
+
+  Proc的call方式:   
+  
+	def s(n, m, c，&b)   
+		i = 0   
+		while(i < n)   
+			b.call(i*m+c)   
+			i += 1   
+		end   
+	end   
+	s(5,3,3) {|x| puts x}   
 
