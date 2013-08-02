@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+    <meta name="author" content="Free" />
+    <meta name="generator" content="Jekyll 1.0.2" />
+    <meta name="description" content="Ruby" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="/css/post.css" media="all" />
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="/js/compatible.js"></script>
+
+</head>
+	<body>
+		<div id="Previous">
+			<a href="http://free1.github.com/"> <-Home </a>
+		</div>
+
+		<div id="Title">
+	    	<h1>操作符和表达式</h1>
+	    	<p><b>30 Jun 2013</b>, by <b>Free</b></p>
+		</div>
+
+		<div id="Post">
+	    	<article id="articlePost">
+	        	<h1>未初始化的变量:</h1>
+
+<ul>
+<li>类变量(@@):<br>
+必须初始化，否则抛出NameError。<br></li>
+<li>实例变量(@):<br>
+引用未被初始化的实例变量会返回nil。</li>
+<li>全局变量($):<br>
+同实例变量。</li>
+<li>局部变量(下划线或小写字符开头):<br>
+如果未初始化，先去寻找有无这个名字的方法，没有就会抛出NameError。<br>
+一个古怪的行为:<br>
+<code>a = 0.0 if false</code>     <em># 未执行</em><br>
+<code>print a</code>              <em># 输出 nil</em><br>
+<code>print b</code>              <em># NameError</em><br></li>
+</ul>
+
+<h1>常量引用(以大写字母开头，一般都是大写字母并使用下划线分割单词):</h1>
+
+<ul>
+<li>  常量可以是复合表达式，用::将常量名和定义它的类或模块名分隔开，左侧操作数可以省略(将在全局域中查找右侧常数)。</li>
+</ul>
+
+<h1>展开操作符:</h1>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">一个右值以*开头，代表是一个数组(或类似数组的对象):          
+x, y, z = 1, *[2,3]        就像 x,y,z = 1,2,3   
+
+左值出现*(只能出现一次*)，定义可展开类型可以使用`to_splat`方法。    
+x, *y = 1,2,3            输出:x=1;y=[2,3]     
+x, *y = 1,2              输出:x=1;y=[2]       
+x, *y = 1                输出:x=1;y=[]     
+Ruby 1.9 以上    
+*x, y = 1,2,3            输出:x=[1,2];y=3        
+*x, y = 1,2              输出:x=[1];y=2       
+*x, y = 1                输出:x=[]; y=1       
+
+x, y, *z = 1, *[2,3,4]   输出:x=1,y=2;z=[3,4]   
+</code></pre></div>
+<h1>并行赋值中有圆括号的例子:</h1>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">x,y,z = 1,[2,3]          输出:x=1;y=[2,3];z=nil   
+x,(y,z) = 1,[2,3]        输出:x=1;y=2;z=3   
+a,b,c,d = [1,[2,[3,4]]]          输出:a=1;b=[2,[3,4]];c=nil    
+a,(b,(c,d)) = [1,[2,[3,4]]]       输出:a=1;b=2;c=3;d=4   
+</code></pre></div>
+<h1>ruby特有常用操作符:</h1>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">**     求幂运算     
+&lt;&lt;     添加     
+=~     模式匹配(正则)   
+&lt;=&gt;    比较(左操作数小返回－1，大返回＋1，相等返回0，不可比较返回nil)   
+==     测试两个不同对象是否拥有同样的值   
+equal?方法   测试两个值是否引用同一对象   
+===    条件相等性操作符，一般被case语句隐式使用
+..     范围(包括右边的结束值)   
+...    范围(不包括右边的结束值)    
+defined?    测试变量的定义和类型   
+</code></pre></div>
+	    	</article>
+
+	    	
+				<div style="height: 64px"></div>
+    		
+		</div>
+		
+	</body>
+</html>
+
+
+ 
+   
+       
