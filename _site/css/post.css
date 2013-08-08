@@ -69,7 +69,7 @@ div#Previous {
 }
 
 
-a {
+div#Previous a {
 	font-size: 30px;
 	font-style: oblique;
 	font-weight: bold;
@@ -78,7 +78,7 @@ a {
 	text-decoration: none;
 }
 
-a:hover {
+div#Previous a:hover {
 	font-size: 35px;
 	color: #284360;
 }
