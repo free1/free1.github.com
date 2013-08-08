@@ -21,44 +21,44 @@
 		</div>
 
 		<div id="Title">
-	    	<h1>配置Nginx + Passenger简单命令</h1>
+	    	<h1>Nginx + Passenger简单命令</h1>
 	    	<p><b>29 Jul 2013</b>, by <b>Free</b></p>
 		</div>
 
 		<div id="Post">
 	    	<article id="articlePost">
-	        	<p>修改hosts文件，给你的项目一个本地域名, 比如awesome<em>project.local
-$ sudo vim /etc/hosts
-127.0.0.1 awesome</em>project.local</p>
+	        	<p>修改hosts文件，给你的项目一个本地域名, 比如xxx
+* $ sudo subl /etc/hosts (编辑器打开)
+127.0.0.1 xxx</p>
 
 <p>测试hosts
-$ ping awesome<em>project.local
-PING awesome</em>project.local (127.0.0.1): 56 data bytes
+* $ ping xxx
+PING xxx (127.0.0.1): 56 data bytes
 64 bytes from 127.0.0.1: icmp_seq=0 ttl=64 time=0.054 ms</p>
 
-<p>继续配置Nginx, 这里我给出一个最小可运行的Nginx配置文件
-$ vim /usr/local/nginx/conf/nginx.conf</p>
+<p>打开Nginx配置文件
+* $ subl /usr/local/nginx/conf/nginx.conf (编辑器打开)</p>
 
 <p>测试Nginx的配置文件语法是否正确
-$ sudo nginx -t
+* $ sudo nginx -t
 nginx: the configuration file /usr/local/nginx/conf/nginx.conf syntax is ok
 nginx: configuration file /usr/local/nginx/conf/nginx.conf test is successful</p>
 
 <p>启动Nginx
-$ sudo nginx</p>
+* $ sudo nginx</p>
 
-<p>如何在修改Nginx的配置文件后，让Nginx载入新配置
-$ sudo nginx -s reload</p>
+<p>在修改Nginx的配置文件后，让Nginx载入新配置
+* $ sudo nginx -s reload</p>
 
-<p>如何停止Nginx
-$ sudo nginx -s stop</p>
+<p>停止Nginx
+* $ sudo nginx -s stop</p>
 
-<p>如何在不停Nginx的情况下，重新启动Passenger
-$ cd path/to/your/awesome/project
-$ touch tmp/restart.txt</p>
+<p>在不停Nginx的情况下，重新启动Passenger
+* $ cd path/to/your/awesome/project
+* $ touch tmp/restart.txt</p>
 
-<p>访问你的awesome<em>project网站了
-http://awesome</em>project.local</p>
+<p>访问你的xxx网站了
+http://xxx</p>
 
 	    	</article>
 
