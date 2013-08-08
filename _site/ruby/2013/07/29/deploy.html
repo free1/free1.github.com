@@ -27,38 +27,63 @@
 
 		<div id="Post">
 	    	<article id="articlePost">
-	        	<p>修改hosts文件，给你的项目一个本地域名, 比如xxx
-* $ sudo subl /etc/hosts (编辑器打开)
-127.0.0.1 xxx</p>
+	        	<h2>修改hosts文件，给你的项目一个本地域名, 比如xxx</h2>
 
-<p>测试hosts
-* $ ping xxx
-PING xxx (127.0.0.1): 56 data bytes
-64 bytes from 127.0.0.1: icmp_seq=0 ttl=64 time=0.054 ms</p>
+<ul>
+<li>$ sudo subl /etc/hosts (编辑器打开)<br>
+127.0.0.1 xxx<br></li>
+</ul>
 
-<p>打开Nginx配置文件
-* $ subl /usr/local/nginx/conf/nginx.conf (编辑器打开)</p>
+<h2>测试hosts</h2>
 
-<p>测试Nginx的配置文件语法是否正确
-* $ sudo nginx -t
-nginx: the configuration file /usr/local/nginx/conf/nginx.conf syntax is ok
-nginx: configuration file /usr/local/nginx/conf/nginx.conf test is successful</p>
+<ul>
+<li>$ ping xxx<br>
+PING xxx (127.0.0.1): 56 data bytes<br>
+64 bytes from 127.0.0.1: icmp_seq=0 ttl=64 time=0.054 ms<br></li>
+</ul>
 
-<p>启动Nginx
-* $ sudo nginx</p>
+<h2>打开Nginx配置文件</h2>
 
-<p>在修改Nginx的配置文件后，让Nginx载入新配置
-* $ sudo nginx -s reload</p>
+<ul>
+<li>$ subl /usr/local/nginx/conf/nginx.conf (编辑器打开)<br></li>
+</ul>
 
-<p>停止Nginx
-* $ sudo nginx -s stop</p>
+<h2>测试Nginx的配置文件语法是否正确</h2>
 
-<p>在不停Nginx的情况下，重新启动Passenger
-* $ cd path/to/your/awesome/project
-* $ touch tmp/restart.txt</p>
+<ul>
+<li>$ sudo nginx -t<br>
+nginx: the configuration file /usr/local/nginx/conf/nginx.conf syntax is ok<br>
+nginx: configuration file /usr/local/nginx/conf/nginx.conf test is successful<br></li>
+</ul>
 
-<p>访问你的xxx网站了
-http://xxx</p>
+<h2>启动Nginx</h2>
+
+<ul>
+<li>$ sudo nginx<br></li>
+</ul>
+
+<h2>在修改Nginx的配置文件后，让Nginx载入新配置</h2>
+
+<ul>
+<li>$ sudo nginx -s reload<br></li>
+</ul>
+
+<h2>停止Nginx</h2>
+
+<ul>
+<li>$ sudo nginx -s stop<br></li>
+</ul>
+
+<h2>在不停Nginx的情况下，重新启动Passenger</h2>
+
+<ul>
+<li>$ cd path/to/your/awesome/project<br></li>
+<li>$ touch tmp/restart.txt<br></li>
+</ul>
+
+<h2>访问你的xxx网站了</h2>
+
+<p>http://xxx   </p>
 
 	    	</article>
 
