@@ -38,7 +38,10 @@ disqus: false
 * $ git reset <file>    (从暂存区恢复到工作文件)
 * $ git reset -- .      (从暂存区恢复到工作文件)
 * $ git reset --hard    (恢复最近一次提交过的状态，即放弃上次提交后的所有本次修改)
- 
+* $ git reset HEAD~1        (撤销最后一次提交。)
+* $ git reset --hard HEAD^  (撤销最后一次提交并清除本地修改。)
+* $ git reset SHA1          (回到SHA1对应的提交状态。)
+
 * $ git commit <file>
 * $ git commit .
 * $ git commit -a -m "命令名"        (将git add, git rm和git ci等操作都合并在一起做)
