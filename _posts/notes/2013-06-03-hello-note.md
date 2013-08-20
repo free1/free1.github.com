@@ -33,6 +33,7 @@ disqus: false
 * $ git checkout .           (抛弃工作区修改)
 
 * $ git rm <file>       (从版本库中删除文件)
+* $ git add -A          (它会把我们未通过 git rm 删除的文件全部stage)
 * $ git rm <file> --cached  (从版本库中删除文件，但不删除文件)
  
 * $ git reset <file>    (从暂存区恢复到工作文件)
