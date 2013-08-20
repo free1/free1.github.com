@@ -94,6 +94,24 @@ s(5,3,3) {|x| puts x}
 end   
 s(5,3,3) {|x| puts x}   
 </code></pre></div>
+<h2>动态调用方法</h2>
+
+<ul>
+<li>使用send：obj.send(:method, 3) ，第一个参数为方法名，剩下的参数直接传递给调用的方法。还有public_send()，前者可以调用私有方法。<br></li>
+</ul>
+
+<h2>动态定义方法(使用 define_method )</h2>
+
+<p>事例代码:   </p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">class MyClass   
+    define_method :my_method do |my_arg|   
+        my_arg * 3   
+    end   
+end   
+
+obj = MyClass.new   
+obj.my_method(2)   # =&gt; 6     
+</code></pre></div>
 	    	</article>
 
 	    	

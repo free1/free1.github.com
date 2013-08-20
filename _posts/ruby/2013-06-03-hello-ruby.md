@@ -69,3 +69,30 @@ disqus: false
 	end   
 	s(5,3,3) {|x| puts x}   
 
+
+## 动态调用方法   
+* 使用send：obj.send(:method, 3) ，第一个参数为方法名，剩下的参数直接传递给调用的方法。还有public_send()，前者可以调用私有方法。   
+
+## 动态定义方法(使用 define_method )    
+  事例代码:   
+
+	class MyClass   
+		define_method :my_method do |my_arg|   
+			my_arg * 3   
+		end   
+	end   
+
+	obj = MyClass.new   
+	obj.my_method(2)   # => 6     
+
+
+
+
+
+
+
+
+
+
+
+
