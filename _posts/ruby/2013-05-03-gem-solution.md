@@ -7,7 +7,7 @@ disqus: false
 ---
 
 
-## 全文搜索(Sunspot) 出现 RSolr::Error::Http - 500 Internal Server Error 解决方法:
+## 全文搜索[Sunspot](https://github.com/sunspot/sunspot) 出现 RSolr::Error::Http - 500 Internal Server Error 解决方法:
 
 log:   
 
