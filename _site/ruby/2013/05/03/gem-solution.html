@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+    <meta name="author" content="Free" />
+    <meta name="generator" content="Jekyll 1.0.2" />
+    <meta name="description" content="Rails" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="/css/post.css" media="all" />
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="/js/compatible.js"></script>
+
+</head>
+	<body>
+		<div id="Previous">
+			<a href="http://free1.github.com/"> <-Home </a>
+		</div>
+
+		<div id="Title">
+	    	<h1>Gem使用常见问题</h1>
+	    	<p><b>03 May 2013</b>, by <b>Free</b></p>
+		</div>
+
+		<div id="Post">
+	    	<article id="articlePost">
+	        	<h2>全文搜索<a href="https://github.com/sunspot/sunspot">Sunspot</a> 出现 RSolr::Error::Http - 500 Internal Server Error 解决方法:</h2>
+
+<p>log:   </p>
+
+<p>RSolr::Error::Http - 500 Internal Server Error<br>
+Error: Severe errors in solr configuration.   </p>
+
+<p>Check your log files for more detailed information on what may be wrong.   </p>
+
+<p>If you want solr to continue after configuration errors, change:    </p>
+
+<p><code>&lt;abortOnConfigurationError&gt;false&lt;/abortOnConfigurationError&gt;</code>  </p>
+
+<p>in null   </p>
+
+<p>The solution:   </p>
+
+<ul>
+<li>  rake sunspot:solr:stop<br></li>
+<li>  Delete your /solr directory.</li>
+<li>  rake sunspot:solr:start</li>
+<li>  rake sunspot:solr:reindex</li>
+</ul>
+
+	    	</article>
+
+	    	
+				<div style="height: 64px"></div>
+    		
+		</div>
+		
+	</body>
+</html>
+
+
+ 
+   
+       
