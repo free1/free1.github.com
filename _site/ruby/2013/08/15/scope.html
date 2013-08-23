@@ -78,6 +78,26 @@ end
 
 MyClass.new.my_method
 </code></pre></div>
+<h2>instance_eval()</h2>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">class MyClass
+    def initialize
+        @v = 1
+    end
+end
+
+obj = MyClass.new
+obj.instance_eval do
+    self
+    @v                 # =&gt; 1
+end
+
+v = 2
+obj.instance_eval { @v = v }
+obj.instance_eval { @v }       # =&gt; 2
+</code></pre></div>
+<p>以上三行代码在同一个扁平作用域中执行，因此它们都可以访问局部变量v，由于块把运行它的对象作为self，所以它们也能访问obj的实例变量@v。<br>
+instance_exec() 与上面方法类似，但允许对块传入参数。   </p>
+
 	    	</article>
 
 	    	
