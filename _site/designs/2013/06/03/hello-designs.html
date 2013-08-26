@@ -27,18 +27,30 @@
 
 		<div id="Post">
 	    	<article id="articlePost">
-	        	<ul>
-<li><p>body 中加入 font-family: &#39;Helvetica Neue&#39;, Arial, &#39;liberation Sans&#39;, FreeSans, &#39;Hiragino Sans GB&#39;, sans-serif; 字体会从第一个开始往后寻找浏览器能够识别的字体。</p></li>
-<li><p>在html中加入 
-<div class="clear"></div> 
-在css中加入
-.class{ clear: both; } 
-可以清除前面的浮动。</p></li>
-<li><p>导航的常见设置
-ul { list-style: none; }   去掉下划线
-ul li { display: inline-block; }   导航横向排列(不要使用浮动)</p></li>
-</ul>
+	        	<p>body 中加入 font-family: &#39;Helvetica Neue&#39;, Arial, &#39;liberation Sans&#39;, FreeSans, &#39;Hiragino Sans GB&#39;, sans-serif; 字体会从第一个开始往后寻找浏览器能够识别的字体。   </p>
 
+<h2>清除浮动:</h2>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">1. 有多余的div   
+
+    &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;    
+    在css中加入   
+    .class{ clear: both; }    
+
+2. 支持ie6以上浏览器   
+
+   &lt;div class=&quot;news clear&quot;&gt;&lt;/div&gt;   
+   .clear:after {
+       content: &quot;.&quot;;
+       height: 0;
+       visibility: hidden;
+       display: block;
+       clear: both;
+   }
+</code></pre></div>
+<h2>导航的常见设置:</h2>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">ul { list-style: none; }   去掉下划线   
+ul li { display: inline-block; }   导航横向排列(不要使用浮动)   
+</code></pre></div>
 	    	</article>
 
 	    	
