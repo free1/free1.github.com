@@ -31,3 +31,27 @@ body 中加入 font-family: 'Helvetica Neue', Arial, 'liberation Sans', FreeSans
 ## 导航的常见设置:   
 	ul { list-style: none; }   去掉下划线   
 	ul li { display: inline-block; }   导航横向排列(不要使用浮动)   
+
+## 常用元素   
+* 布局定位: position
+* 列表属性: list-style ( ul ol li )   
+* 内容溢出元素框时: overflow   
+* 透明度: opacity   
+* 指针形状: cursor   
+* 堆叠顺序: z-index (哪些元素优先显示)   
+* 过滤器: filter   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
