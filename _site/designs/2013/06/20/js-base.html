@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+    <meta name="author" content="Free" />
+    <meta name="generator" content="Jekyll 1.0.2" />
+    <meta name="description" content="Javascript" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="/css/post.css" media="all" />
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="/js/compatible.js"></script>
+
+</head>
+	<body>
+		<div id="Previous">
+			<a href="http://free1.github.com/"> <-Home </a>
+		</div>
+
+		<div id="Title">
+	    	<h1>js常用方法总结</h1>
+	    	<p><b>20 Jun 2013</b>, by <b>Free</b></p>
+		</div>
+
+		<div id="Post">
+	    	<article id="articlePost">
+	        	<h2>获取document引用的方式:</h2>
+
+<ul>
+<li>getElementById: 返回一个指向具有指定Id属性的元素引用</li>
+<li>getElementsByTagName: 返回具有该标签的元素数组</li>
+</ul>
+
+<h2>定时器操作</h2>
+
+<ul>
+<li>开启定时器:<br>
+setInterval   间隔型<br>
+setTimeout    延时型<br></li>
+<li>停止定时器:<br>
+clearInterval<br>
+clearTimeout<br></li>
+</ul>
+
+<h2>scrollWidth,clientWidth与offsetWidth的区别:</h2>
+
+<ul>
+<li>内容区别:<br>
+scrollWidth 是对象的实际内容的宽，不包边线宽度，会随对象中内容的多少改变（内容多了可能会改变对象的实际宽度）。<br>
+clientWidth 是对象可见的宽度，不包滚动条等边线，会随窗口的显示大小改变。<br>
+offsetWidth 是对象的可见宽度，包滚动条等边线，会随窗口的显示大小改变。<br></li>
+<li>用法区别:<br>
+offsetwidth:是元素相对父元素的偏移宽度。等于border+padding+width<br>
+clientwidth：是元素的可见宽度。等于padding+width<br>
+scrollwidth:是元素的宽度且包括滚动部分。<br></li>
+</ul>
+
+<h2>获取Class属性的方法:</h2>
+
+<ul>
+<li>标准浏览器已经开始支持getElementsByClassName()了，但IE9以下的浏览器还是不支持此属性，为了更好的在所有的浏览器里面通过className进行过滤筛选元素，可以通过以下getByClass()函数进行获取了。<br></li>
+</ul>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">function getByClass(oParent, sClass)
+{
+    // 找到网页中所有的class并存入数组
+    var aEle = oParent.getElementsByTagName(&#39;*&#39;);
+    var aResult = [];
+
+    for (var i = 0; i &lt; aEle.length; i++) {
+        if (aEle[i].className == sClass) 
+        {
+            aResult.push(aEle[i]);
+        }
+    }
+
+    return aResult;
+}
+</code></pre></div>
+<h2>判断浏览器用来解决浏览器兼容问题:</h2>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">    var userAgent = navigator.userAgent.toLowerCase();
+    var browser = {
+        version: (userAgent.match(/(?:firefox|opera|safari|chrome|msie)[\/: ]([\d.]+)/))[1],
+        safari: /version.+safari/.test(userAgent),
+        chrome: /chrome/.test(userAgent),
+        firefox: /firefox/.test(userAgent),
+        ie: /msie/.test(userAgent),
+        opera: /opera/.test(userAgent)
+    }
+    if ( browser.ie &amp;&amp; browser.version &lt; 9 ) {
+        alert(&quot;对不起，不兼容您的浏览器&quot;);
+        window.location = &quot;http://www.google.com/chrome&quot;;
+    }
+</code></pre></div>
+	    	</article>
+
+	    	
+				<div style="height: 64px"></div>
+    		
+		</div>
+		
+	</body>
+</html>
+
+
+ 
+   
+       
