@@ -31,3 +31,32 @@ disqus: false
 ## 私有(private)方法   
 * 私有规则：如果调用方法的接收者不是你自己，则必须明确指明一个接受者。私有方法只能被隐含接收者调用。      
 * 调用规则：如果对象x和对象y都是同一个类的对象，x不能调用y的私有方法。但能够调用超类中的私有方法。   
+
+## 类实例变量
+
+```
+class MyClass
+    @my_var = 1
+
+    def self.read
+        @my_var
+    end
+
+    def write
+        @my_var = 2
+    end
+
+    def read
+        @my_var
+    end
+end
+
+obj = MyClass.new
+obj.write
+obj.read               # => 2
+MyClass.read           # => 1
+```
+
+以上两个实例变量分别属于不同的作用域，并属于不同的对象。一个变量定义于obj充当self的时刻，它是obj对象的实例变量；另一个定义于MyClass充当self的时刻，它是MyClass的实例变量－－也就是类的实例变量。类也是对象。   
+
+类实例变量只是属于Class类对象的普通实例变量。类实例变量仅仅可以被类本身访问－－不能被类的实例或子类访问。

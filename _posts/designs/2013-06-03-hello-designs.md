@@ -41,17 +41,20 @@ body 中加入 font-family: 'Helvetica Neue', Arial, 'liberation Sans', FreeSans
 * 堆叠顺序: z-index (哪些元素优先显示)   
 * 过滤器: filter   
 
+## css选择器优先级   
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+* 类别选择器 1 
+* 标签选择器 1
+* ID选择器 1
+* 后代选择器 1    #links a{}
+* 子选择器 2    #links>a{}
+* 伪类选择器  1或2  a:hover{}
+* 通用选择器 2  *{}   
+* 群组选择器 1  p,a,li{}
+* 相邻同胞选择器 2    h1 + p{}
+* 属性选择器 2   abbr[title]{} or  p[title='app']{}
+* 部分属性选择器  2 a[rel~="friend"]{}
+* 开始字符属性选择器 3 a[rel^="friend"]{}
+* 结束字符属性选择器 3 a[rel$="friend"]{}
+* 通配符字符属性选择器 3 a[href*="some"]{}
+* 语言属性选择器 2 html[lang|="en"]{}

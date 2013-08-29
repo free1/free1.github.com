@@ -63,6 +63,26 @@ ul li { display: inline-block; }   导航横向排列(不要使用浮动)
 <li>过滤器: filter<br></li>
 </ul>
 
+<h2>css选择器优先级</h2>
+
+<ul>
+<li>类别选择器 1 </li>
+<li>标签选择器 1</li>
+<li>ID选择器 1</li>
+<li>后代选择器 1    #links a{}</li>
+<li>子选择器 2    #links&gt;a{}</li>
+<li>伪类选择器  1或2  a:hover{}</li>
+<li>通用选择器 2  *{}<br></li>
+<li>群组选择器 1  p,a,li{}</li>
+<li>相邻同胞选择器 2    h1 + p{}</li>
+<li>属性选择器 2   abbr[title]{} or  p[title=&#39;app&#39;]{}</li>
+<li>部分属性选择器  2 a[rel~=&quot;friend&quot;]{}</li>
+<li>开始字符属性选择器 3 a[rel^=&quot;friend&quot;]{}</li>
+<li>结束字符属性选择器 3 a[rel$=&quot;friend&quot;]{}</li>
+<li>通配符字符属性选择器 3 a[href*=&quot;some&quot;]{}</li>
+<li>语言属性选择器 2 html[lang|=&quot;en&quot;]{}</li>
+</ul>
+
 	    	</article>
 
 	    	
