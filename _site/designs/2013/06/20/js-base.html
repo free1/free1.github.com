@@ -58,6 +58,39 @@ clientwidth：是元素的可见宽度。等于padding+width<br>
 scrollwidth:是元素的宽度且包括滚动部分。<br></li>
 </ul>
 
+<h2>DOM操作</h2>
+
+<ul>
+<li>创建DOM元素<br>
+createElement(标签名) 创建一个节点<br>
+appendChild(节点) 追加一个节点<br>
+例子:为ul插入li<br></li>
+<li>插入元素
+insertBefore(节点, 原有节点) 在已有元素前插入<br>
+例子:倒序插入li<br></li>
+<li>删除DOM元素
+removeChild(节点) 删除一个节点 例子:删除li<br></li>
+</ul>
+
+<h2>关于Ajax</h2>
+
+<ul>
+<li>创建Ajax对象<br>
+ActiveXObject(&quot;Microsoft.XMLHTTP&quot;) XMLHttpRequest()<br></li>
+<li>连接服务器<br>
+open(方法, 文件名, 异步传输) 同步和异步<br></li>
+<li>发送请求<br>
+send()</li>
+<li>请求状态监控<br>
+onreadystatechange事件<br>
+readyState属性:请求状态<br>
+0 (未初始化)还没有调用open()方法<br>
+1 (载入)已调用send()方法,正在发送请求<br>
+2 (载入完成)send()方法完成,已收到全部响应内容 3 (解析)正在解析响应内容<br>
+4 (完成)响应内容解析完成,可以在客户端调用了<br>
+status属性:请求结果 responseText<br></li>
+</ul>
+
 <h2>获取Class属性的方法:</h2>
 
 <ul>
