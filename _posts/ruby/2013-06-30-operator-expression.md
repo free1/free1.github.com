@@ -56,3 +56,9 @@ disqus: false
 	..     范围(包括右边的结束值)   
 	...    范围(不包括右边的结束值)    
     defined?    测试变量的定义和类型   
+
+## 常用关键字:   
+   与if语义相反的是unless   
+   与while语意相反的是until   
+   if-elsif相当于java的if-else   
+   case-when相当于java的switch-case   
