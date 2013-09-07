@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+    <meta name="author" content="Free" />
+    <meta name="generator" content="Jekyll 1.0.2" />
+    <meta name="description" content="版本控制" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="/css/post.css" media="all" />
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="/js/compatible.js"></script>
+
+</head>
+	<body>
+		<div id="Previous">
+			<a href="http://free1.github.com/"> <-Home </a>
+		</div>
+
+		<div id="Title">
+	    	<h1>使用github贡献代码步骤</h1>
+	    	<p><b>20 Jun 2013</b>, by <b>Free</b></p>
+		</div>
+
+		<div id="Post">
+	    	<article id="articlePost">
+	        	<ul>
+<li>在github上fork别人的项目。</li>
+<li>在自己的github帐户上找到这个项目，并clone到本地，进入项目。</li>
+<li>使用命令 <code>git remote add upstream https://github.com/username/xxx.git</code> 将别人的项目源加入远程仓库。</li>
+<li>输入 <code>git remote -v</code> 查看远程仓库，得到:</li>
+</ul>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">origin  https://github.com/free1/xxx.git (fetch)
+origin  https://github.com/free1/xxx.git (push)
+upstream    https://github.com/username/xxx.git (fetch)
+upstream    https://github.com/username/xxx.git (push)
+</code></pre></div>
+<ul>
+<li>新建分支  <code>git checkout -b 分支名</code>，进行修改。</li>
+<li>每次 pull requests，切回主分支<code>git checkout master</code>，看别人的项目是否修改，<code>git pull upstream master</code> 更新主分支，切回从分支<code>git checkout 分支名</code>，进行<code>git rebase master</code>合并同步，最后提交到自己clone的项目上(git push origin 分支名)。</li>
+<li>提交pull requests。</li>
+</ul>
+
+	    	</article>
+
+	    	
+				<div style="height: 64px"></div>
+    		
+		</div>
+		
+	</body>
+</html>
+
+
+ 
+   
+       
