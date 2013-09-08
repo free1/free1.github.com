@@ -4,7 +4,7 @@ body {
 
 	background-attachment: fixed;
 	/*background-color: #6ca2e0;*/
-	background-image: url("http://pic.yayabizhi.com:7704/uploads/120812/co120Q2222247-2.jpg");
+	background-image: url("/images/page_bg.gif");
 	background-position: top center;
 	background-repeat: no-repeat;
 	
@@ -32,8 +32,8 @@ div#Banner {
     
     text-align: right;
     font-size: 16px;
-    color: #C9D186;
-    text-shadow: 0 0 16px #C9D186;
+    color: #fff;
+    text-shadow: 0 0 16px #fff;
 }
 
 div#Banner div#Signature {
@@ -62,11 +62,11 @@ div.Category {
 	padding: 16px;
 	margin-bottom: 16px;
     
-	background-color: #83a522;
+	background-color: #3d3c3c;
 	border-radius: 8px;
-	box-shadow: 0 0 16px 0 #fff;
+	box-shadow: 0 0 13px 0 #fff;
 	opacity: 0.85;
-	color: #fff;
+	color: #6ecefd;
 }
 
 div.Category h1.hTitle1 {
@@ -99,11 +99,10 @@ div.Category div.Index {
 
 div.Category div.Index:hover {
     border-radius: 4px;
-	box-shadow: 0 0 0 2px #102040;
-
+	box-shadow: 0 0 0 2px #fb7d0e;
 
 	font-size: 14px;
-	color: black;
+	color: #fb7d0e;
 }
 
 div.Category div.IndexTitle {

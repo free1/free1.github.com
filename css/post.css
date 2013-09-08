@@ -4,7 +4,7 @@ body {
 
 	background-attachment: fixed;
 	/*background-color: #6ca2e0;*/
-	background-image: url("http://pic.yayabizhi.com:7704/uploads/120812/co120Q2222247-2.jpg");
+	background-image: url("/images/page_bg.gif");
 	background-position: top center;
 	background-repeat: no-repeat;
 	
@@ -29,7 +29,7 @@ div#Title {
     border-radius: 8px;
 	box-shadow: 0 0 8px 0 #fff;
 	opacity: 0.88;
-    background-color: #E3F5F7;
+    background-color: #eaf4f6;
 }
 
 div#Post {
@@ -43,7 +43,7 @@ div#Post {
 	border-radius: 8px;
 	box-shadow: 0 0 8px 0 #fff;
 	opacity: 0.88;
-	color: #000;
+	color: #fff;
 }
 
 div#Post article#articlePost {
@@ -80,7 +80,7 @@ div#Previous a {
 
 div#Previous a:hover {
 	font-size: 35px;
-	color: #284360;
+	color: #6ecefd;
 }
 
 
