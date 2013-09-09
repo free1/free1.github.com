@@ -23,10 +23,35 @@ div#Logo {
     bottom: 80px;
 }
 
+/* 时钟 */
+div#Clock {
+	width: 400px;
+	height: 190px;
+
+	position: absolute;
+	left: 43%;
+	top: 120px;
+}
+
+div#Clock div.year {
+	margin-left: 20px;
+}
+
+div#Clock div.time {
+	margin-left: 20px;
+	margin-top: 35px;
+}
+
+.date img { position: relative; }
+.pos2 { margin-left: 10px; }
+.num { width: 25px; }
+.num2 { width: 38px; }
+
+/* 导航 */
 div#Banner {
 	position: absolute;
 	left: 38%;
-    top: 128px;
+    top: 100px;
 	width: 56%;
     padding: 32px;
     
