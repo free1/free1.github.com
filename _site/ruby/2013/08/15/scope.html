@@ -96,8 +96,43 @@ obj.instance_eval { @v = v }
 obj.instance_eval { @v }       # =&gt; 2
 </code></pre></div>
 <p>以上三行代码在同一个扁平作用域中执行，因此它们都可以访问局部变量v，由于块把运行它的对象作为self，所以它们也能访问obj的实例变量@v。<br>
-instance_exec() 与上面方法类似，但允许对块传入参数。   </p>
+instance_exec() 与上面方法类似，但允许对块传入参数。  </p>
 
+<p>如果在一个实例上调用了instance<em>eval，就可以在其中定义该实例的单态函数 singleton</em>method   </p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">class A
+end
+
+a = A.new
+a.instance_eval do
+    self  # =&gt; a
+    # current class =&gt; a&#39;s singleton class
+    def method1
+        puts &#39;this is a singleton method of instance a&#39;
+    end
+end
+
+a.method1
+#=&gt; this is a singleton method of instance a
+
+b = A.new
+b.method1
+#=&gt;NoMethodError: undefined method `method1&#39; for #&lt;A:0x10043ff70&gt;
+</code></pre></div>
+<p>因为类class本身也是Class类的一个实例，instance<em>eval也可以用在类上，这个时候就可以在其中定义该类的singleton</em>method，即为该类的类函数。换句话说，可以用instance_eval来定义类函数class method。   </p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">class A
+end
+
+A.instance_eval do
+    self  # =&gt; A
+    # current class =&gt; A&#39;s singleton class
+    def method1
+        puts &#39;this is a singleton method of class A&#39;
+    end
+end
+
+A.method1
+#=&gt; this is a singleton method of class A
+</code></pre></div>
 	    	</article>
 
 	    	

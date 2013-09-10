@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+    <meta name="author" content="Free" />
+    <meta name="generator" content="Jekyll 1.0.2" />
+    <meta name="description" content="Javascript" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="/css/post.css" media="all" />
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="/js/compatible.js"></script>
+
+</head>
+	<body>
+		<div id="Previous">
+			<a href="http://free1.github.com/"> <-Home </a>
+		</div>
+
+		<div id="Title">
+	    	<h1>javascript常识</h1>
+	    	<p><b>30 Jun 2013</b>, by <b>Free</b></p>
+		</div>
+
+		<div id="Post">
+	    	<article id="articlePost">
+	        	<ul>
+<li><p><code>null</code> 和 <code>undefined</code> 不是对象，其他所有变量都是对象。</p></li>
+<li><p>有两种方式来访问对象的属性，点操作符或者中括号操作符。两种语法是等价的，但是中括号操作符在下面两种情况下依然有效 - 1.动态设置属性 - 2.属性名不是一个有效的变量名（比如属性名中包含空格，或者属性名是JS的关键词)。</p></li>
+<li><p>方法会在执行前被解析，因此它存在于当前上下文的任意一个地方， 即使在函数定义体的上面被调用也是对的。    </p></li>
+</ul>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">    foo; // &#39;undefined&#39;
+    foo(); // 出错：TypeError
+    var foo = function() {};
+</code></pre></div>
+<p>由于赋值语句只在运行时执行，因此在相应代码执行之前， foo 的值缺省为 undefined。   </p>
+
+<ul>
+<li> 函数名在函数内总是可见的。</li>
+</ul>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">var foo = function bar() {
+    bar(); // 正常运行
+}
+bar(); // 出错：ReferenceError
+</code></pre></div>
+	    	</article>
+
+	    	
+				<div style="height: 64px"></div>
+    		
+		</div>
+		
+	</body>
+</html>
+
+
+ 
+   
+       
