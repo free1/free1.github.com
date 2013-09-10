@@ -47,6 +47,39 @@ div#Clock div.time {
 .num { width: 25px; }
 .num2 { width: 38px; }
 
+/* 标签云 */
+div#Tag {
+	width: 350px; 
+	height: 350px;
+	margin: 20px auto 0;
+
+	position: absolute;
+	left: 43%;
+	top: 360px;
+}
+
+div#Tag a {
+	font-family: Microsoft YaHei; 
+	color: #fff; 
+	font-weight: bold; 
+	text-decoration: none; 
+	padding: 3px 6px; 
+}
+div#Tag a:hover {
+	border: 1px solid #eee; 
+	background: #000; 
+}
+
+div#Tag .blue {
+	color: blue;
+}
+div#Tag .red {
+	color: red;
+}
+div#Tag .yellow {
+	color: yellow;
+}
+
 /* 导航 */
 div#Banner {
 	position: absolute;
