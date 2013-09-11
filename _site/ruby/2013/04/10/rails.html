@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+    <meta name="author" content="Free" />
+    <meta name="generator" content="Jekyll 1.0.2" />
+    <meta name="description" content="Rails" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="/css/post.css" media="all" />
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="/js/compatible.js"></script>
+
+</head>
+	<body>
+		<div id="Previous">
+			<a href="http://free1.github.com/"> <-Home </a>
+		</div>
+
+		<div id="Title">
+	    	<h1>Rails基础</h1>
+	    	<p><b>10 Apr 2013</b>, by <b>Free</b></p>
+		</div>
+
+		<div id="Post">
+	    	<article id="articlePost">
+	        	<p>getter(获取) &amp;&amp; setter(设置):（相对于数据库来说）   </p>
+
+<p>ruby:   </p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">def method   
+
+end     
+
+def method=(args)   
+
+end   
+</code></pre></div>
+<p>java:   </p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">public String getName() {   
+
+        return this.name;   
+
+}   
+
+public void setName(String name) {   
+
+        this.name = name;   
+
+}
+</code></pre></div>
+<p>save：rails中的save其实是create<em>or</em>update，新建或修改记录！不一定是新建。<br>
+new ：只是在内存中新建一个对象，操作数据库要调用save方法。<br>
+create = new + 执行sql。<br>
+build：与new基本相同，多用于一对多情况下。<br>
+!：new!, create!, build!与new, create,    build的区别是带!的方法会显示validate的错误信息，如果验证失败会抛出导常(主要的是不跳过验证)。<br>
+save是实例方法，而create, build, new是模型类的类方法   </p>
+
+<p>before<em>save和before</em>create最大的一个区别就是，update也算是before_save。    </p>
+
+<p>Gemfile中：   </p>
+
+<blockquote>
+<p>= 总会升级到最新版；~&gt; 3.2.2 只会升级补丁版本的更新（例如从 3.2.1 到 3.2.2），而不会升级到次版本或主版本的更新（例如从 3.2 到 3.3）   </p>
+</blockquote>
+
+<p>指定rails版本创建项目<br>
+rails  <em>版本号</em> new 项目名称   </p>
+
+<p>:if =&gt; :new<em>record?<br>
+报密码不能为空可能是你有一个虚拟的password属性。比如你用了什么auth类的gem，或者你自己加了一个attr</em>accessor :password。然后又有validates :password这样的验证。那么，当你是从数据库中取出记录User.find(params[:id])的时候，这个属性还是nil。你只修改name的话，就会报invalid了。   </p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">HTTP 请求     URI     动作                   具名路由   作用   
+GET           /users    index                  users_path   显示所有用户的页面
+GET           /users/1  show                   user_path(user) 显示某个用户的页面
+GET         /users/new  new                    new_user_path    创建（注册）新用户的页面
+POST         /users     create                  users_path  创建新用户
+GET      /users/1/edit  edit              edit_user_path(user) 编辑 id 为 1的用户页面
+PUT         /users/1    update              user_path(user) 更新用户信息
+DELETE     /users/1     destroy          user_path(user)    删除用户
+</code></pre></div>
+	    	</article>
+
+	    	
+				<div style="height: 64px"></div>
+    		
+		</div>
+		
+	</body>
+</html>
+
+
+ 
+   
+       

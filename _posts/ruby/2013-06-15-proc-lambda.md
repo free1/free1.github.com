@@ -6,7 +6,7 @@ description: Ruby
 disqus: false
 ---
 
-* proc的行为与代码块类似，而lambda的行为则与方法类似，它们都是Proc类的实利。用block，用lambda，不要用proc，让proc做好自己的幕后工作就好了(一般block可以代替proc)。
+* proc的行为与代码块类似，而lambda的行为则与方法类似，它们都是Proc类的实例。用block，用lambda，不要用proc，让proc做好自己的幕后工作就好了(一般block可以代替proc)。
 
 * lambda的 succ = lambda { |x| x+1 } 可以写成 succ = ->(x) { x+1 }
 
@@ -102,6 +102,8 @@ disqus: false
 	test   
 
 ## 传递给proc和lambda的参数。
+	lambda对参数有着严谨的检查，需要参数一致。proc则不需要。
+
 	调用proc使用的是yield语意:   
 
 	p = Proc.new { |x,y| print x,y }   

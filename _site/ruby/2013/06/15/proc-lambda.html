@@ -28,7 +28,7 @@
 		<div id="Post">
 	    	<article id="articlePost">
 	        	<ul>
-<li><p>proc的行为与代码块类似，而lambda的行为则与方法类似，它们都是Proc类的实利。用block，用lambda，不要用proc，让proc做好自己的幕后工作就好了(一般block可以代替proc)。</p></li>
+<li><p>proc的行为与代码块类似，而lambda的行为则与方法类似，它们都是Proc类的实例。用block，用lambda，不要用proc，让proc做好自己的幕后工作就好了(一般block可以代替proc)。</p></li>
 <li><p>lambda的 succ = lambda { |x| x+1 } 可以写成 succ = -&gt;(x) { x+1 }</p></li>
 </ul>
 
@@ -124,7 +124,9 @@ end
 test   
 </code></pre></div>
 <h2>传递给proc和lambda的参数。</h2>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">调用proc使用的是yield语意:   
+<div class="highlight"><pre><code class="text language-text" data-lang="text">lambda对参数有着严谨的检查，需要参数一致。proc则不需要。
+
+调用proc使用的是yield语意:   
 
 p = Proc.new { |x,y| print x,y }   
 p.call(1)         # Prints 1nil   

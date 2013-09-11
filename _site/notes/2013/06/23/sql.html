@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+    <meta name="author" content="Free" />
+    <meta name="generator" content="Jekyll 1.0.2" />
+    <meta name="description" content="数据库" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="/css/post.css" media="all" />
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="/js/compatible.js"></script>
+
+</head>
+	<body>
+		<div id="Previous">
+			<a href="http://free1.github.com/"> <-Home </a>
+		</div>
+
+		<div id="Title">
+	    	<h1>sql语句</h1>
+	    	<p><b>23 Jun 2013</b>, by <b>Free</b></p>
+		</div>
+
+		<div id="Post">
+	    	<article id="articlePost">
+	        	<p>--新建数据库   </p>
+
+<p>create database 数据库名   </p>
+
+<p>use 数据库名  --使用哪个数据库<br>
+go   </p>
+
+<p>--创建表<br>
+create table 表名<br>
+(Id int ,<br>
+Name varchar(50),  --varchar可变长度<br>
+sex char(2)   --char固定长度<br>
+)   </p>
+
+<p>--删除表（全部）<br>
+--drop table 表名   </p>
+
+<p>--删除指定数据<br>
+delete from 表名 where 字段名=&#39;值&#39; and(or) 字段名=&#39;值&#39;   </p>
+
+<p>--添加数据<br>
+insert into 表名 values(1,&#39;宋江&#39;，&#39;男&#39;)   </p>
+
+<p>--插入部分字段<br>
+insert into 表名(字段1，字段2） values(字段值1，字段值2)   </p>
+
+<p>--查询数据<br>
+select * from 表名<br>
+select * from 表名 where 条件   </p>
+
+<p>--查询所有列<br>
+select * from 表名 where 条件   </p>
+
+<p>--查询指定列<br>
+select 字段1，字段2 from 表名 where 条件   </p>
+
+<p>--取消重复行(完全一样的行)<br>
+select distinct 字段 from 表名 where 条件   </p>
+
+<p>--like是模糊查询(%:多个字符，_:单个字符)   </p>
+
+<p>--多个查询<br>
+字段名 in（字段值，字段值）   </p>
+
+<p>--排序<br>
+order by（默认升序asc，降序desc）   </p>
+
+<p>--函数max，min，avg，sum，count<br>
+select avg（字段） 别名 from 表名   </p>
+
+<p>group by（对查询结果进行分组统计）<br>
+having字句用于限制分组显示结果   </p>
+
+<p>--修改数据<br>
+update xinxi set 表达式 where 条件   </p>
+
+<p>--改字段<br>
+update 表名 set 字段名=&#39;新值&#39; where 字段=&#39;值&#39;(如果是空值null =换成is)   </p>
+
+<p>--删除数据<br>
+delete from 表名 where 条件   </p>
+
+<p>--时间函数<br>
+datetime<br>
+insert into 表名 values(GETDATE())   </p>
+
+<p>创建表的函数:   </p>
+
+<p>--主键(不能重复，必须有值，可以修改)<br>
+int primary key    --定义在表中（不能有空）   </p>
+
+<p>--check（限制数据录入）   </p>
+
+<p>--default（默认）   </p>
+
+<p>--not null(非空)   </p>
+
+<p>--unique（唯一）<br>
+可以为空，但不能重复空   </p>
+
+<p>--引用外键<br>
+foreign key references 表名(字段名)<br>
+--1.外键只能指向主键<br>
+--2.外键和主键的数据类型要一致   </p>
+
+	    	</article>
+
+	    	
+				<div style="height: 64px"></div>
+    		
+		</div>
+		
+	</body>
+</html>
+
+
+ 
+   
+       

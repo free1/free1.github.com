@@ -13,7 +13,91 @@ disqus: false
 
 
 ## 单键方法(给单个对象添加一个方法，与类方法差不多)
-* 在def关键字后加上一个求值结果为对象的表达式，表达式之后一个句点符号和要定义的方法名。
+* 在def关键字后加上一个求值结果为对象的表达式，表达式之后一个句点符号和要定义的方法名。  
+
+特殊方法是指某实例所特有的方法。一个对象有哪些行为由对向所属的类决定，但是有时候，一些特殊的对象有何其他对象不一样的行为，在多数程序设计语言中，例如C++和Java，我们必须定义一个新类，但在Ruby中，我们可以定义只从属于某个特定对象的方法，这种方法我们成为特殊方法(Singleton Method)。
+
+```
+class SingletonTest
+    def info
+        puts “This is This is SingletonTest method”
+    end
+end
+
+obj1 = SingletonTest.new
+obj2 = SingletonTest.new
+
+def obj2.info
+    puts “This is obj2″
+end
+
+obj1.info
+obj2.info
+```
+
+执行结果为：   
+This is This is SingletonTest method   
+This is obj2   
+
+有时候，我们需要给一个对象定义一系列的特殊方法，如果按照前面的方法，那么只能一个一个定义：   
+
+```
+def obj2.singleton_method1
+end
+
+def obj2.singleton_method2
+end
+
+def obj2.singleton_method3
+end
+……
+def obj2.singleton_methodn
+end
+```
+
+这样做非常繁复麻烦，而且无法给出一个统一的概念模型，因此Ruby提供了另外一种方法，   
+
+```
+class << obj
+……
+end
+
+obj是一个具体的对象实例，class << 代表它的特殊类。
+
+class SingletonTest
+  def meth1
+   puts “This is meth1″
+  end
+
+  def meth2
+   puts “This is meth2″
+  end
+end
+
+obj1 = SingletonTest.new
+obj2 = SingletonTest.new
+
+class << obj2
+  def meth1
+   puts “This is obj2′s meth1″
+  end
+ 
+  def meth2
+   puts “This is obj2′s meth2″
+  end
+end
+
+obj1.meth1
+obj1.meth2
+obj2.meth1
+obj2.meth2
+```
+
+执行结果为：   
+This is meth1   
+This is meth2   
+This is obj2′s meth1   
+This is obj2′s meth2   
 
 
 ## 方法名

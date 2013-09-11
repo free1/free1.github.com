@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 类和模块
+title: 类，模块，闭包
 category: ruby
 description: Ruby
 disqus: false
@@ -34,9 +34,9 @@ disqus: false
 
 ## public, private, protect 区别   
 
-如果是public方法，可以被随便调用。
-如果是protect方法，可以被自己或者子类调用。
-如果是private方法，只能被自己调用。 
+如果是public方法，可以被随便调用。     
+如果是protect方法，只能被定义这个方法的类自己的对象和子类的对象访问。     
+如果是private方法，只能被对象自己访问。     
 
 ## 类实例变量
 
@@ -66,3 +66,9 @@ MyClass.read           # => 1
 以上两个实例变量分别属于不同的作用域，并属于不同的对象。一个变量定义于obj充当self的时刻，它是obj对象的实例变量；另一个定义于MyClass充当self的时刻，它是MyClass的实例变量－－也就是类的实例变量。类也是对象。   
 
 类实例变量只是属于Class类对象的普通实例变量。类实例变量仅仅可以被类本身访问－－不能被类的实例或子类访问。
+
+## 闭包
+* 在ruby中，proc和lambda都是闭包。
+* 闭包表示一个对象既是一个可调用的函数，同时也是绑定在这个函数上的一个变量。
+
+[闭包深入理解](http://www.ibm.com/developerworks/cn/linux/l-cn-closure/)
