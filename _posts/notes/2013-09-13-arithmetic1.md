@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 
+title:  双向链表交换元素
 category: notes
 description: 算法
 disqus: false
@@ -8,6 +8,7 @@ disqus: false
 
 ## 给定一个双向链表,即给定一个节点 i,i 的可访问属性有:i.data, i.prev, i.next。其 中 prev 为上一个节点的指向,next 为下一个节点的指向。现要求实现一个操作, 只改变 next,prev 的指向,使链表的第 1 个与第 2 个元素交换,使链表的第 3 个 与第 4 个元素交换,使链表的第 5 个与第 6 个元素交换 ...例如:链表 [1, 2, 3, 4, 5, 6, 7]进行变换后得到的新链表可表示为[2, 1, 4, 3, 6, 5, 7]。也即是当链表元素个数是奇数个的时候,链表最后一个元素不进行改变。
 
+代码如下:   
 
 ```
 #include <stdio.h> 
@@ -92,9 +93,8 @@ void traverse_list(PNODE pHead)
 // 链表操作
 PNODE change_list(PNODE pHead)
 {
-	PNODE p, q, i;
+	PNODE p, q;
 	p = pHead->next;
-	i = pHead->next;
 	
 	// 只有一个元素
 	if(p->next == NULL)
@@ -102,31 +102,19 @@ PNODE change_list(PNODE pHead)
 		return pHead;
 	}
 	
-	// 有两个元素
-	if(p->next->next == NULL)
-	{
-		p->prev->next = p->next;  // 第一个指向第三个
-		p->next->prev = p->prev;  // 第三个指向第一个
-		p->next->next = p;        // 第三个指向第二个
-		p->prev = p->next;        // 第二个指向第三个
-		p->next->next->prev = p;  // 第四个指向第二个
-		p->next = NULL;        // 第二个指向第四个
-		
-		return pHead;
-	}
-	
 	while(p && p->next)
 	{
+		// 使用指针交换两个元素
 		p->prev->next = p->next;  // 第一个指向第三个
 		p->next->prev = p->prev;  // 第三个指向第一个
 		// 记录标记指针
 		q = p->next->next;
-		// i = p->next->next;
 		p->next->next = p;        // 第三个指向第二个
 		p->prev = p->next;        // 第二个指向第三个
 		p->next->next->prev = p;  // 第四个指向第二个
 		p->next = q;              // 第二个指向第四个
 	 	
+	 	// 指向下一组需要交换的数
 		p = p->next;
 	}
 	return pHead;
