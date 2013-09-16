@@ -29,7 +29,7 @@ body 中加入 font-family: 'Helvetica Neue', Arial, 'liberation Sans', FreeSans
    
 
 ## 导航的常见设置:   
-	ul { list-style: none; }   去掉下划线   
+	ul { list-style: none; }   去掉前面的点   
 	ul li { display: inline-block; }   导航横向排列(不要使用浮动)   
 
 ## 常用元素   
