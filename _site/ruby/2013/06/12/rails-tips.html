@@ -38,6 +38,14 @@ erb 要设置 trim mode</p>
 ^D
 &lt;div&gt;1&lt;/div&gt;
 </code></pre></div>
+<h2>建立单独页面，而不使用通用页面(全局页面)</h2>
+
+<ul>
+<li>在要使用的<code>controller</code>中加入<code>layout &quot;xxx_xx&quot;</code>。</li>
+<li>建立xxx.css，在application.css中加入<code>require xxx</code>。</li>
+<li>在xxx<em>xx.erb中编写页面，其中需要带有整个普通页面的写法，并包含stylesheet</em>link_tag &quot;xxx&quot;等。</li>
+</ul>
+
 	    	</article>
 
 	    	

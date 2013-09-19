@@ -32,16 +32,36 @@ body 中加入 font-family: 'Helvetica Neue', Arial, 'liberation Sans', FreeSans
 	ul { list-style: none; }   去掉前面的点   
 	ul li { display: inline-block; }   导航横向排列(不要使用浮动)   
 
+## 居中设置
+* 使div本身居中
+  `margin: 0 auto;`
+* 使div中的元素居中
+  `text-align: center`
+
 ## 常用元素   
 * 布局定位: position
+* 生成框类型: display
 * 列表属性: list-style ( ul ol li )   
+* 行间的距离: line-height
+* 文本的水平对齐方式: text-align
 * 内容溢出元素框时: overflow   
+* 向框添加一个或多个阴影: box-shadow
+* 文本阴影效果: text-shadow
+* 向 div 元素添加圆角边框: border-radius
 * 透明度: opacity   
 * 指针形状: cursor   
 * 堆叠顺序: z-index (哪些元素优先显示)   
 * 过滤器: filter   
 
+## 不常用元素
+* 表格的边框是否被合并为一个单一的边框，还是象在标准的 HTML 中那样分开显示: border-collapse
+* 相邻单元格的边框间的距离（仅用于“边框分离”模式): border-spacing
+* 元素内的空白: white-space 
+* 文本方向: direction (文字靠左还是靠右，rtl文本方向从右到左，ltr默认。文本方向从左到右。)
+* 设置文本的方向: unicode-bidi (与上面元素结合使用。)
+
 ## css选择器优先级   
+* ID选择符优先级高于类选择符，类选择符的优先级高于HTML标记选择符。
 
 * 类别选择器 1 
 * 标签选择器 1

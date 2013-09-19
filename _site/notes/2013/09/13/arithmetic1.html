@@ -21,13 +21,15 @@
 		</div>
 
 		<div id="Title">
-	    	<h1>Arithmetic1</h1>
+	    	<h1>双向链表交换元素</h1>
 	    	<p><b>13 Sep 2013</b>, by <b>Free</b></p>
 		</div>
 
 		<div id="Post">
 	    	<article id="articlePost">
 	        	<h2>给定一个双向链表,即给定一个节点 i,i 的可访问属性有:i.data, i.prev, i.next。其 中 prev 为上一个节点的指向,next 为下一个节点的指向。现要求实现一个操作, 只改变 next,prev 的指向,使链表的第 1 个与第 2 个元素交换,使链表的第 3 个 与第 4 个元素交换,使链表的第 5 个与第 6 个元素交换 ...例如:链表 [1, 2, 3, 4, 5, 6, 7]进行变换后得到的新链表可表示为[2, 1, 4, 3, 6, 5, 7]。也即是当链表元素个数是奇数个的时候,链表最后一个元素不进行改变。</h2>
+
+<p>代码如下:   </p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">#include &lt;stdio.h&gt; 
 #include &lt;stdlib.h&gt; 
 
@@ -110,9 +112,8 @@ void traverse_list(PNODE pHead)
 // 链表操作
 PNODE change_list(PNODE pHead)
 {
-    PNODE p, q, i;
+    PNODE p, q;
     p = pHead-&gt;next;
-    i = pHead-&gt;next;
 
     // 只有一个元素
     if(p-&gt;next == NULL)
@@ -120,31 +121,19 @@ PNODE change_list(PNODE pHead)
         return pHead;
     }
 
-    // 有两个元素
-    if(p-&gt;next-&gt;next == NULL)
-    {
-        p-&gt;prev-&gt;next = p-&gt;next;  // 第一个指向第三个
-        p-&gt;next-&gt;prev = p-&gt;prev;  // 第三个指向第一个
-        p-&gt;next-&gt;next = p;        // 第三个指向第二个
-        p-&gt;prev = p-&gt;next;        // 第二个指向第三个
-        p-&gt;next-&gt;next-&gt;prev = p;  // 第四个指向第二个
-        p-&gt;next = NULL;        // 第二个指向第四个
-
-        return pHead;
-    }
-
     while(p &amp;&amp; p-&gt;next)
     {
+        // 使用指针交换两个元素
         p-&gt;prev-&gt;next = p-&gt;next;  // 第一个指向第三个
         p-&gt;next-&gt;prev = p-&gt;prev;  // 第三个指向第一个
         // 记录标记指针
         q = p-&gt;next-&gt;next;
-        // i = p-&gt;next-&gt;next;
         p-&gt;next-&gt;next = p;        // 第三个指向第二个
         p-&gt;prev = p-&gt;next;        // 第二个指向第三个
         p-&gt;next-&gt;next-&gt;prev = p;  // 第四个指向第二个
         p-&gt;next = q;              // 第二个指向第四个
 
+        // 指向下一组需要交换的数
         p = p-&gt;next;
     }
     return pHead;
