@@ -45,8 +45,10 @@ body 中加入 font-family: 'Helvetica Neue', Arial, 'liberation Sans', FreeSans
 * 行间的距离: line-height
 * 文本的水平对齐方式: text-align
 * 内容溢出元素框时: overflow   
-* 向框添加一个或多个阴影: box-shadow
-* 文本阴影效果: text-shadow
+* 向框添加一个或多个阴影: box-shadow   
+* 文本阴影效果: text-shadow   
+* 规定自动换行的处理方法(Opera不支持): word-break
+* 文本溢出包含元素: text-overflow
 * 向 div 元素添加圆角边框: border-radius
 * 透明度: opacity   
 * 指针形状: cursor   
