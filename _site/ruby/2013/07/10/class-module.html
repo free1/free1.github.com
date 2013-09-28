@@ -57,6 +57,47 @@
 <li>同一个类的对象共享同样的方法，但不共享实例变量的原因：一个对象的实例变量存在于对象本身，而一个对象的方法存在于对象自身的类。<br></li>
 </ul>
 
+<h2>创建类方法</h2>
+<div class="highlight"><pre><code class="text language-text" data-lang="text"># 1
+class Rubyist
+  def self.who
+    &quot;Geek&quot;
+  end
+end
+
+# 2
+class Rubyist
+  class &lt;&lt; self
+    def who
+      &quot;Geek&quot;
+    end
+  end
+end
+
+# 3
+class Rubyist
+end
+def Rubyist.who
+  &quot;Geek&quot;
+end
+
+#4
+class Rubyist
+end
+Rubyist.instance_eval do
+  def who
+    &quot;Geek&quot;
+  end
+end
+puts Rubyist.who # =&gt; Geek
+
+# 5
+class &lt;&lt; Rubyist
+  def who
+    &quot;Geek&quot;
+  end
+end
+</code></pre></div>
 <h2>私有(private)方法</h2>
 
 <ul>

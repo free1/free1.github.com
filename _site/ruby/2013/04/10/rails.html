@@ -34,14 +34,26 @@
 <li>order(&quot;published_at desc&quot;)       排序(接收sql语句)</li>
 <li>limit(10)                        限制纪录数量(数字)</li>
 <li>where(&quot;published_at &lt;= ?&quot;, Time.now)    查找纪录条件(接收sql语句，问号中的内容)</li>
-<li>includes(:comments)                     包含关联的模型(:模型名)<br></li>
+<li>includes(:comments)                     包含关联的模型(:模型名) </li>
+<li>joins(:products)                        连接关联的模型(:模型名) </li>
+<li>includes 是 ActiveRecord 中辅助多表查询的方法，除了 includes 还有 joins，区别是 select 部分不同。 </li>
 <li>group                            分组</li>
+<li>offset                           偏移量(数字从第几个开始)</li>
 </ul>
 
 <h2>数据库操作常见方法(一般放到模型中)</h2>
 
 <ul>
-<li>scope              定义一个类方法完成查询，使其可以在控制器中调用</li>
+<li>scope              定义一个类方法完成查询，使其可以在控制器中调用，使用lambda可以使方法传递参数</li>
+</ul>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">class Shirt &lt; ActiveRecord::Base
+  scope :colored, lambda { |color| where(:color =&gt; color) }
+end
+
+Shirt.colored(&#39;puce&#39;)
+</code></pre></div>
+<ul>
+<li>当情况复杂时，可以创建类方法</li>
 </ul>
 
 <p>getter(获取) &amp;&amp; setter(设置):（相对于数据库来说）   </p>

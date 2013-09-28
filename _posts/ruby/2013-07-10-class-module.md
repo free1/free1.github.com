@@ -30,6 +30,51 @@ disqus: false
 * 同一个类的对象共享同样的方法，但不共享实例变量的原因：一个对象的实例变量存在于对象本身，而一个对象的方法存在于对象自身的类。   
 
 
+## 创建类方法
+
+```
+# 1
+class Rubyist
+  def self.who
+    "Geek"
+  end
+end
+ 
+# 2
+class Rubyist
+  class << self
+    def who
+      "Geek"
+    end
+  end
+end
+ 
+# 3
+class Rubyist
+end
+def Rubyist.who
+  "Geek"
+end
+ 
+#4
+class Rubyist
+end
+Rubyist.instance_eval do
+  def who
+    "Geek"
+  end
+end
+puts Rubyist.who # => Geek
+ 
+# 5
+class << Rubyist
+  def who
+    "Geek"
+  end
+end
+```
+
+
 ## 私有(private)方法   
 * 私有规则：如果调用方法的接收者不是你自己，则必须明确指明一个接受者。私有方法只能被隐含接收者调用。      
 * 调用规则：如果对象x和对象y都是同一个类的对象，x不能调用y的私有方法。但能够调用超类中的私有方法。   
