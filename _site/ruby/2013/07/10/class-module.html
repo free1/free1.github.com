@@ -57,6 +57,20 @@
 <li>同一个类的对象共享同样的方法，但不共享实例变量的原因：一个对象的实例变量存在于对象本身，而一个对象的方法存在于对象自身的类。<br></li>
 </ul>
 
+<h2>instance<em>eval与class</em>eval区别</h2>
+
+<ul>
+<li>instance<em>eval必须由instance来调用，可以用来定义单态函数singleton</em>methods</li>
+<li>class<em>eval必须是由class来调用，可以用来定义实例函数instance</em>methods </li>
+</ul>
+
+<h2>instance<em>exec和instance</em>eval区别</h2>
+
+<ul>
+<li>exec只能接代码块，不能接字符串，eval二者皆可</li>
+<li>exec作为方法可以接受参数，然后把它接受的对象传递给代码块，同时把传递对象的环境也带进了exec的代码块</li>
+</ul>
+
 <h2>创建类方法</h2>
 <div class="highlight"><pre><code class="text language-text" data-lang="text"># 1
 class Rubyist
@@ -107,9 +121,11 @@ end
 
 <h2>public, private, protect 区别</h2>
 
-<p>如果是public方法，可以被随便调用。<br>
-如果是protect方法，只能被定义这个方法的类自己的对象和子类的对象访问。<br>
-如果是private方法，只能被对象自己访问。     </p>
+<ul>
+<li>如果是public方法，可以被随便调用。<br></li>
+<li>如果是protect方法，只能被定义这个方法的类自己的对象和子类的对象访问。<br></li>
+<li>如果是private方法，只能被对象自己访问。<br></li>
+</ul>
 
 <h2>类实例变量</h2>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">class MyClass
