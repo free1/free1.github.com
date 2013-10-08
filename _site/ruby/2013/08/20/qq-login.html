@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+    <meta name="author" content="Free" />
+    <meta name="generator" content="Jekyll 1.0.2" />
+    <meta name="description" content="Rails" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="/css/post.css" media="all" />
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="/js/compatible.js"></script>
+
+</head>
+	<body>
+		<div id="Previous">
+			<a href="http://free1.github.com/"> <-Home </a>
+		</div>
+
+		<div id="Title">
+	    	<h1>使用qq登录</h1>
+	    	<p><b>20 Aug 2013</b>, by <b>Free</b></p>
+		</div>
+
+		<div id="Post">
+	    	<article id="articlePost">
+	        	<p><a href="http://wiki.connect.qq.com/">QQ互联文档</a></p>
+
+<h2><a href="http://wiki.connect.qq.com/%E5%BC%80%E5%8F%91%E6%94%BB%E7%95%A5_server-side">基本步骤</a></h2>
+
+<ul>
+<li>放置QQ登录按钮(设置路由,添加登录链接)</li>
+<li>获取Authorization Code(获取认证码)</li>
+<li>通过Authorization Code获取Access Token(通过认证码获取令牌)</li>
+<li>使用Access Token来获取用户的OpenID(通过令牌获取用户标识,openid是此网站上唯一对应用户身份的标识，网站可将此ID进行存储便于用户下次登录时辨识其身份，或将其与用户在网站上的原有账号进行绑定。)</li>
+<li>使用Access Token以及OpenID来访问和修改用户数据(比如get<em>user</em>info)</li>
+</ul>
+
+<p>基本代码如下:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text"># 设置路由
+resources :users do
+  collection do
+    get &#39;qqlogin&#39;
+  end
+end
+
+# 控制器中跳转到登录验证的url
+def qqlogin
+    redirect_to Qq.redo(&quot;get_user_info&quot;)
+end
+
+# QQ登录类
+#encoding=utf-8
+#以下不需要改动
+AUTHURL=&#39;https://graph.qq.com/oauth2.0/authorize?&#39;
+TOKENURL=&#39;https://graph.qq.com/oauth2.0/token?&#39;
+OPENIDURL=&#39;https://graph.qq.com/oauth2.0/me?access_token=&#39;
+GETUSERINFOURL=&#39;https://graph.qq.com/user/get_user_info?&#39;
+
+require &#39;rubygems&#39;
+require &#39;net/http&#39;
+require &#39;uri&#39;
+require &#39;open-uri&#39;
+require &#39;rest-client&#39;
+require &#39;multi_json&#39;
+
+class Qq
+    APPID = &#39;100533871&#39;
+    APPKEY = &#39;5e7bb6b1e0a0a901045be70e1cb99fcc&#39;
+    REDURL = &#39;&amp;redirect_uri=&#39;
+
+    # 需要在本类中的其他方法中调用设置成实例变量
+    attr_reader :token, :openid, :auth
+
+    #点击登陆按钮跳转地址
+    def Qq.redo(scope)
+        AUTHURL + &#39;response_type=code&amp;client_id=&#39;+ APPID + REDURL + &#39;&amp;scope=&#39; + scope
+    end
+
+    #获取令牌:认证码code=params[:code],httpstat=request.env[&#39;HTTP_CONNECTION&#39;]
+    def get_token(code,httpstat)
+        #获取令牌
+        @token=open(TOKENURL + &#39;grant_type=authorization_code&amp;client_id=&#39; + 
+                    APPID + &#39;&amp;client_secret=&#39; + APPKEY + &#39;&amp;code=&#39; + code + 
+                    &#39;&amp;state=&#39;+ httpstat + REDURL,
+                    :ssl_verify_mode =&gt; OpenSSL::SSL::VERIFY_NONE).read[/(?&lt;=access_token=)\w{32}/]
+        #获取Openid
+        @openid=open(OPENIDURL + @token,
+                    :ssl_verify_mode =&gt; OpenSSL::SSL::VERIFY_NONE).read[/\w{32}/]
+        #获取通用验证参数
+        @auth=&#39;access_token=&#39; + @token + &#39;&amp;oauth_consumer_key=&#39; + APPID + &#39;&amp;openid=&#39; + @openid
+    end
+
+    #获取用户信息:比如figureurl,nickname
+    def get_user_info(auth)
+        MultiJson.decode(open(GETUSERINFOURL + auth,
+            :ssl_verify_mode =&gt; OpenSSL::SSL::VERIFY_NONE).read.force_encoding(&#39;utf-8&#39;))
+    end
+end
+
+# 获取用户信息并保存的控制器(一般为首页)
+    def home
+        @posts = Post.all
+        login_by_qq unless params[:code].nil?
+    end
+
+    private
+        def login_by_qq
+            begin
+                httpstat=request.env[&#39;HTTP_CONNECTION&#39;]
+                qq = Qq.new
+                token = qq.get_token(params[:code],httpstat)
+                qq_user_infor = qq.get_user_info(token)
+                # QQ登录操作
+                if @user = User.find_by_uid(qq_user_infor[&quot;nickname&quot;].to_s + qq_user_infor[&quot;figureurl&quot;].to_s)
+                    sign_in_without @user
+                else
+                    # 创建新用户
+                    User.new do |user|
+                        # :uid =&gt;qq_user_infor[&quot;nickname&quot;].to_s + qq_user_infor[&quot;figureurl&quot;].to_s,
+                        user.name = qq_user_infor[&quot;nickname&quot;],
+                        # user.avatar = qq_user_infor[&quot;figureurl_2&quot;]
+                        user.save!(validate: false)
+                    end
+                end
+                # 操作失败返回主页
+                rescue Exception =&gt;e
+                    redirect_to root_path
+              end
+        end
+</code></pre></div>
+	    	</article>
+
+	    	
+				<div style="height: 64px"></div>
+    		
+		</div>
+		
+	</body>
+</html>
+
+
+ 
+   
+       
