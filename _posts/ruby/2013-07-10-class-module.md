@@ -93,10 +93,95 @@ end
 
 
 ## public, private, protect 区别   
-* 如果是public方法，可以被随便调用。     
-* 如果是protect方法，只能被定义这个方法的类自己的对象和子类的对象访问。     
-* 如果是private方法，只能被对象自己访问。     
+* public 可以被任何实例对象调用，不存在访问控制；
+* protected 可以被定义它的类和其子类访问，可以在类中或子类中指定给实例对象；
+* private 可以被定义它的类和其子类访问，不能被实例对象调用。
+* 方法默认都是公有的（initialize方法除外，它永远是私有的）。    
 
+事例代码:   
+
+```
+# 实例对象不能访问private/protected方法
+
+class Person
+  def talk
+    puts "public :talk,将调用speak"
+    speak
+  end
+
+  protected
+    def speak
+      laugh
+    end
+
+  private
+    def laugh
+      puts "private:laugh"
+    end
+end
+p1=Person.new
+p1.talk
+
+#p1.speak 实例对象不能访问protected方法
+#p1.laugh 实例对象不能访问private方法
+
+puts "-----------------------------------------------------"
+
+# 子类可以访问private/protected方法
+
+class Person
+  protected
+    def speak
+      "protected:speak"
+    end
+  private
+    def laugh
+      "private:laugh"
+    end
+end
+
+class Student < Person
+  def useLaugh
+    puts laugh
+  end
+  def useSpeak
+    puts speak
+  end
+end
+
+p2=Student.new
+p2.useLaugh # => private:laugh
+p2.useSpeak # => protected:speak
+
+puts "----------------------------------------------------"
+
+# protected方法可以在类和子类中指定给实例对象,private方法不可以
+
+class Person
+  protected
+    def speak
+      "protected:speak "
+    end
+
+  private
+    def laugh
+      "private:laugh"
+    end
+
+  def useLaugh(another)
+    puts another.laugh #这里错误，私有方法不能指定对象
+  end
+
+  def useSpeak(another)
+    puts another.speak
+  end
+end
+p1=Person.new
+p2=Person.new
+p2.useSpeak(p1) # => protected:speak
+
+#p2.useLaugh(p1)
+```
 
 ## 类实例变量
 
