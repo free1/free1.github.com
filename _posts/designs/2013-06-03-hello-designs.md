@@ -32,6 +32,23 @@ body 中加入 font-family: 'Helvetica Neue', Arial, 'liberation Sans', FreeSans
 	ul { list-style: none; }   去掉前面的点   
 	ul li { display: inline-block; }   导航横向排列(不要使用浮动)   
 
+## 扩大链接可以点击的范围设置:
+
+1.设置成块元素然后放大:
+
+```
+  display: inline-block;
+  width: 180px;
+  height: 210px;
+```
+2.直接在链接中padding:
+
+```
+a {
+  padding: 10px;
+}
+```
+
 ## 居中设置
 * 使div本身居中
   `margin: 0 auto;`

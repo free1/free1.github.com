@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+    <meta name="author" content="Free" />
+    <meta name="generator" content="Jekyll 1.0.2" />
+    <meta name="description" content="Rails(转载)" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="/css/post.css" media="all" />
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="/js/compatible.js"></script>
+
+</head>
+	<body>
+		<div id="Previous">
+			<a href="http://free1.github.com/"> <-Home </a>
+		</div>
+
+		<div id="Title">
+	    	<h1>ActiveRecord资料表关系</h1>
+	    	<p><b>24 Aug 2013</b>, by <b>Free</b></p>
+		</div>
+
+		<div id="Post">
+	    	<article id="articlePost">
+	        	<p><a href="http://ihower.tw/rails3/activerecord-relationships.html">ActiveRecord 資料表關係</a></p>
+
+<h2>一对一关联one-to-one</h2>
+
+<p>model:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">class Event &lt; ActiveRecord::Base
+    has_one :location # 单数
+    #...
+end
+
+class Location &lt; ActiveRecord::Base
+    belongs_to :event # 单数
+end
+</code></pre></div>
+<p>操作1: 建立Location(从属)模型并关联到Event(拥有)模型(new时把Event本体传进参数)</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">e = Event.first
+l = Location.new( :name =&gt; &#39;Hsinchu&#39;, :event =&gt; e ) 
+# 等同于 l = Location.new( :name =&gt; &#39;Hsinchu&#39;, :event_id =&gt; e.id )
+l.save
+e.location
+l.event
+</code></pre></div>
+<p>操作2: 从Event(拥有)模型中建立一个Location(从属)模型(create<em>location可以直接创建，build</em>location需要save)</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">e = Event.first
+l = e.build_location( :name =&gt; &#39;Hsinchu&#39; )
+l.save
+e.location
+l.event
+</code></pre></div>
+<h2>一对多关联one-to-many</h2>
+
+<p>model:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">class Event &lt; ActiveRecord::Base
+    has_many :attendees # 复数
+    #...
+end
+
+class Attendee &lt; ActiveRecord::Base
+    belongs_to :event # 单数
+end
+</code></pre></div>
+<p>操作1: 建立Attendee(从属)模型并关联到Event(拥有)模型</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">e = Event.first
+a = Attendee.new( :name =&gt; &#39;ihower&#39;, :event =&gt; e ) 
+# 或 a = Attendee.new( :name =&gt; &#39;ihower&#39;, :event_id =&gt; e.id )
+a.save
+e.attendees # 数组
+e.attendees.size
+Attendee.first.event
+</code></pre></div>
+<p>操作2: 从Event(拥有)模型中建立一个Attendee(从属)模型</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">e = Event.first
+a = e.attendees.build( :name =&gt; &#39;ihower&#39; )
+a.save
+e.attendees
+</code></pre></div>
+<p><a href="http://ihower.tw/rails3/activerecord-relationships.html">之后内容详见链接</a></p>
+
+	    	</article>
+
+	    	
+				<div style="height: 64px"></div>
+    		
+		</div>
+		
+	</body>
+</html>
+
+
+ 
+   
+       
