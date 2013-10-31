@@ -43,8 +43,7 @@ end
 </code></pre></div>
 <p>操作1: 建立Location(从属)模型并关联到Event(拥有)模型(new时把Event本体传进参数)</p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">e = Event.first
-l = Location.new( :name =&gt; &#39;Hsinchu&#39;, :event =&gt; e ) 
-# 等同于 l = Location.new( :name =&gt; &#39;Hsinchu&#39;, :event_id =&gt; e.id )
+l = Location.new( :name =&gt; &#39;Hsinchu&#39;, :event_id =&gt; e.id )
 l.save
 e.location
 l.event
@@ -70,8 +69,7 @@ end
 </code></pre></div>
 <p>操作1: 建立Attendee(从属)模型并关联到Event(拥有)模型</p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">e = Event.first
-a = Attendee.new( :name =&gt; &#39;ihower&#39;, :event =&gt; e ) 
-# 或 a = Attendee.new( :name =&gt; &#39;ihower&#39;, :event_id =&gt; e.id )
+a = Attendee.new( :name =&gt; &#39;ihower&#39;, :event_id =&gt; e.id )
 a.save
 e.attendees # 数组
 e.attendees.size

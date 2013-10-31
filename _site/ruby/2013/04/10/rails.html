@@ -52,8 +52,14 @@ end
 
 Shirt.colored(&#39;puce&#39;)
 </code></pre></div>
+<h2>路由中member与collection区别:</h2>
+
 <ul>
-<li>当情况复杂时，可以创建类方法</li>
+<li>member 方法作用是，设置这两个动作对应的 URL 地址中应该包含用户的 id，例如: /users/1/following生成following<em>user</em>path(1)</li>
+<li>如果是show edit这种只处理一个。　就是member。</li>
+<li>collection 方法，但 URL 中就没有用户 id 了，例如: /users/tigers生成tigers<em>users</em>url</li>
+<li><p>如果index　bulk_edit这样一次操作多个。就是collection。</p></li>
+<li><p>当情况复杂时，可以创建类方法</p></li>
 </ul>
 
 <p>getter(获取) &amp;&amp; setter(设置):（相对于数据库来说）   </p>
@@ -97,6 +103,9 @@ save是实例方法，而create, build, new是模型类的类方法   </p>
 
 <p>指定rails版本创建项目<br>
 rails  <em>版本号</em> new 项目名称   </p>
+
+<p>当migrate文件比较复杂时，可以这样整理:<br>
+直接新建一个 migration，把 schema.rb 里的内容拷到 setup 里，然后把老的所有 migration 文件删掉。重新 migrate 一下更新 schema.rb。   </p>
 
 <p>:if =&gt; :new<em>record?<br>
 报密码不能为空可能是你有一个虚拟的password属性。比如你用了什么auth类的gem，或者你自己加了一个attr</em>accessor :password。然后又有validates :password这样的验证。那么，当你是从数据库中取出记录User.find(params[:id])的时候，这个属性还是nil。你只修改name的话，就会报invalid了。   </p>

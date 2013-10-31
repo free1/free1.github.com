@@ -31,7 +31,7 @@
 
 <p>Ruby的正则表达式以/pattern/为模式，表达式返回一个RegExp的对象。可以通过内省方法来查看：</p>
 
-<p><code>puts /RoR|Rails/.class #-> RegExp</code></p>
+<p><code>puts /RoR|Rails/.class #-&gt; RegExp</code></p>
 
 <h2>Ruby中正则表达式的写法</h2>
 
@@ -48,7 +48,7 @@ Regexp.new()内，不用进行转义<br>
 regexp#match(str)，返回MatchData，一个数组，从0开始，还有match.pre<em>match返回匹配前内容，match.post</em>match返回匹配后内容<br>
 /cat/ =~ &quot;dog and cat&quot;  #返回8<br>
 mt = /cat/.match(&quot;bigcatcomes&quot;)<br>
-&quot;#{mt.pre<em>match}->#{mt[0]}&lt;-#{mt.post</em>match}&quot; #返回big->cat&lt;-comes   </p>
+&quot;#{mt.pre<em>match}-&gt;#{mt[0]}&lt;-#{mt.post</em>match}&quot; #返回big-&gt;cat&lt;-comes   </p>
 
 <h2>替换</h2>
 
@@ -189,7 +189,7 @@ test=re.match(&quot;abc&quot;)
 puts test[0] #-&gt; Nil
 </code></pre></div><div class="highlight"><pre><code class="text language-text" data-lang="text">正则表达式转换成字符串
 </code></pre></div>
-<p><code>puts /abc/.inspect #-> /abc/</code></p>
+<p><code>puts /abc/.inspect #-&gt; /abc/</code></p>
 
 <p>使用正则表达式的常见方法</p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">    用于if和while等

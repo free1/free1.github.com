@@ -35,7 +35,7 @@
 <li>实例变量(@):<br>
 引用未被初始化的实例变量会返回nil。</li>
 <li>全局变量($):<br>
-同实例变量。</li>
+引用未被初始化的实例变量会返回nil。</li>
 <li>局部变量(下划线或小写字符开头):<br>
 通常只能在 一个函数内使用。如果需要变量能在整个类中使用就要把变量设置成实例变量。<br>
 如果未初始化，先去寻找有无这个名字的方法，没有就会抛出NameError。<br>
@@ -45,6 +45,42 @@
 <code>print b</code>              <em># NameError</em><br></li>
 </ul>
 
+<h2>类方法和实例变量，实例方法和类变量</h2>
+
+<ul>
+<li>类方法：   实例变量，类变量<br>
+使用类方法，可以使用本类中的顶级实例变量和顶级类变量</li>
+</ul>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">class MyClass
+  @val = 1
+  def self.my_method
+    p &quot;#{@val}&quot; 
+    @val += 1
+  end
+end
+
+
+MyClass.my_method
+MyClass.my_method
+MyClass.my_method
+</code></pre></div>
+<ul>
+<li>实例方法：   类变量<br>
+使用实例方法，只能使用本类中的顶级类变量</li>
+</ul>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">class MyClass
+  @@val = 1
+  def my_method
+    p &quot;#{@@val}&quot; 
+    @@val += 1
+  end
+end
+
+c = MyClass.new
+c.my_method
+c.my_method
+c.my_method
+</code></pre></div>
 <h2>常量引用(以大写字母开头，一般都是大写字母并使用下划线分割单词):</h2>
 
 <ul>

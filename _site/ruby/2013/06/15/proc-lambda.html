@@ -29,7 +29,7 @@
 	    	<article id="articlePost">
 	        	<ul>
 <li><p>proc的行为与代码块类似，而lambda的行为则与方法类似，它们都是Proc类的实例。用block，用lambda，不要用proc，让proc做好自己的幕后工作就好了(一般block可以代替proc)。</p></li>
-<li><p>lambda的 succ = lambda { |x| x+1 } 可以写成 succ = ->(x) { x+1 }</p></li>
+<li><p>lambda的 succ = lambda { |x| x+1 } 可以写成 succ = -&gt;(x) { x+1 }</p></li>
 </ul>
 
 <h2>代码块，proc和lambda中的return语句。</h2>
