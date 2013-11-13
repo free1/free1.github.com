@@ -10,6 +10,10 @@ disqus: false
 [rspec源码](https://github.com/rspec/rspec-rails)
 
 ## 命令行运行测试
+* 安装rspec：
+$ rails generate rspec:install
+* 生成测试需要的代码文件：
+$ rails generate integration_test static_pages
 * 迁移数据库：
 $ bundle exec rake db:migrate    
 * 测试准备：
@@ -56,6 +60,19 @@ end
 这样的方式（注意第一个describe的参数是一个类，第二个describe参数是以#开始)这个表示测试Timesheet类下面的test方法)
 
 
+## its方法
+它和 it 很像，不过测试对象是参数中指定的属性而不是整个测试的对象。   
+
+```
+its(:remember_token) { should_not be_blank }
+```
+
+等同于：
+
+```
+it { expect(@user.remember_token).not_to be_blank }
+```
+
 ## before和after方法
 和setup、teardown方法类似   
 Before and after code can be inserted in any describe or context blocks, and by default the execute for each it block that shares their scope.
@@ -80,6 +97,27 @@ end
 生成的RSpecDoc如下：
 BlogPost
 - should not be published
+
+
+## shared_examples_for方法与it_should_behave_like方法来消除重复
+
+```
+subject { page }
+
+  shared_examples_for "all static pages" do
+    it { should have_content(heading) }
+    it { should have_title(full_title(page_title)) }
+  end
+
+  describe "Home page" do
+    before { visit root_path }
+    let(:heading)    { 'Sample App' }
+    let(:page_title) { '' }
+
+    it_should_behave_like "all static pages"
+    it { should_not have_title('| Home') }
+  end
+```
 
 
 ## expect方法
