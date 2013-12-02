@@ -7,6 +7,7 @@ disqus: false
 ---
 
 [devise介绍+使用](http://blog.163.com/xingchao_gan/blog/static/183374228201173174316813/)
+[同时使用用户名或邮箱登录](https://github.com/plataformatec/devise/wiki/How-To:-Allow-users-to-sign-in-using-their-username-or-email-address)
 
 1：Encryptable:除了内置的Bcrypt(默认)，增加支持认证机制   
 

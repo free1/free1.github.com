@@ -107,7 +107,7 @@ This is obj2′s meth2
 
 
 ## 方法别名
-* alias aka also_known_as，执行完后，aka标示符与also_known_as引用同一方法(可为一个方法增加新的功能)。
+* alias aka `also_known_as` ，执行完后，aka标示符与 `also_known_as` 引用同一方法(可为一个方法增加新的功能)。
 * 当新方法被重新定义时，老方法不会改变，这个特性可以用来使用环绕别名的技巧:   
    
    1. 给方法定义一个别名。      
@@ -117,25 +117,31 @@ This is obj2′s meth2
 
 ## 参数默认值
 	在参数名后加入等号和默认值。
-	(参数默认值可以是常量，表达式，实例变量的引用，前面定义参数的引用)   
+	(参数默认值可以是常量，表达式，实例变量的引用，前面定义参数的引用) 
+
+```  
 	def prefix(s, len=1)   
 		s[0,len]   
 	end   
+```
 
 
 ## 可变长度参数列表和数组(*,&在参数列表中只能有一个)
 	接收任意参数，在参数前加*符：(打头的参数要放在带有默认值参数的后面，
 	其后可以再指定普通参数，但该普通参数需要放在&打头参数之前，&参数必须在最后)。   
 
+```
 	def max(first, *rest)   
 		max = first   
 		rest.each { |x| max = x if x > max }   
 		max   
 	end   
-
+```
 
 
 ## 代码块参数
+
+```
   yield方式:    
 
 	def s(n, m, c)   
@@ -157,14 +163,15 @@ This is obj2′s meth2
 		end   
 	end   
 	s(5,3,3) {|x| puts x}   
-
+```
 
 ## 动态调用方法   
-* 使用send：obj.send(:method, 3) ，第一个参数为方法名，剩下的参数直接传递给调用的方法。还有public_send()，前者可以调用私有方法。   
+* 使用send：obj.send(:method, 3) ，第一个参数为方法名，剩下的参数直接传递给调用的方法。还有 `public_send()` ，前者可以调用私有方法。   
 
-## 动态定义方法(使用 define_method )    
+## 动态定义方法(使用 `define_method` )    
   事例代码:   
 
+```
 	class MyClass   
 		define_method :my_method do |my_arg|   
 			my_arg * 3   
@@ -172,7 +179,8 @@ This is obj2′s meth2
 	end   
 
 	obj = MyClass.new   
-	obj.my_method(2)   # => 6     
+	obj.my_method(2)   # => 6    
+``` 
 
 
 

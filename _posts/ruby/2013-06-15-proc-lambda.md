@@ -14,6 +14,7 @@ disqus: false
 	在一个代码块中的return语句不仅仅会从调用代码块的迭代器返回，
 	它还会从调用迭代器的方法返回。   
 
+```
 	def text   
 		puts "ss"   
 		1.times { puts "aa"; return } (使text方法返回)   
@@ -64,12 +65,14 @@ disqus: false
 		puts "aa"  (执行)   
 	end   
 	text   
+```
 
 ## 代码块，proc和lambda中的break语句。
 	代码块中break语句的行为: 它使该代码块返回到它的迭代器，然后该迭代器再返回
 	到调用它的方法。用Proc.new创建一个proc时，这个Proc.new就是break语句返
 	回的地方，所以以下代码不正确:   
 
+```
 	def text   
 		puts "ss"   
 		proc = Proc.new { puts "aa"; break }   
@@ -99,29 +102,35 @@ disqus: false
 		lambda.call   
 		puts "xxx"   
 	end   
-	test   
+	test 
+```  
 
 ## 传递给proc和lambda的参数。
 	lambda对参数有着严谨的检查，需要参数一致。proc则不需要。
 
 	调用proc使用的是yield语意:   
 
+```
 	p = Proc.new { |x,y| print x,y }   
 	p.call(1)         # Prints 1nil   
 	p.call(1,2)		  # Prints 12   
 	p.call(1,2,3)	  # Prints 12   
-	p.call([1,2])	  # Prints 12   
+	p.call([1,2])	  # Prints 12  
+```
+
 	proc处理参数可以抛弃多余参数，将nil赋给遗漏参数，拆开数组，
 	当需要单个参数时可以把多个参数打包成数组。   
 
 	lambda则必须声明同样多的参数对它进行调用:   
 
+```
 	l = lambda { |x,y| print x,y }   
 	l.call(1,2)		 # 正常   
 	l.call(1)		 # Wrong number of arguments   
 	l.call(1,2,3)	 # Wrong number of arguments   
 	l.call([1,2])	 # Wrong number of arguments   
 	l.call(*[1,2])	 # 显式实现将数组解开   
+```
 
 
 
