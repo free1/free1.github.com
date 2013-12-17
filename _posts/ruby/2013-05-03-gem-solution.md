@@ -29,3 +29,12 @@ The solution:
 *   Delete your /solr directory.
 *   rake sunspot:solr:start
 *   rake sunspot:solr:reindex
+
+
+## 使用rvm安装gem出现权限错误 
+
+* 1. 命令 gem install sqlite3
+错误：ERROR:  While executing gem ... (Errno::EACCES)
+    Permission denied - /Users/free/.rvm/gems/ruby-1.9.3-p327/cache/sqlite3-1.3.6.gem
+
+解决方法：chown -R free ~/.rvm，然后再安装，sudo gem install sqlite3。
