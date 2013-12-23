@@ -34,7 +34,7 @@ window.onload=function ()
 	// 把改变的week放入数组
 	g_aImg.push(aImg[aImg.length-1]);
 	
-	// 获取当前时间的数组
+	// 获取当前时间的整型数组
 	aNow=getTimeArray();
 	
 	// 固定图片的数字使其不改变

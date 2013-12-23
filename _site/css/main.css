@@ -182,3 +182,10 @@ a {
 	color: #fff;
 }
 
+/*鼠标移动效果*/
+div.mousemove {
+	width: 10px; 
+	height: 10px; 
+	background: red; 
+	position: absolute;
+}

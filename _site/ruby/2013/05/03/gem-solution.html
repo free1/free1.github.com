@@ -51,6 +51,16 @@ Error: Severe errors in solr configuration.   </p>
 <li>  rake sunspot:solr:reindex</li>
 </ul>
 
+<h2>使用rvm安装gem出现权限错误</h2>
+
+<ul>
+<li>1. 命令 gem install sqlite3
+错误：ERROR:  While executing gem ... (Errno::EACCES)
+Permission denied - /Users/free/.rvm/gems/ruby-1.9.3-p327/cache/sqlite3-1.3.6.gem</li>
+</ul>
+
+<p>解决方法：chown -R free ~/.rvm，然后再安装，sudo gem install sqlite3。</p>
+
 	    	</article>
 
 	    	

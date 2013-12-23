@@ -48,7 +48,7 @@ l.save
 e.location
 l.event
 </code></pre></div>
-<p>操作2: 从Event(拥有)模型中建立一个Location(从属)模型(create<em>location可以直接创建，build</em>location需要save)</p>
+<p>操作2: 从Event(拥有)模型中建立一个Location(从属)模型(<code>create_location</code>可以直接创建，<code>build_location</code>需要save)</p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">e = Event.first
 l = e.build_location( :name =&gt; &#39;Hsinchu&#39; )
 l.save

@@ -27,7 +27,26 @@
 
 		<div id="Post">
 	    	<article id="articlePost">
-	        	<h2>数据库操作常见方法(一般用在控制器中)</h2>
+	        	<h2>常用rails命令例子</h2>
+
+<ul>
+<li>创建rails程序并不带自身测试： rails new sample_app --skip-test-unit</li>
+<li>指定rails版本创建项目：<code>rails  _版本号_ new</code> 项目名称<br></li>
+<li>创建脚手架：rails generate scaffold User name:string email:string</li>
+<li>生成控制器代码：rails generate controller FooBars baz quux  (--no-test-framework加上不生成测试所用代码)</li>
+<li>撤销控制器代码：rails destroy  controller FooBars baz quux</li>
+<li>生成模型代码：rails generate model Foo bar:string baz:integer</li>
+<li>撤销模型代码：rails destroy model Foo</li>
+<li>查看关于数据库的rake任务：bundle exec rake -T db</li>
+<li>查看所有rake任务：bundle exec rake -T</li>
+<li>迁移数据库：rake db:migrate</li>
+<li>在命令行使用开发数据库：sqlite3 -line db/development.sqlite3</li>
+<li>离开开发数据库：.quit</li>
+<li>撤销迁移数据库：rake db:rollback</li>
+<li>安装gem：bundle install --without production 不包括生产环境</li>
+</ul>
+
+<h2>数据库操作常见方法(一般用在控制器中)</h2>
 
 <ul>
 <li>find(尽量少用)                    查找</li>
@@ -41,6 +60,20 @@
 <li>offset                           偏移量(数字从第几个开始)</li>
 </ul>
 
+<h2>Rails中扩大链接可点击范围</h2>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;a href=&quot;&lt;%= user_path(current_user) %&gt;&quot;&gt;
+    &lt;%= gravatar_for current_user, size: 52 %&gt;
+&lt;/a&gt;
+
+&lt;%= link_to post do %&gt;
+    &lt;p class=&quot;title&quot;&gt;&lt;%= post.title %&gt;&lt;/p&gt;
+    &lt;div class=&quot;line&quot;&gt;&lt;/div&gt;
+    &lt;p class=&quot;content&quot;&gt;&lt;%= truncate(strip_tags(post.content), length: 100) %&gt;&lt;/p&gt;
+    &lt;p class=&quot;timestamp&quot;&gt;
+        &lt;%= time_ago_in_words(post.created_at) %&gt; ago.
+    &lt;/p&gt;
+&lt;% end %&gt;
+</code></pre></div>
 <h2>数据库操作常见方法(一般放到模型中)</h2>
 
 <ul>
@@ -55,10 +88,10 @@ Shirt.colored(&#39;puce&#39;)
 <h2>路由中member与collection区别:</h2>
 
 <ul>
-<li>member 方法作用是，设置这两个动作对应的 URL 地址中应该包含用户的 id，例如: /users/1/following生成following<em>user</em>path(1)</li>
+<li>member 方法作用是，设置这两个动作对应的 URL 地址中应该包含用户的 id，例如: /users/1/following生成 <code>following_user_path(1)</code></li>
 <li>如果是show edit这种只处理一个。　就是member。</li>
-<li>collection 方法，但 URL 中就没有用户 id 了，例如: /users/tigers生成tigers<em>users</em>url</li>
-<li><p>如果index　bulk_edit这样一次操作多个。就是collection。</p></li>
+<li>collection 方法，但 URL 中就没有用户 id 了，例如: /users/tigers生成 <code>tigers_users_url</code></li>
+<li><p>如果index　<code>bulk_edit</code> 这样一次操作多个。就是collection。</p></li>
 <li><p>当情况复杂时，可以创建类方法</p></li>
 </ul>
 
@@ -86,14 +119,14 @@ public void setName(String name) {
 
 }
 </code></pre></div>
-<p>save：rails中的save其实是create<em>or</em>update，新建或修改记录！不一定是新建。<br>
+<p>save：rails中的save其实是 <code>create_or_update</code> ，新建或修改记录！不一定是新建。<br>
 new ：只是在内存中新建一个对象，操作数据库要调用save方法。<br>
 create = new + 执行sql。<br>
 build：与new基本相同，多用于一对多情况下。<br>
 !：new!, create!, build!与new, create,    build的区别是带!的方法会显示validate的错误信息，如果验证失败会抛出导常(主要的是不跳过验证)。<br>
 save是实例方法，而create, build, new是模型类的类方法   </p>
 
-<p>before<em>save和before</em>create最大的一个区别就是，update也算是before_save。    </p>
+<p><code>before_save和before_create</code> 最大的一个区别就是，<code>update</code> 也算是 <code>before_save</code> 。    </p>
 
 <p>Gemfile中：   </p>
 
@@ -101,14 +134,11 @@ save是实例方法，而create, build, new是模型类的类方法   </p>
 <p>= 总会升级到最新版；~&gt; 3.2.2 只会升级补丁版本的更新（例如从 3.2.1 到 3.2.2），而不会升级到次版本或主版本的更新（例如从 3.2 到 3.3）   </p>
 </blockquote>
 
-<p>指定rails版本创建项目<br>
-rails  <em>版本号</em> new 项目名称   </p>
-
 <p>当migrate文件比较复杂时，可以这样整理:<br>
 直接新建一个 migration，把 schema.rb 里的内容拷到 setup 里，然后把老的所有 migration 文件删掉。重新 migrate 一下更新 schema.rb。   </p>
 
-<p>:if =&gt; :new<em>record?<br>
-报密码不能为空可能是你有一个虚拟的password属性。比如你用了什么auth类的gem，或者你自己加了一个attr</em>accessor :password。然后又有validates :password这样的验证。那么，当你是从数据库中取出记录User.find(params[:id])的时候，这个属性还是nil。你只修改name的话，就会报invalid了。   </p>
+<p>:if =&gt; <code>:new_record?</code><br>
+报密码不能为空可能是你有一个虚拟的password属性。比如你用了什么auth类的gem，或者你自己加了一个attr_accessor :password。然后又有validates :password这样的验证。那么，当你是从数据库中取出记录User.find(params[:id])的时候，这个属性还是nil。你只修改name的话，就会报invalid了。   </p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">HTTP 请求     URI     动作                   具名路由   作用   
 GET           /users    index                  users_path   显示所有用户的页面
 GET           /users/1  show                   user_path(user) 显示某个用户的页面

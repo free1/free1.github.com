@@ -4,7 +4,7 @@
 	<meta charset="UTF-8" />
     <meta name="author" content="Free" />
     <meta name="generator" content="Jekyll 1.0.2" />
-    <meta name="description" content="Ruby(转载)" />
+    <meta name="description" content="Rails(转载)" />
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     
@@ -21,16 +21,15 @@
 		</div>
 
 		<div id="Title">
-	    	<h1>设计Ruby APIs与元编程</h1>
-	    	<p><b>17 Aug 2013</b>, by <b>Free</b></p>
+	    	<h1>Rails 从3.2升级到4.0</h1>
+	    	<p><b>29 Aug 2013</b>, by <b>Free</b></p>
 		</div>
 
 		<div id="Post">
 	    	<article id="articlePost">
-	        	<p><a href="http://ihower.tw/blog/archives/4797">如何设计出漂亮的Ruby APIs</a><br>
-<a href="http://ruby-china.org/wiki/coding-style">代码编写风格</a><br>
-<a href="http://deathking.is-programmer.com/posts/29100.html">元编程实用方法</a><br>
-<a href="http://deathking.is-programmer.com/posts/29432.html">元编程例子</a></p>
+	        	<p>在model中使用某个属性不要使用 <code>attr_accessible</code> 而在controller中使用 <code>permit</code> 方法，例如：<code>params.require(:model).permit(:attribute)</code> ，不经过controller的可以使用 <code>attr_accessor</code>   </p>
+
+<p><a href="https://github.com/JuanitoFatas/Guides/blob/master/guides/edge-translation/upgrading-ruby-on-rails-zh_CN.md">Rails 从3.2升级到4.0</a></p>
 
 	    	</article>
 

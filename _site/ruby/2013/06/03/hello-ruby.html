@@ -41,7 +41,7 @@
 <li>在def关键字后加上一个求值结果为对象的表达式，表达式之后一个句点符号和要定义的方法名。<br></li>
 </ul>
 
-<p>特殊方法是指某实例所特有的方法。一个对象有哪些行为由对向所属的类决定，但是有时候，一些特殊的对象有何其他对象不一样的行为，在多数程序设计语言中，例如C++和Java，我们必须定义一个新类，但在Ruby中，我们可以定义只从属于某个特定对象的方法，这种方法我们成为特殊方法(Singleton Method)。</p>
+<p>特殊方法是指某实例所特有的方法。一个对象有哪些行为由对向所属的类决定，但是有时候，一些特殊的对象有和其他对象不一样的行为，在多数程序设计语言中，例如C++和Java，我们必须定义一个新类，但在Ruby中，我们可以定义只从属于某个特定对象的方法，这种方法我们成为特殊方法(Singleton Method)。</p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">class SingletonTest
     def info
         puts “This is This is SingletonTest method”
@@ -127,7 +127,7 @@ This is obj2′s meth2   </p>
 <h2>方法别名</h2>
 
 <ul>
-<li>alias aka also<em>known</em>as，执行完后，aka标示符与also<em>known</em>as引用同一方法(可为一个方法增加新的功能)。</li>
+<li>alias aka <code>also_known_as</code> ，执行完后，aka标示符与 <code>also_known_as</code> 引用同一方法(可为一个方法增加新的功能)。</li>
 <li>当新方法被重新定义时，老方法不会改变，这个特性可以用来使用环绕别名的技巧:<br></li>
 </ul>
 
@@ -139,60 +139,60 @@ This is obj2′s meth2   </p>
 
 <h2>参数默认值</h2>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">在参数名后加入等号和默认值。
-(参数默认值可以是常量，表达式，实例变量的引用，前面定义参数的引用)   
-def prefix(s, len=1)   
-    s[0,len]   
-end   
+(参数默认值可以是常量，表达式，实例变量的引用，前面定义参数的引用) 
+</code></pre></div><div class="highlight"><pre><code class="text language-text" data-lang="text">    def prefix(s, len=1)   
+        s[0,len]   
+    end   
 </code></pre></div>
 <h2>可变长度参数列表和数组(*,&amp;在参数列表中只能有一个)</h2>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">接收任意参数，在参数前加*符：(打头的参数要放在带有默认值参数的后面，
 其后可以再指定普通参数，但该普通参数需要放在&amp;打头参数之前，&amp;参数必须在最后)。   
-
-def max(first, *rest)   
-    max = first   
-    rest.each { |x| max = x if x &gt; max }   
-    max   
-end   
+</code></pre></div><div class="highlight"><pre><code class="text language-text" data-lang="text">    def max(first, *rest)   
+        max = first   
+        rest.each { |x| max = x if x &gt; max }   
+        max   
+    end   
 </code></pre></div>
 <h2>代码块参数</h2>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">  yield方式:    
 
-<p>yield方式:    </p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">def s(n, m, c)   
-    i = 0   
-    while(i &lt; n)   
-        yield i*m+c   
-        i += 1   
+    def s(n, m, c)   
+        i = 0   
+        while(i &lt; n)   
+            yield i*m+c   
+            i += 1   
+        end   
+    end    
+    s(5,3,3) {|x| puts x}   
+
+  Proc的call方式:   
+
+    def s(n, m, c，&amp;b)   
+        i = 0   
+        while(i &lt; n)   
+            b.call(i*m+c)   
+            i += 1   
+        end   
     end   
-end    
-s(5,3,3) {|x| puts x}   
-</code></pre></div>
-<p>Proc的call方式:   </p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">def s(n, m, c，&amp;b)   
-    i = 0   
-    while(i &lt; n)   
-        b.call(i*m+c)   
-        i += 1   
-    end   
-end   
-s(5,3,3) {|x| puts x}   
+    s(5,3,3) {|x| puts x}   
 </code></pre></div>
 <h2>动态调用方法</h2>
 
 <ul>
-<li>使用send：obj.send(:method, 3) ，第一个参数为方法名，剩下的参数直接传递给调用的方法。还有public_send()，前者可以调用私有方法。<br></li>
+<li>使用send：obj.send(:method, 3) ，第一个参数为方法名，剩下的参数直接传递给调用的方法。还有 <code>public_send()</code> ，前者可以调用私有方法。<br></li>
 </ul>
 
-<h2>动态定义方法(使用 define_method )</h2>
+<h2>动态定义方法(使用 <code>define_method</code> )</h2>
 
 <p>事例代码:   </p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">class MyClass   
-    define_method :my_method do |my_arg|   
-        my_arg * 3   
+<div class="highlight"><pre><code class="text language-text" data-lang="text">    class MyClass   
+        define_method :my_method do |my_arg|   
+            my_arg * 3   
+        end   
     end   
-end   
 
-obj = MyClass.new   
-obj.my_method(2)   # =&gt; 6     
+    obj = MyClass.new   
+    obj.my_method(2)   # =&gt; 6    
 </code></pre></div>
 	    	</article>
 

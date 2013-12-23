@@ -45,10 +45,10 @@ Regexp.new()内，不用进行转义<br>
 <h2>匹配的两种方法</h2>
 
 <p>=~肯定匹配, !~否定匹配。=~表达式返回匹配到的位置索引，失败返回nil，符号左右内容可交换
-regexp#match(str)，返回MatchData，一个数组，从0开始，还有match.pre<em>match返回匹配前内容，match.post</em>match返回匹配后内容<br>
+regexp#match(str)，返回MatchData，一个数组，从0开始，还有 <code>match.pre_match</code> 返回匹配前内容，match.post<em>match返回匹配后内容<br>
 /cat/ =~ &quot;dog and cat&quot;  #返回8<br>
 mt = /cat/.match(&quot;bigcatcomes&quot;)<br>
-&quot;#{mt.pre<em>match}-&gt;#{mt[0]}&lt;-#{mt.post</em>match}&quot; #返回big-&gt;cat&lt;-comes   </p>
+&quot;#{mt.pre</em>match}-&gt;#{mt[0]}&lt;-#{mt.post_match}&quot; #返回big-&gt;cat&lt;-comes   </p>
 
 <h2>替换</h2>
 

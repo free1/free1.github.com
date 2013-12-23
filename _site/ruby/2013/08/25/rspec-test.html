@@ -27,12 +27,16 @@
 
 		<div id="Post">
 	    	<article id="articlePost">
-	        	<p><a href="https://www.relishapp.com/rspec/rspec-rails/docs">rspec文档</a>
+	        	<p><a href="https://www.relishapp.com/rspec/rspec-rails/docs">rspec文档</a><br>
 <a href="https://github.com/rspec/rspec-rails">rspec源码</a></p>
 
 <h2>命令行运行测试</h2>
 
 <ul>
+<li>安装rspec：
+$ rails generate rspec:install</li>
+<li>生成测试需要的代码文件：
+$ rails generate integration<em>test static</em>pages</li>
 <li>迁移数据库：
 $ bundle exec rake db:migrate<br></li>
 <li>测试准备：
@@ -74,6 +78,14 @@ end
 </code></pre></div>
 <p>这样的方式（注意第一个describe的参数是一个类，第二个describe参数是以#开始)这个表示测试Timesheet类下面的test方法)</p>
 
+<h2>its方法</h2>
+
+<p>它和 it 很像，不过测试对象是参数中指定的属性而不是整个测试的对象。   </p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">its(:remember_token) { should_not be_blank }
+</code></pre></div>
+<p>等同于：</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">it { expect(@user.remember_token).not_to be_blank }
+</code></pre></div>
 <h2>before和after方法</h2>
 
 <p>和setup、teardown方法类似<br>
@@ -98,6 +110,23 @@ end
 BlogPost
 - should not be published</p>
 
+<h2><code>shared_examples_for</code>方法与<code>it_should_behave_like</code>方法来消除重复</h2>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">subject { page }
+
+  shared_examples_for &quot;all static pages&quot; do
+    it { should have_content(heading) }
+    it { should have_title(full_title(page_title)) }
+  end
+
+  describe &quot;Home page&quot; do
+    before { visit root_path }
+    let(:heading)    { &#39;Sample App&#39; }
+    let(:page_title) { &#39;&#39; }
+
+    it_should_behave_like &quot;all static pages&quot;
+    it { should_not have_title(&#39;| Home&#39;) }
+  end
+</code></pre></div>
 <h2>expect方法</h2>
 
 <p>expect 用来改变一个值或者抛出一个异常。后面接change来表示要达到的值，使用raise_error(异常类)来表示会抛出一个异常。<br>

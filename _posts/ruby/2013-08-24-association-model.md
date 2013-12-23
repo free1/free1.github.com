@@ -35,7 +35,7 @@ e.location
 l.event
 ```
 
-操作2: 从Event(拥有)模型中建立一个Location(从属)模型(create_location可以直接创建，build_location需要save)
+操作2: 从Event(拥有)模型中建立一个Location(从属)模型(`create_location`可以直接创建，`build_location`需要save)
 
 ```
 e = Event.first

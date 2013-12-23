@@ -73,8 +73,8 @@ end
 </code></pre></div>
 <p>上面一个try是对 Object 的扩展，下面的是对 NilClass 的扩展，这就是为什么会nil不会抛出异常的原因。   </p>
 
-<p>try 如果只接受 block 则传递 self 给 block，返回 block 执行后的结果，否则就执行
-public<em>send，public</em>send 与 send 的不同之处，public<em>send 只会 call public</em>method，看例子   </p>
+<p><code>try</code> 如果只接受 block 则传递 self 给 block，返回 block 执行后的结果，否则就执行
+<code>public_send</code>，<code>public_send</code> 与 <code>send</code> 的不同之处，<code>public_send</code> 只会 call <code>public_method</code>，看例子   </p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">@person &amp;&amp; @persion.name
 @person ? @person.name : nil
 </code></pre></div>

@@ -27,13 +27,27 @@
 
 		<div id="Post">
 	    	<article id="articlePost">
-	        	<h2>获取document引用的方式:</h2>
+	        	<h2>什么时候为真什么时候为假</h2>
+
+<ul>
+<li>真：true、非零数字、非空字符串、非空对象</li>
+<li>假：false、数字零、空字符串、空对象、undefined</li>
+</ul>
+
+<h2>获取document引用的方式:</h2>
 
 <ul>
 <li>getElementById: 返回一个指向具有指定Id属性的元素引用</li>
 <li>getElementsByTagName: 返回具有该标签的元素数组</li>
 </ul>
 
+<h2>==与===区别</h2>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">var a=5;
+var b=&#39;5&#39;;
+
+alert(a==b);  //true    先转换类型，然后比较
+alert(a===b); //false   不转换类型，直接比
+</code></pre></div>
 <h2>定时器操作</h2>
 
 <ul>
@@ -127,6 +141,27 @@ status属性:请求结果 responseText<br></li>
         window.location = &quot;http://www.google.com/chrome&quot;;
     }
 </code></pre></div>
+<h2>取消冒泡(设置对象的cancelBubble属性为true)</h2>
+
+<p><code>oEvent.cancelBubble = true;</code></p>
+
+<h2>兼容性问题</h2>
+
+<ul>
+<li>使用事件时</li>
+</ul>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">function (ev)
+{
+  var oEvent=ev||event;
+  ...
+}
+</code></pre></div>
+<ul>
+<li>获取坐标</li>
+</ul>
+
+<p><code>document.documentElement.scrollTop||document.body.scrollTop;</code></p>
+
 	    	</article>
 
 	    	

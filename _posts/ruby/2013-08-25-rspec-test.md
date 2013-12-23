@@ -99,7 +99,7 @@ BlogPost
 - should not be published
 
 
-## shared_examples_for方法与it_should_behave_like方法来消除重复
+## `shared_examples_for`方法与`it_should_behave_like`方法来消除重复
 
 ```
 subject { page }

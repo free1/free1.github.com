@@ -29,7 +29,7 @@ div#Title {
     border-radius: 8px;
 	box-shadow: 0 0 8px 0 #fff;
 	opacity: 0.88;
-    background-color: #eaf4f6;
+    background-color: #dadee2;
 }
 
 div#Post {
@@ -39,7 +39,7 @@ div#Post {
 	width: 56%;
 	padding: 16px;
 	
-	background-color: #E3F5F7;
+	background-color: #dadee2;
 	border-radius: 8px;
 	box-shadow: 0 0 8px 0 #fff;
 	opacity: 0.88;
@@ -58,7 +58,7 @@ div#Post article#articlePost {
 	opacity: 0.88;
 	font-size: 15px;
 	line-height: 150%;
-    color: #000;
+    color: black;
 }
 
 div#Previous {

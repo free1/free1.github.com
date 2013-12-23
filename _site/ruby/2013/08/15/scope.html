@@ -96,9 +96,9 @@ obj.instance_eval { @v = v }
 obj.instance_eval { @v }       # =&gt; 2
 </code></pre></div>
 <p>以上三行代码在同一个扁平作用域中执行，因此它们都可以访问局部变量v，由于块把运行它的对象作为self，所以它们也能访问obj的实例变量@v。<br>
-instance_exec() 与上面方法类似，但允许对块传入参数。  </p>
+<code>instance_exec()</code> 与上面方法类似，但允许对块传入参数。  </p>
 
-<p>如果在一个实例上调用了instance<em>eval，就可以在其中定义该实例的单态函数 singleton</em>method   </p>
+<p>如果在一个实例上调用了<code>instance_eval</code>，就可以在其中定义该实例的单态函数 <code>singleton_method</code>   </p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">class A
 end
 

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+    <meta name="author" content="Free" />
+    <meta name="generator" content="Jekyll 1.0.2" />
+    <meta name="description" content="Gem(转载)" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" type="text/css" href="/css/post.css" media="all" />
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="/js/compatible.js"></script>
+
+</head>
+	<body>
+		<div id="Previous">
+			<a href="http://free1.github.com/"> <-Home </a>
+		</div>
+
+		<div id="Title">
+	    	<h1>devise的使用方法</h1>
+	    	<p><b>01 Sep 2013</b>, by <b>Free</b></p>
+		</div>
+
+		<div id="Post">
+	    	<article id="articlePost">
+	        	<p><a href="http://blog.163.com/xingchao_gan/blog/static/183374228201173174316813/">devise介绍+使用</a>
+<a href="https://github.com/plataformatec/devise/wiki/How-To:-Allow-users-to-sign-in-using-their-username-or-email-address">同时使用用户名或邮箱登录</a></p>
+
+<p>1：Encryptable:除了内置的Bcrypt(默认)，增加支持认证机制   </p>
+
+<p>2：Lockable:锁定一定数量的失败尝试登录。通过电子邮件或之后才能解锁   </p>
+
+<p>3：validatable：有效性：提供的电子邮件及密码鉴定。它是可选的,可定制的,所以你可以定义自己的代码。   </p>
+
+<p>4：Timeoutable：在一特定时期（expires sessions）没有活动。   </p>
+
+<p>5：Trackable（跟踪）：追踪 登录的次数、时间戳记签字和IP地址   </p>
+
+<p>6：Rememberable（记忆）：管理产生和清除表示来自用户保存的cookie的标记（token）   </p>
+
+<p>7：Registerable（注册）：处理用户注册过程,也可以让他们编辑和摧毁他们的帐户。   </p>
+
+<p>8：recoverable（重设）重置用户密码并且发送重置指令。   </p>
+
+<p>9：Confirmable注册登录认证   </p>
+
+<p>10：Omniauthable: adds Omniauth (github.com/intridea/omniauth) support;   </p>
+
+<p>11：Database Authenticatable: encrypts and stores a password in the database to validate the authenticity of a user while signing in. The authentication can be done both through POST requests or HTTP Basic Authentication.   </p>
+
+<p>12：Token Authenticatable: signs in a user based on an authentication token (also known as “single access token”). The token can be given both through query string or HTTP Basic Authentication.   </p>
+
+<p>通过Divse 添加Users   </p>
+
+<p>其中User.rb可用属性：12个   </p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">　　　　:token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable  ， :omniauthable ，
+
+　　　　:database_authenticatable, :registerable,  :recoverable, :rememberable, :trackable, :validatable,
+</code></pre></div>
+<p>使用：   </p>
+
+<p>1：Gemfile中加入： gem &#39;devise&#39;   </p>
+
+<p>2：建立devise档案： rails g devise：install（自动在routes.rb中加入：devise_for:user）   </p>
+
+<p>3：预设定网站网址：在config/environmentents/development.rb与production.rb中加入   </p>
+
+<p>　　　　<code>config.action_mailer.default_url_options = { :host =&gt; &#39;localhost:3000&#39; }</code></p>
+
+<p>4：在app/views/layouts/application.html.erb layout中加入：（提示flash信息）   </p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">　　　　&lt;p class=&quot;notice&quot;&gt;&lt;%= notice %&gt;&lt;/p&gt;
+
+ 　　　　&lt;p class=&quot;alert&quot;&gt;&lt;%= alert %&gt;&lt;/p&gt;
+</code></pre></div>
+<p>5：设定主页,在routes.rb中   </p>
+
+<p>　　　　root :to =&gt; &quot;&quot;     </p>
+
+<p>6:产生User model以及Migration   </p>
+
+<p>　　　　rails  g devise user   </p>
+
+<p>7:如果需要E-mail验证登录功能，修改user.rb migration将confirmable打开   </p>
+
+<p>8：产生view模板   </p>
+
+<p>　　　　rails g devise：views   </p>
+
+<p>9：建立资料表   </p>
+
+<p>　　　　rake db：migration   </p>
+
+<p>使用：   </p>
+
+<p>在需要登录的control中加上：before<em>filter:authenticate</em>user!   </p>
+
+<p>定制登录信息：（注意修改：）   </p>
+
+<p>　　　　devise默认是email和密码登录，那么，现在用用户名登录！配置如下：   </p>
+
+<p>1：添加username字段到User表单   </p>
+
+<p>　　　　rails generate migration add<em>username</em>to_users username:string    </p>
+
+<p>　　　　　rake db:migration   </p>
+
+<p>2：修改配置文件：是devise默认用username登录/config/initializers/devise.rb   </p>
+
+<p>　　　　config.authentication_keys = [ :username ]   </p>
+
+<p>　　　　config.sign<em>out</em>via = :get   </p>
+
+<p>3:修改注册页面，app\views\devise\registrations\new.html.erb(类似修改其他devise的视图)   </p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">　　　　　　　　&lt;h2&gt;Sign up&lt;/h2&gt;
+
+　　　　&lt;%= form_for(resource, :as =&gt; resource_name, :url =&gt; registration_path(resource_name)) do |f| %&gt;
+
+  　　　　&lt;%= devise_error_messages! %&gt;
+
+ 　　　　 &lt;p&gt;&lt;%= f.label :username %&gt;&lt;br /&gt;//////
+
+  　　　　&lt;%= f.text_field :username %&gt;&lt;/p&gt;//////
+
+ 　　　　 &lt;p&gt;&lt;%= f.label :email %&gt;&lt;br /&gt;
+
+ 　　　　 &lt;%= f.email_field :email %&gt;&lt;/p&gt;
+
+ 　　　　 &lt;p&gt;&lt;%= f.label :password %&gt;&lt;br /&gt;
+
+ 　　　　 &lt;%= f.password_field :password %&gt;&lt;/p&gt;
+
+ 　　　　 &lt;p&gt;&lt;%= f.label :password_confirmation %&gt;&lt;br /&gt;
+
+ 　　　　 &lt;%= f.password_field :password_confirmation %&gt;&lt;/p&gt;
+
+ 　　　　 &lt;p&gt;&lt;%= f.submit &quot;Sign up&quot; %&gt;&lt;/p&gt;
+
+　　　　&lt;% end %&gt;
+
+　　　　&lt;%= render :partial =&gt; &quot;devise/shared/links&quot; %&gt;
+</code></pre></div>
+<p>4：重启服务-效果成功   </p>
+
+	    	</article>
+
+	    	
+				<div style="height: 64px"></div>
+    		
+		</div>
+		
+	</body>
+</html>
+
+
+ 
+   
+       

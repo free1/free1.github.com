@@ -32,14 +32,14 @@ disqus: false
 * 同一个类的对象共享同样的方法，但不共享实例变量的原因：一个对象的实例变量存在于对象本身，而一个对象的方法存在于对象自身的类。   
 
 
-## instance_eval与class_eval区别
-* instance_eval必须由instance来调用，可以用来定义单态函数singleton_methods
-* class_eval必须是由class来调用，可以用来定义实例函数instance_methods 
+## `instance_eval` 与 `class_eval` 区别
+* `instance_eval`必须由instance来调用，可以用来定义单态函数`singleton_methods`
+* `class_eval`必须是由class来调用，可以用来定义实例函数`instance_methods` 
 
 
-## instance_exec和instance_eval区别
-* exec只能接代码块，不能接字符串，eval二者皆可
-* exec作为方法可以接受参数，然后把它接受的对象传递给代码块，同时把传递对象的环境也带进了exec的代码块
+## `instance_exec` 和 `instance_eval` 区别
+* `exec`只能接代码块，不能接字符串，`eval`二者皆可
+* `exec`作为方法可以接受参数，然后把它接受的对象传递给代码块，同时把传递对象的环境也带进了`exec`的代码块
 
 
 ## 创建类方法
