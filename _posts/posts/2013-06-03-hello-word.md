@@ -6,19 +6,62 @@ description:
 disqus: true
 ---
 
-## 适合所有专业大学生
+## 课程
 * [网易公开课](http://open.163.com/)
-集合了国内外包括哈佛，斯坦福，清华等世界名校的公开课，基本包含了大学中的所有专业课程，很多课程已经翻译成中文。   
-PS: 看了国外的课程就知道为什么清华排名近200了，中国的教育确实不敢恭维= =。还有其他类似的公开课可以自行搜索，不过其实课程应该都差不多。
+
+## 国内视频
+* [智能社免费课程](http://www.zhinengshe.com/video.html): 比较好的培训机构视频
+
+* [尚学堂免费视频](http://www.bjsxt.com/): 比较好的培训机构视频
+
+* [传智播客免费视频](http://www.itcast.cn/): 比较好的培训机构视频
+
+* [itercast](http://itercast.com/): 在线视频
+
+* [happycasts](http://happycasts.net/): 在线视频
+
+## 国外视频
+* [codeschool](https://www.codeschool.com/): 在线学编程   
+视频教程、编码挑战以及屏幕截屏等多种学习方式。 
+
+* [Codecademy](http://www.codecademy.com/#!/exercises/0): 基于网络的交互式编程教程   
+提供了一种学习编程的新方式，是一种基于网络的交互式编程教程，手把手帮助用户了解JavaScript的一些基本原理，号称是“学习编程最简单的方法”。
+
+* [treehouse](http://teamtreehouse.com/): Web在线学习网站   
+Web设计（包括CSS3、响应式设计等）、Web开发（HTML5、JavaScript等）以及iOS应用开发。 
+
+* [RailsCast](http://railscasts.com/): 围绕Rails讲解了很多技巧可以让开发者少走弯路   
+[Rails Cast 笔记](http://cn.asciicasts.com/)
+
+## 国外实用网站
+* [http://stackoverflow.com/](http://stackoverflow.com/): 世界上最大的与程序相关的IT技术问答网站
+
+* [codepen](http://codepen.io/): 网站前端设计开发平台   
+一个针对网站前端代码设计的开发工具,提供多种效果的网站前端代码设计工具,丰富的案例特效,用户可以demo的基础上开发自己的前端设计。
+
+* [dribbble](http://dribbble.com/): 一个属于设计师的地方   
+一个面向创作家、艺术工作者、设计师等创意类作品的人群，提供作品在线服务，供网友在线查看已经完成的作品，或者正在创作的作品。
+
+* [github](https://github.com/): 最大的代码托管网站
+
+* [bitbucket](https://bitbucket.org/): 源代码托管网站
+
+* [gitcafe](https://gitcafe.com/): 国内代码托管网站(支持中文)
+
+## 其他
+* [Bootstrap中文版](http://www.bootcss.com/)
 
 * [微软、Google等面试题](http://zhedahht.blog.163.com/)
 
-* [codepen](http://codepen.io/)
+* [w3school](http://www.w3school.com.cn/index.html)
+
+* [Rails官方教程](http://guides.rubyonrails.org/)
+
+* [google](http://www.google.com.hk/)
 
 * [OutOfMemory](http://outofmemory.cn/#csdn)
 
 * [ripple](https://ripple.com/)
-比特币
 
 * [MDN](https://developer.mozilla.org/zh-CN/)
 
@@ -26,52 +69,6 @@ PS: 看了国外的课程就知道为什么清华排名近200了，中国的教�
 
 * [伯乐在线](http://blog.jobbole.com/)
 
-* [Rails Cast 笔记](http://cn.asciicasts.com/)
-
-* [dribbble](http://dribbble.com/)
-
-* [http://stackoverflow.com/](http://stackoverflow.com/)
-
-* [bitbucket](https://bitbucket.org/)
-代码脱管
-
 * [内推网](http://t.neitui.me/)
 
-* [w3school](http://www.w3school.com.cn/index.html)
-
-* [itercast](http://itercast.com/)
-
-* [Rails官方教程](http://guides.rubyonrails.org/)
-
 * [苹果团](http://www.appletuan.com/)
-
-* [google](http://www.google.com.hk/)
-
-* [RailsCast](http://railscasts.com/)
-
-* [Bootstrap中文版](http://www.bootcss.com/)
-
-* [codeschool](https://www.codeschool.com/)
-
-* [treehouse](http://teamtreehouse.com/)
-
-* [happycasts](http://happycasts.net/)
-
-* [智能社免费课程](http://www.zhinengshe.com/video.html)
-javascript
-
-* [尚学堂免费视频](http://www.bjsxt.com/)
-马士兵
-
-* [传智播客免费视频](http://www.itcast.cn/)
-韩顺平
-
-
-
-
-
-
-
-
-
-
