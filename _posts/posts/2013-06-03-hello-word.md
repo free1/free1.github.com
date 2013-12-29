@@ -56,6 +56,9 @@ Web设计（包括CSS3、响应式设计等）、Web开发（HTML5、JavaScript�
 * [w3school](http://www.w3school.com.cn/index.html)
 
 * [Rails官方教程](http://guides.rubyonrails.org/)
+* [Rails官方教程译文](https://github.com/JuanitoFatas/Guides/blob/master/guides/index.md)
+
+* [javascript代码风格](https://github.com/airbnb/javascript)
 
 * [google](http://www.google.com.hk/)
 
