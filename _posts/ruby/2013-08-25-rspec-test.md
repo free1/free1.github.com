@@ -11,17 +11,19 @@ disqus: false
 
 ## 命令行运行测试
 * 安装rspec：
-$ rails generate rspec:install
+$ `rails generate rspec:install`
 * 生成测试需要的代码文件：
-$ rails generate integration_test static_pages
-* 迁移数据库：
-$ bundle exec rake db:migrate    
+$ `rails generate integration_test static_pages`  
 * 测试准备：
-$ bundle exec rake test:prepare
+$ `bundle exec rake test:prepare`
 * 运行测试：
-$ bundle exec rspec spec/models/user_spec.rb
+$ `bundle exec rspec spec/models/user_spec.rb`
 * 创建“测试数据库”：
-$ bundle exec rake test:prepare
+$ `bundle exec rake test:prepare`
+* 迁移数据库：
+$ `bundle exec rake db:migrate`  
+* 把程序的数据表载入测试数据库：
+$ `rake db:test:clone`
 
 ## let 方法(定义局部变量)
 
@@ -36,6 +38,7 @@ $ bundle exec rake test:prepare
 定义了一个名为 `found_user` 的变量，其值等于 `find_by` 的返回值。在这个测试用例的任何一个 before 或 it 块中都可以使用这个变量。使用 let 方法定义变量的一个好处是，它可以记住变量的值。对上面的代码而言，因为 let 的备忘功能，`found_user` 的值会被记住，因此不管调用多少次 User 模型测试，`find_by` 方法只会运行一次。
 
 ## describe和context方法
+严格来说,describe 和 context 是可以互换的,倾向于这么用:describe 用来表示需要实现的功能,而 context 针对该功能不同的情况。   
 describe和context方法用来组织相关的行为example。
 使用一个字符串作为他们的参数，以及使用一个block来定义其上下文的范围。
 写model的spec或者其他的unit test时，可以传一个Ruby类作为describe的第一个参数。Doing so also creates an implicit subject for the examples.
@@ -75,9 +78,17 @@ it { expect(@user.remember_token).not_to be_blank }
 
 ## before和after方法
 和setup、teardown方法类似   
+假如测试在用例执行后需要中断与外部服务的连接,那么我们就可以使用 after 块来善后测试用例。因为 RSpec 会自行清理数据库,所以很少使用 after。   
 Before and after code can be inserted in any describe or context blocks, and by default the execute for each it block that shares their scope.
 
-before { visit root_path } 链接，创建实例
+```
+before(:each) 每段it之前執行
+before(:all) 整段describe前只執行一次
+after(:each) 每段it之後執行
+after(:all) 整段describe後只執行一次
+```
+
+`before { visit root_path }` 链接，创建实例
 
 ## it方法
 it方法使用一个描述和block。一个it就是一个测试，最好一个it一个期望   

@@ -34,17 +34,17 @@
 
 <ul>
 <li>安装rspec：
-$ rails generate rspec:install</li>
+$ <code>rails generate rspec:install</code></li>
 <li>生成测试需要的代码文件：
-$ rails generate integration<em>test static</em>pages</li>
+$ <code>rails generate integration_test static_pages</code></li>
 <li>迁移数据库：
-$ bundle exec rake db:migrate<br></li>
+$ <code>bundle exec rake db:migrate</code><br></li>
 <li>测试准备：
-$ bundle exec rake test:prepare</li>
+$ <code>bundle exec rake test:prepare</code></li>
 <li>运行测试：
-$ bundle exec rspec spec/models/user_spec.rb</li>
+$ <code>bundle exec rspec spec/models/user_spec.rb</code></li>
 <li>创建“测试数据库”：
-$ bundle exec rake test:prepare</li>
+$ <code>bundle exec rake test:prepare</code></li>
 </ul>
 
 <h2>let 方法(定义局部变量)</h2>
@@ -90,8 +90,12 @@ end
 
 <p>和setup、teardown方法类似<br>
 Before and after code can be inserted in any describe or context blocks, and by default the execute for each it block that shares their scope.</p>
-
-<p>before { visit root_path } 链接，创建实例</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">before(:each) 每段it之前執行
+before(:all) 整段describe前只執行一次
+after(:each) 每段it之後執行
+after(:all) 整段describe後只執行一次
+</code></pre></div>
+<p><code>before { visit root_path }</code> 链接，创建实例</p>
 
 <h2>it方法</h2>
 
