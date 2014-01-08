@@ -36,15 +36,17 @@
 <li>安装rspec：
 $ <code>rails generate rspec:install</code></li>
 <li>生成测试需要的代码文件：
-$ <code>rails generate integration_test static_pages</code></li>
-<li>迁移数据库：
-$ <code>bundle exec rake db:migrate</code><br></li>
+$ <code>rails generate integration_test static_pages</code><br></li>
 <li>测试准备：
 $ <code>bundle exec rake test:prepare</code></li>
 <li>运行测试：
 $ <code>bundle exec rspec spec/models/user_spec.rb</code></li>
 <li>创建“测试数据库”：
 $ <code>bundle exec rake test:prepare</code></li>
+<li>迁移数据库：
+$ <code>bundle exec rake db:migrate</code><br></li>
+<li>把程序的数据表载入测试数据库：
+$ <code>rake db:test:clone</code></li>
 </ul>
 
 <h2>let 方法(定义局部变量)</h2>
@@ -61,7 +63,8 @@ $ <code>bundle exec rake test:prepare</code></li>
 
 <h2>describe和context方法</h2>
 
-<p>describe和context方法用来组织相关的行为example。
+<p>严格来说,describe 和 context 是可以互换的,倾向于这么用:describe 用来表示需要实现的功能,而 context 针对该功能不同的情况。<br>
+describe和context方法用来组织相关的行为example。
 使用一个字符串作为他们的参数，以及使用一个block来定义其上下文的范围。
 写model的spec或者其他的unit test时，可以传一个Ruby类作为describe的第一个参数。Doing so also creates an implicit subject for the examples.</p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">describe Timesheet do
@@ -89,6 +92,7 @@ end
 <h2>before和after方法</h2>
 
 <p>和setup、teardown方法类似<br>
+假如测试在用例执行后需要中断与外部服务的连接,那么我们就可以使用 after 块来善后测试用例。因为 RSpec 会自行清理数据库,所以很少使用 after。<br>
 Before and after code can be inserted in any describe or context blocks, and by default the execute for each it block that shares their scope.</p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">before(:each) 每段it之前執行
 before(:all) 整段describe前只執行一次
