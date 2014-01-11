@@ -29,6 +29,23 @@
 	    	<article id="articlePost">
 	        	<p><a href="http://ruby-china.org/topics/15270">Rails Routes 中的两件事</a></p>
 
+<h2>使用命名空间</h2>
+
+<p>Account 进行 devise:<br>
+routes.rb   </p>
+
+<p><code>devise_for :accounts, :controllers =&gt; { :sessions =&gt; &quot;admin/sessions&quot; }</code></p>
+
+<p>然后将sessions_controller.rb拷贝到如下目录:   </p>
+
+<p><code>app/controllers/admin/</code></p>
+
+<p>同时新建以下view:   </p>
+
+<p><code>app/views/admin/sessions/new.html.erb   #登陆页面</code></p>
+
+<h2>devise路由</h2>
+
 <p>写在前面：在看devise的源码过程中，发现Devise在做Routes Mapping时，使用了Rails自己的@constraints。于是查查文档，笔记两件事。</p>
 
 <p>以下内容粗略翻译自Ruby on Rails 4.0.1， ActionDispatch::Routing::Mapper::Scoping 。</p>

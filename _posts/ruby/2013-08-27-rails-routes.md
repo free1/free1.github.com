@@ -8,6 +8,22 @@ disqus: false
 
 [Rails Routes 中的两件事](http://ruby-china.org/topics/15270)
 
+## 使用命名空间
+Account 进行 devise:   
+routes.rb   
+
+`devise_for :accounts, :controllers => { :sessions => "admin/sessions" }`
+
+然后将sessions_controller.rb拷贝到如下目录:   
+
+`app/controllers/admin/`
+
+同时新建以下view:   
+
+`app/views/admin/sessions/new.html.erb   #登陆页面`
+
+## devise路由
+
 写在前面：在看devise的源码过程中，发现Devise在做Routes Mapping时，使用了Rails自己的@constraints。于是查查文档，笔记两件事。
 
 以下内容粗略翻译自Ruby on Rails 4.0.1， ActionDispatch::Routing::Mapper::Scoping 。
