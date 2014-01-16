@@ -60,6 +60,8 @@ Web设计（包括CSS3、响应式设计等）、Web开发（HTML5、JavaScript�
 
 * [javascript代码风格](https://github.com/airbnb/javascript)
 
+* [A guide for programming in style](https://github.com/thoughtbot/guides)
+
 * [google](http://www.google.com.hk/)
 
 * [OutOfMemory](http://outofmemory.cn/#csdn)

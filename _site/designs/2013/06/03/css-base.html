@@ -32,22 +32,74 @@
 <p>body 中加入 font-family: &#39;Helvetica Neue&#39;, Arial, &#39;liberation Sans&#39;, FreeSans, &#39;Hiragino Sans GB&#39;, sans-serif; 字体会从第一个开始往后寻找浏览器能够识别的字体。   </p>
 
 <h2>清除浮动:</h2>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">1. 有多余的div   
 
-    &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;    
-    在css中加入   
-    .class{ clear: both; }    
+<ul>
+<li><p>有多余的div   </p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;    
+在css中加入   
+.class{ clear: both; }    
+</code></pre></div></li>
+<li><p>支持ie6以上浏览器(父级div定义 伪类:after 和 zoom)   </p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text"> &lt;div class=&quot;news clear&quot;&gt;&lt;/div&gt;   
+ .clear:after {
+     content: &quot;.&quot;;   
+     height: 0;   
+     visibility: hidden;   
+     display: block;   
+     clear: both;   
+ }  
+</code></pre></div>
+<p>例子如下：</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">  /*清除浮动代码*/
 
-2. 支持ie6以上浏览器   
+  .clearfloat:after{
+    display:block;
+    clear:both;
+    content:&quot;&quot;;
+    visibility:hidden;
+    height:0
+  }
 
-   &lt;div class=&quot;news clear&quot;&gt;&lt;/div&gt;   
-   .clear:after {
-       content: &quot;.&quot;;
-       height: 0;
-       visibility: hidden;
-       display: block;
-       clear: both;
-   }
+  .clearfloat{
+    zoom:1
+  }
+
+  &lt;div class=&quot;div1 clearfloat&quot;&gt; 
+      &lt;div class=&quot;left&quot;&gt;Left&lt;/div&gt; 
+      &lt;div class=&quot;right&quot;&gt;Right&lt;/div&gt; 
+  &lt;/div&gt;
+
+  &lt;div class=&quot;div2&quot;&gt;
+  div2
+  &lt;/div&gt;
+</code></pre></div>
+<p>原理：IE8以上和非IE浏览器才支持:after，原理和方法2有点类似，zoom(IE转有属性)可解决ie6,ie7浮动问题<br>
+优点：浏览器支持好，不容易出现怪问题（目前：大型网站都有使用，如：腾迅，网易，新浪等等）<br>
+缺点：代码多，不少初学者不理解原理，要两句代码结合使用，才能让主流浏览器都支持。<br>
+建议：推荐使用，建议定义公共类，以减少CSS代码。   </p></li>
+<li><p>父级div定义 overflow:hidden   </p></li>
+</ul>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">      &lt;style type=&quot;text/css&quot;&gt; 
+
+      .div1{background:#000080;border:1px solid red;/*解决代码*/width:98%;overflow:hidden}
+      .div2{background:#800080;border:1px solid red;height:100px;margin-top:10px;width:98%}
+      .left{float:left;width:20%;height:200px;background:#DDD}
+      .right{float:right;width:30%;height:80px;background:#DDD}
+
+      &lt;/style&gt; 
+
+      &lt;div class=&quot;div1&quot;&gt; 
+          &lt;div class=&quot;left&quot;&gt;Left&lt;/div&gt; 
+          &lt;div class=&quot;right&quot;&gt;Right&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;div2&quot;&gt;
+      div2
+      &lt;/div&gt;
+</code></pre></div><div class="highlight"><pre><code class="text language-text" data-lang="text">原理：必须定义width或zoom:1，同时不能定义height，使用overflow:hidden时，浏览器会自动检查浮动区域的高度   
+优点：简单，代码少，浏览器支持好   
+缺点：不能和position配合使用，因为超出的尺寸的会被隐藏。     
+建议：只推荐没有使用position或对overflow:hidden理解比较深的朋友使用。   
 </code></pre></div>
 <h2>导航的常见设置:</h2>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">ul { list-style: none; }   去掉前面的点   
