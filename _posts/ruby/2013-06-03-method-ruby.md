@@ -182,7 +182,14 @@ This is obj2′s meth2
 	obj.my_method(2)   # => 6    
 ``` 
 
+## `instance_eval` 与 `class_eval` 区别
+* `instance_eval`必须由instance来调用，可以用来定义单态函数`singleton_methods`
+* `class_eval`必须是由class来调用，可以用来定义实例函数`instance_methods` 
 
+
+## `instance_exec` 和 `instance_eval` 区别
+* `exec`只能接代码块，不能接字符串，`eval`二者皆可
+* `exec`作为方法可以接受参数，然后把它接受的对象传递给代码块，同时把传递对象的环境也带进了`exec`的代码块
 
 
 

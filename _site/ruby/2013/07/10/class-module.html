@@ -57,20 +57,6 @@
 <li>同一个类的对象共享同样的方法，但不共享实例变量的原因：一个对象的实例变量存在于对象本身，而一个对象的方法存在于对象自身的类。<br></li>
 </ul>
 
-<h2><code>instance_eval</code> 与 <code>class_eval</code> 区别</h2>
-
-<ul>
-<li><code>instance_eval</code>必须由instance来调用，可以用来定义单态函数<code>singleton_methods</code></li>
-<li><code>class_eval</code>必须是由class来调用，可以用来定义实例函数<code>instance_methods</code> </li>
-</ul>
-
-<h2><code>instance_exec</code> 和 <code>instance_eval</code> 区别</h2>
-
-<ul>
-<li><code>exec</code>只能接代码块，不能接字符串，<code>eval</code>二者皆可</li>
-<li><code>exec</code>作为方法可以接受参数，然后把它接受的对象传递给代码块，同时把传递对象的环境也带进了<code>exec</code>的代码块</li>
-</ul>
-
 <h2>创建类方法</h2>
 <div class="highlight"><pre><code class="text language-text" data-lang="text"># 1
 class Rubyist
@@ -210,32 +196,6 @@ p2.useSpeak(p1) # =&gt; protected:speak
 
 #p2.useLaugh(p1)
 </code></pre></div>
-<h2>类实例变量</h2>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">class MyClass
-    @my_var = 1
-
-    def self.read
-        @my_var
-    end
-
-    def write
-        @my_var = 2
-    end
-
-    def read
-        @my_var
-    end
-end
-
-obj = MyClass.new
-obj.write
-obj.read               # =&gt; 2
-MyClass.read           # =&gt; 1
-</code></pre></div>
-<p>以上两个实例变量分别属于不同的作用域，并属于不同的对象。一个变量定义于obj充当self的时刻，它是obj对象的实例变量；另一个定义于MyClass充当self的时刻，它是MyClass的实例变量－－也就是类的实例变量。类也是对象。   </p>
-
-<p>类实例变量只是属于Class类对象的普通实例变量。类实例变量仅仅可以被类本身访问－－不能被类的实例或子类访问。</p>
-
 <h2>闭包</h2>
 
 <ul>
@@ -243,7 +203,8 @@ MyClass.read           # =&gt; 1
 <li>闭包表示一个对象既是一个可调用的函数，同时也是绑定在这个函数上的一个变量。</li>
 </ul>
 
-<p><a href="http://www.ibm.com/developerworks/cn/linux/l-cn-closure/">闭包深入理解</a></p>
+<p><a href="http://www.ibm.com/developerworks/cn/linux/l-cn-closure/">闭包深入理解</a>
+<a href="http://www.ibm.com/developerworks/cn/java/j-cb01097.html">跨越边界: 闭包</a></p>
 
 	    	</article>
 

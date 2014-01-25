@@ -45,42 +45,6 @@
 <code>print b</code>              <em># NameError</em><br></li>
 </ul>
 
-<h2>类方法和实例变量，实例方法和类变量</h2>
-
-<ul>
-<li>类方法：   顶级实例变量，顶级类变量<br>
-使用类方法，可以使用本类中的顶级实例变量和顶级类变量</li>
-</ul>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">class MyClass
-  @val = 1
-  def self.my_method
-    p &quot;#{@val}&quot; 
-    @val += 1
-  end
-end
-
-
-MyClass.my_method
-MyClass.my_method
-MyClass.my_method
-</code></pre></div>
-<ul>
-<li>实例方法：   顶级类变量<br>
-使用实例方法，只能使用本类中的顶级类变量</li>
-</ul>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">class MyClass
-  @@val = 1
-  def my_method
-    p &quot;#{@@val}&quot; 
-    @@val += 1
-  end
-end
-
-c = MyClass.new
-c.my_method
-c.my_method
-c.my_method
-</code></pre></div>
 <h2>常量引用(以大写字母开头，一般都是大写字母并使用下划线分割单词):</h2>
 
 <ul>

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Rails常见方法
+title: Ruby常见方法
 category: ruby
 description: Rails
 disqus: false

@@ -32,16 +32,6 @@ disqus: false
 * 同一个类的对象共享同样的方法，但不共享实例变量的原因：一个对象的实例变量存在于对象本身，而一个对象的方法存在于对象自身的类。   
 
 
-## `instance_eval` 与 `class_eval` 区别
-* `instance_eval`必须由instance来调用，可以用来定义单态函数`singleton_methods`
-* `class_eval`必须是由class来调用，可以用来定义实例函数`instance_methods` 
-
-
-## `instance_exec` 和 `instance_eval` 区别
-* `exec`只能接代码块，不能接字符串，`eval`二者皆可
-* `exec`作为方法可以接受参数，然后把它接受的对象传递给代码块，同时把传递对象的环境也带进了`exec`的代码块
-
-
 ## 创建类方法
 
 ```
@@ -183,38 +173,10 @@ p2.useSpeak(p1) # => protected:speak
 #p2.useLaugh(p1)
 ```
 
-## 类实例变量
-
-```
-class MyClass
-    @my_var = 1
-
-    def self.read
-        @my_var
-    end
-
-    def write
-        @my_var = 2
-    end
-
-    def read
-        @my_var
-    end
-end
-
-obj = MyClass.new
-obj.write
-obj.read               # => 2
-MyClass.read           # => 1
-```
-
-以上两个实例变量分别属于不同的作用域，并属于不同的对象。一个变量定义于obj充当self的时刻，它是obj对象的实例变量；另一个定义于MyClass充当self的时刻，它是MyClass的实例变量－－也就是类的实例变量。类也是对象。   
-
-类实例变量只是属于Class类对象的普通实例变量。类实例变量仅仅可以被类本身访问－－不能被类的实例或子类访问。
-
 
 ## 闭包
 * 在ruby中，proc和lambda都是闭包。
 * 闭包表示一个对象既是一个可调用的函数，同时也是绑定在这个函数上的一个变量。
 
 [闭包深入理解](http://www.ibm.com/developerworks/cn/linux/l-cn-closure/)
+[跨越边界: 闭包](http://www.ibm.com/developerworks/cn/java/j-cb01097.html)

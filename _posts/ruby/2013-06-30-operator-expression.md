@@ -22,44 +22,6 @@ disqus: false
 	`print a`              _# 输出 nil_                
 	`print b`			   _# NameError_           
 
-## 类方法和实例变量，实例方法和类变量
-
-* 类方法：   顶级实例变量，顶级类变量   
-  使用类方法，可以使用本类中的顶级实例变量和顶级类变量
-
-```
-class MyClass
-  @val = 1
-  def self.my_method
-    p "#{@val}" 
-    @val += 1
-  end
-end
-
-
-MyClass.my_method
-MyClass.my_method
-MyClass.my_method
-```
-* 实例方法：   顶级类变量   
-  使用实例方法，只能使用本类中的顶级类变量
-
-```
-class MyClass
-  @@val = 1
-  def my_method
-    p "#{@@val}" 
-    @@val += 1
-  end
-end
-
-c = MyClass.new
-c.my_method
-c.my_method
-c.my_method
-```
-
-
 ## 常量引用(以大写字母开头，一般都是大写字母并使用下划线分割单词):
 *	常量可以是复合表达式，用::将常量名和定义它的类或模块名分隔开，左侧操作数可以省略(将在全局域中查找右侧常数)。
 

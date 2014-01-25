@@ -21,13 +21,296 @@
 		</div>
 
 		<div id="Title">
-	    	<h1>作用域</h1>
+	    	<h1>作用域详解</h1>
 	    	<p><b>15 Aug 2013</b>, by <b>Free</b></p>
 		</div>
 
 		<div id="Post">
 	    	<article id="articlePost">
-	        	<div class="highlight"><pre><code class="text language-text" data-lang="text">v1 = 1   
+	        	<h2><a href="http://www.railstips.org/blog/archives/2006/11/18/class-and-instance-variables-in-ruby/">类变量与实例变量区别</a></h2>
+
+<ul>
+<li>实例变量: 属于特定的对象。<br></li>
+<li>类变量: 被一个类的所有实例对象共享，也可以被类方法访问到，类变量是私有的，在类外无法直接访问，只能通过实例方法和类方法去访问它。</li>
+</ul>
+
+<p>类方法，实例变量   </p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">class MyClass
+  @val = 1
+  def self.my_method
+    p &quot;#{@val}&quot; 
+    @val += 1
+  end
+end
+
+
+MyClass.my_method
+MyClass.my_method
+MyClass.my_method
+
+输出
+1
+2
+3
+</code></pre></div>
+<p>类方法，类变量   </p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">class MyClass
+  @@val = 1
+  def self.my_method
+    p &quot;#{@@val}&quot; 
+    @@val += 1
+  end
+end
+
+MyClass.my_method
+MyClass.my_method
+MyClass.my_method
+
+输出
+1
+2
+3
+</code></pre></div>
+<p>实例方法，类变量   </p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">class MyClass
+  @@val = 1
+  def my_method
+    p &quot;#{@@val}&quot; 
+    @@val += 1
+  end
+end
+
+c = MyClass.new
+c.my_method
+c.my_method
+c.my_method
+
+输出
+1
+2
+3
+</code></pre></div>
+<ul>
+<li>类实例变量</li>
+</ul>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">class MyClass
+    @my_var = 1
+
+    def self.read
+        @my_var
+    end
+
+    def write
+        @my_var = 2
+    end
+
+    def read
+        @my_var
+    end
+end
+
+obj = MyClass.new
+obj.write
+obj.read               # =&gt; 2
+MyClass.read           # =&gt; 1
+</code></pre></div>
+<p>以上两个实例变量分别属于不同的作用域，并属于不同的对象。一个变量定义于obj充当self的时刻，它是obj对象的实例变量；另一个定义于MyClass充当self的时刻，它是MyClass的实例变量－－也就是类的实例变量。类也是对象。   </p>
+
+<p>类实例变量只是属于Class类对象的普通实例变量。类实例变量仅仅可以被类本身访问－－不能被类的实例或子类访问。</p>
+
+<ul>
+<li>类方法：   顶级实例变量，顶级类变量<br>
+使用类方法，可以使用本类中的顶级实例变量和顶级类变量，当继承中的子类覆盖变量时，顶级类变量会被覆盖，顶级实例变量保持父类的值，也就是说顶级类变量会影响继承<br></li>
+<li><p>实例方法：   顶级类变量<br>
+使用实例方法，只能使用本类中的顶级类变量，当继承中的子类覆盖时，顶级类变量会被覆盖，也就是说顶级类变量会影响继承   </p></li>
+<li><p>没有继承关系</p></li>
+</ul>
+<div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Foo</span>
+  <span class="vc">@@cls_var</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span>
+  <span class="vi">@cls_instvar</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span>
+
+  <span class="k">def</span> <span class="nf">test</span>
+    <span class="nb">p</span> <span class="s2">&quot;instance:&quot;</span>
+    <span class="nb">p</span> <span class="s2">&quot;  class variable: </span><span class="si">#{</span><span class="vc">@@cls_var</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="nb">p</span> <span class="s2">&quot;  class instance variable: </span><span class="si">#{</span><span class="vi">@cls_instvar</span><span class="si">}</span><span class="s2">&quot;</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">test</span>
+    <span class="nb">p</span> <span class="s2">&quot;class:&quot;</span>
+    <span class="nb">p</span> <span class="s2">&quot;  class variable: </span><span class="si">#{</span><span class="vc">@@cls_var</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="nb">p</span> <span class="s2">&quot;  class instance variable: </span><span class="si">#{</span><span class="vi">@cls_instvar</span><span class="si">}</span><span class="s2">&quot;</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="no">Foo</span><span class="o">.</span><span class="n">new</span>
+<span class="nb">p</span> <span class="s2">&quot;------------&quot;</span>
+<span class="nb">p</span> <span class="s2">&quot;Foo&quot;</span>
+<span class="nb">p</span> <span class="s2">&quot;------------&quot;</span>
+<span class="n">f</span><span class="o">.</span><span class="n">test</span>
+<span class="nb">p</span> <span class="s2">&quot;~~~~~~~~~~~~&quot;</span>
+<span class="no">Foo</span><span class="o">.</span><span class="n">test</span>
+
+<span class="c1"># 输出</span>
+<span class="s2">&quot;------------&quot;</span>
+<span class="s2">&quot;Foo&quot;</span>
+<span class="s2">&quot;------------&quot;</span>
+<span class="s2">&quot;instance:&quot;</span>
+<span class="s2">&quot;  class variable: foo&quot;</span>
+<span class="s2">&quot;  class instance variable: &quot;</span>
+<span class="s2">&quot;~~~~~~~~~~~~&quot;</span>
+<span class="s2">&quot;class:&quot;</span>
+<span class="s2">&quot;  class variable: foo&quot;</span>
+<span class="s2">&quot;  class instance variable: foo&quot;</span>
+<span class="s2">&quot;------------&quot;</span>
+<span class="s2">&quot;Bar&quot;</span>
+<span class="s2">&quot;------------&quot;</span>
+</code></pre></div>
+<ul>
+<li>有继承关系</li>
+</ul>
+<div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Foo</span>
+  <span class="vc">@@cls_var</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span>
+  <span class="vi">@cls_instvar</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span>
+
+  <span class="k">def</span> <span class="nf">test</span>
+    <span class="nb">p</span> <span class="s2">&quot;instance:&quot;</span>
+    <span class="nb">p</span> <span class="s2">&quot;  class variable: </span><span class="si">#{</span><span class="vc">@@cls_var</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="nb">p</span> <span class="s2">&quot;  class instance variable: </span><span class="si">#{</span><span class="vi">@cls_instvar</span><span class="si">}</span><span class="s2">&quot;</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">test</span>
+    <span class="nb">p</span> <span class="s2">&quot;class:&quot;</span>
+    <span class="nb">p</span> <span class="s2">&quot;  class variable: </span><span class="si">#{</span><span class="vc">@@cls_var</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="nb">p</span> <span class="s2">&quot;  class instance variable: </span><span class="si">#{</span><span class="vi">@cls_instvar</span><span class="si">}</span><span class="s2">&quot;</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Bar</span> <span class="o">&lt;</span> <span class="no">Foo</span>
+  <span class="vc">@@cls_var</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span>
+  <span class="vi">@cls_instvar</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span>
+<span class="k">end</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="no">Foo</span><span class="o">.</span><span class="n">new</span>
+<span class="nb">p</span> <span class="s2">&quot;------------&quot;</span>
+<span class="nb">p</span> <span class="s2">&quot;Foo&quot;</span>
+<span class="nb">p</span> <span class="s2">&quot;------------&quot;</span>
+<span class="n">f</span><span class="o">.</span><span class="n">test</span>
+<span class="nb">p</span> <span class="s2">&quot;~~~~~~~~~~~~&quot;</span>
+<span class="no">Foo</span><span class="o">.</span><span class="n">test</span>
+
+<span class="nb">p</span> <span class="s2">&quot;------------&quot;</span>
+<span class="nb">p</span> <span class="s2">&quot;Bar&quot;</span>
+<span class="nb">p</span> <span class="s2">&quot;------------&quot;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="no">Bar</span><span class="o">.</span><span class="n">new</span>
+<span class="n">b</span><span class="o">.</span><span class="n">test</span>
+<span class="nb">p</span> <span class="s2">&quot;~~~~~~~~~~~~&quot;</span>
+<span class="no">Bar</span><span class="o">.</span><span class="n">test</span>
+
+<span class="c1"># 输出</span>
+<span class="s2">&quot;------------&quot;</span>
+<span class="s2">&quot;Foo&quot;</span>
+<span class="s2">&quot;------------&quot;</span>
+<span class="s2">&quot;instance:&quot;</span>
+<span class="s2">&quot;  class variable: bar&quot;</span>
+<span class="s2">&quot;  class instance variable: &quot;</span>
+<span class="s2">&quot;~~~~~~~~~~~~&quot;</span>
+<span class="s2">&quot;class:&quot;</span>
+<span class="s2">&quot;  class variable: bar&quot;</span>
+<span class="s2">&quot;  class instance variable: foo&quot;</span>
+<span class="s2">&quot;------------&quot;</span>
+<span class="s2">&quot;Bar&quot;</span>
+<span class="s2">&quot;------------&quot;</span>
+<span class="s2">&quot;instance:&quot;</span>
+<span class="s2">&quot;  class variable: bar&quot;</span>
+<span class="s2">&quot;  class instance variable: &quot;</span>
+<span class="s2">&quot;~~~~~~~~~~~~&quot;</span>
+<span class="s2">&quot;class:&quot;</span>
+<span class="s2">&quot;  class variable: bar&quot;</span>
+<span class="s2">&quot;  class instance variable: bar&quot;</span>
+</code></pre></div>
+<h2>普通的局部变量</h2>
+
+<p>对于普通的局部变量（小写字母或者下划线开头的变量）就像在文件系统中一样，某一个文件的可见作用域仅仅在本文件夹中，其他文件夹包括此文件夹的子文件夹中，这个文件都是不可见的，任何对于此文件（变量）的操作都必须在此文件的可见域中进行   </p>
+<div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby">    <span class="k">class</span> <span class="nc">A</span>   
+      <span class="n">var</span> <span class="o">=</span> <span class="s2">&quot;ok&quot;</span>  
+
+      <span class="k">def</span> <span class="nf">print_var</span>
+        <span class="nb">puts</span> <span class="n">var</span> <span class="c1">#报错，因为var不可见</span>
+      <span class="k">end</span>
+
+      <span class="k">class</span> <span class="nc">SubA</span>   
+        <span class="nb">puts</span> <span class="n">var</span> <span class="c1">#报错，因为var不可见   </span>
+      <span class="k">end</span>  
+    <span class="k">end</span>  
+
+    <span class="k">class</span> <span class="nc">B</span>   
+      <span class="nb">puts</span> <span class="n">var</span> <span class="c1">#报错，因为var在另外一个目录中同样不可见   </span>
+    <span class="k">end</span>  
+
+
+    <span class="k">class</span> <span class="nc">H</span>
+        <span class="k">def</span> <span class="nf">initialize</span>
+            <span class="n">var</span> <span class="o">=</span> <span class="s2">&quot;ok&quot;</span>
+        <span class="k">end</span>
+
+        <span class="k">def</span> <span class="nf">p</span>
+            <span class="nb">puts</span> <span class="n">var</span>   <span class="c1">#报错，因为var不可见   </span>
+        <span class="k">end</span>
+    <span class="k">end</span>
+</code></pre></div>
+<h2>常量</h2>
+
+<p>对于常量（大写字母开头的变量），有一些不同，常量对于常量所在文件夹中的子文件夹也是可见的   </p>
+<div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby">    <span class="k">class</span> <span class="nc">A</span>      
+      <span class="no">Const_var</span> <span class="o">=</span> <span class="s2">&quot;ok&quot;</span>   
+
+      <span class="k">def</span> <span class="nf">print_var</span>
+        <span class="nb">puts</span> <span class="no">Const_var</span> <span class="c1">#正确，因为Const_var对于子目录可见</span>
+      <span class="k">end</span>
+
+      <span class="k">class</span> <span class="nc">SubA</span>      
+        <span class="nb">puts</span> <span class="no">Const_var</span> <span class="c1">#正确，因为Const_var对于子目录可见   </span>
+      <span class="k">end</span>     
+    <span class="k">end</span>     
+
+    <span class="k">class</span> <span class="nc">B</span>      
+      <span class="nb">puts</span> <span class="n">var</span> <span class="c1">#报错，因为Const_var在另外一个目录中不可见      </span>
+    <span class="k">end</span>   
+</code></pre></div>
+<h2>实例变量</h2>
+
+<p>而类的instance_variable，同常量类似，不同之处在于它的向子目录可视性仅仅对于方法有效，对于另外一个类无效   </p>
+<div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby">    <span class="k">class</span> <span class="nc">A</span>         
+      <span class="vi">@var</span> <span class="o">=</span> <span class="s2">&quot;ok&quot;</span>      
+
+      <span class="k">def</span> <span class="nf">print_var</span>   
+        <span class="nb">puts</span> <span class="vi">@var</span> <span class="c1">#错误，不报错，为 空值   </span>
+      <span class="k">end</span>  
+
+      <span class="k">class</span> <span class="nc">SubA</span>         
+        <span class="nb">puts</span> <span class="vi">@var</span> <span class="c1">#错误，因为此时已经在另外一个类中，类A的instance_variable是不可视的   </span>
+      <span class="k">end</span>        
+    <span class="k">end</span>        
+
+    <span class="k">class</span> <span class="nc">B</span>         
+      <span class="nb">puts</span> <span class="vi">@var</span> <span class="c1">#报错，因为@var在另外一个目录中不可见         </span>
+    <span class="k">end</span>  
+
+
+    <span class="k">class</span> <span class="nc">H</span>
+        <span class="k">def</span> <span class="nf">initialize</span>
+            <span class="vi">@var</span> <span class="o">=</span> <span class="s2">&quot;ok&quot;</span>
+        <span class="k">end</span>
+
+        <span class="k">def</span> <span class="nf">p</span>
+            <span class="nb">puts</span> <span class="vi">@var</span>   <span class="c1">#正确，</span>
+        <span class="k">end</span>
+    <span class="k">end</span>
+</code></pre></div>
+<h2>类变量</h2>
+
+<h2>全局变量, 顶级实例变量</h2>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">v1 = 1   
 
 class MyClass   
 
@@ -78,6 +361,15 @@ end
 
 MyClass.new.my_method
 </code></pre></div>
+<h2>动态执行代码块</h2>
+
+<ul>
+<li>eval能够编译并执行任何包含Ruby代码段的字符串，但是不安全</li>
+<li>class_eval在类的上下文范围将字符串作为代码来执行，作用在类上面，向类中添加实例方法</li>
+<li>instance_eval在实例的上下文范围执行</li>
+<li>module_eval在类或模块的上下文范围中执行</li>
+</ul>
+
 <h2>instance_eval()</h2>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">class MyClass
     def initialize
@@ -118,7 +410,7 @@ b = A.new
 b.method1
 #=&gt;NoMethodError: undefined method `method1&#39; for #&lt;A:0x10043ff70&gt;
 </code></pre></div>
-<p>因为类class本身也是Class类的一个实例，instance<em>eval也可以用在类上，这个时候就可以在其中定义该类的singleton</em>method，即为该类的类函数。换句话说，可以用instance_eval来定义类函数class method。   </p>
+<p>因为类class本身也是Class类的一个实例， <code>instance_eval</code> 也可以用在类上，这个时候就可以在其中定义该类的 <code>singleton_method</code> ，即为该类的类函数。换句话说，可以用 <code>instance_eval</code> 来定义类函数class method。   </p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">class A
 end
 

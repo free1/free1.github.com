@@ -45,10 +45,12 @@ Regexp.new()内，不用进行转义<br>
 <h2>匹配的两种方法</h2>
 
 <p>=~肯定匹配, !~否定匹配。=~表达式返回匹配到的位置索引，失败返回nil，符号左右内容可交换
-regexp#match(str)，返回MatchData，一个数组，从0开始，还有 <code>match.pre_match</code> 返回匹配前内容，match.post<em>match返回匹配后内容<br>
-/cat/ =~ &quot;dog and cat&quot;  #返回8<br>
-mt = /cat/.match(&quot;bigcatcomes&quot;)<br>
-&quot;#{mt.pre</em>match}-&gt;#{mt[0]}&lt;-#{mt.post_match}&quot; #返回big-&gt;cat&lt;-comes   </p>
+regexp#match(str)，返回MatchData，一个数组，从0开始，还有 <code>match.pre_match</code> 返回匹配前内容，<code>match.post_match</code>返回匹配后内容<br>
+<code>
+/cat/ =~ &quot;dog and cat&quot;  #返回8   
+mt = /cat/.match(&quot;bigcatcomes&quot;)   
+&quot;#{mt.pre_match}-&gt;#{mt[0]}&lt;-#{mt.post_match}&quot; #返回big-&gt;cat&lt;-comes   
+</code></p>
 
 <h2>替换</h2>
 
@@ -62,7 +64,7 @@ new_str2 = str.gsub(/A/, &quot;*&quot;)   #返回&quot;*BD*D*&quot;
 
 <p>方法后面还可以跟block，对匹配的字符串进行操作   </p>
 
-<p>a.gsub(/[aeiou]/) {|vowel| vowel.upcase } # =&gt; &quot;qUIck brOwn fOx&quot;   </p>
+<p><code>a.gsub(/[aeiou]/) {|vowel| vowel.upcase } # =&gt; &quot;qUIck brOwn fOx&quot;</code>   </p>
 
 <h2>分组匹配</h2>
 
@@ -83,8 +85,8 @@ puts &quot;Hour is #{md[1]}, minute #{md[2]}&quot;
 
 <p>这两种匹配属于标准正则表达式内容，与Ruby没关，但新手如果不明白匹配时会发生莫名其妙的错误，所以特别总结一下。   </p>
 
-<p>贪婪匹配：尽可能多匹配，正则默认是贪婪匹配。例子：a.<em>b它将会匹配最长的以a开始，以b结束的字符串。对于aabab的匹配结果是aabab。<br>
-懒惰匹配：尽可能少匹配。例子：a.</em>?b对于aabab的匹配结果是aab和ab。
+<p>贪婪匹配：尽可能多匹配，正则默认是贪婪匹配。例子：<code>a.*b</code>它将会匹配最长的以a开始，以b结束的字符串。对于aabab的匹配结果是aabab。<br>
+懒惰匹配：尽可能少匹配。例子：a.*?b对于aabab的匹配结果是aab和ab。
 一般是在原来表达式结尾加?就由贪婪匹配变成了懒惰匹配。常用的懒惰限定符有（去年最后的问题就是贪婪匹配）：</p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">?重复任意次，但尽可能少重复
 +?重复1次或更多次，但尽可能少重复
@@ -136,7 +138,7 @@ puts b2[3] #-&gt; Wang
 
 <h2>贪婪量词和不贪婪量词</h2>
 
-<p>量词<em>(表示零个或多个)和+(表示一个或多个)是贪婪的，它们会匹配尽可能多的字符,我们可以在</em>和+后面加一个?，使它成为非贪婪量词。   </p>
+<p>量词<code>*(表示零个或多个)和+(表示一个或多个)是贪婪的，它们会匹配尽可能多的字符,我们可以在*</code>和+后面加一个?，使它成为非贪婪量词。   </p>
 
 <p>下面代码是： 1个或多个字符后接一个感叹号。   </p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">teststr=&quot;abcd!efg!&quot;
