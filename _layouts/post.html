@@ -18,6 +18,17 @@ generator: Jekyll 1.0.2
 
     <script type="text/javascript" src="/js/compatible.js"></script>
 
+    <!-- 代码高亮 -->
+   	<link href="/css/prettify.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="/js/prettify.js"></script>
+	<script>
+		$(document).ready(function(){
+		  if($('code').length>0){
+		    $('code').parent().addClass('prettyprint');
+		    prettyPrint();
+		  };
+		});
+	</script>
 </head>
 	<body>
 		<div id="Previous">
@@ -31,8 +42,12 @@ generator: Jekyll 1.0.2
 
 		<div id="Post">
 	    	<article id="articlePost">
-	        	{{ content }}
+	    		{{ content }}
 	    	</article>
+
+	    	<!-- 回到顶部 -->
+            <div id="go_top" style="display: none;"><img src="/images/go_top.jpg"></div>
+            <script type="text/javascript">goTopEx();</script>
 
 	    	{% if page.disqus == true %}
 	    	<!-- Duoshuo Comment BEGIN -->

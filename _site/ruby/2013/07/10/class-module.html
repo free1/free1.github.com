@@ -14,6 +14,17 @@
 
     <script type="text/javascript" src="/js/compatible.js"></script>
 
+    <!-- 代码高亮 -->
+   	<link href="/css/prettify.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="/js/prettify.js"></script>
+	<script>
+		$(document).ready(function(){
+		  if($('code').length>0){
+		    $('code').parent().addClass('prettyprint');
+		    prettyPrint();
+		  };
+		});
+	</script>
 </head>
 	<body>
 		<div id="Previous">
@@ -27,7 +38,7 @@
 
 		<div id="Post">
 	    	<article id="articlePost">
-	        	<h2>区别Ruby的require,load,和include</h2>
+	    		<h2>区别Ruby的require,load,和include</h2>
 
 <p>相同之处：三者均在kernel中定义的，均含有包含进某物之意。<br>
 不同之处：<br>
@@ -207,6 +218,10 @@ p2.useSpeak(p1) # =&gt; protected:speak
 <a href="http://www.ibm.com/developerworks/cn/java/j-cb01097.html">跨越边界: 闭包</a></p>
 
 	    	</article>
+
+	    	<!-- 回到顶部 -->
+            <div id="go_top" style="display: none;"><img src="/images/go_top.jpg"></div>
+            <script type="text/javascript">goTopEx();</script>
 
 	    	
 				<div style="height: 64px"></div>

@@ -14,6 +14,17 @@
 
     <script type="text/javascript" src="/js/compatible.js"></script>
 
+    <!-- 代码高亮 -->
+   	<link href="/css/prettify.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="/js/prettify.js"></script>
+	<script>
+		$(document).ready(function(){
+		  if($('code').length>0){
+		    $('code').parent().addClass('prettyprint');
+		    prettyPrint();
+		  };
+		});
+	</script>
 </head>
 	<body>
 		<div id="Previous">
@@ -27,7 +38,7 @@
 
 		<div id="Post">
 	    	<article id="articlePost">
-	        	<h2>视图中ERB 里面 <code>-%&gt;</code> 的用法</h2>
+	    		<h2>视图中ERB 里面 <code>-%&gt;</code> 的用法</h2>
 
 <p>忽略后面的空格和换行符, 使输出更紧凑。另外 &lt;%= expr =%&gt; 相当于 &lt;%= expr -%&gt; 。  </p>
 
@@ -47,6 +58,10 @@ erb 要设置 trim mode</p>
 </ul>
 
 	    	</article>
+
+	    	<!-- 回到顶部 -->
+            <div id="go_top" style="display: none;"><img src="/images/go_top.jpg"></div>
+            <script type="text/javascript">goTopEx();</script>
 
 	    	
 				<div style="height: 64px"></div>

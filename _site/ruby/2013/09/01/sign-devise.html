@@ -14,6 +14,17 @@
 
     <script type="text/javascript" src="/js/compatible.js"></script>
 
+    <!-- 代码高亮 -->
+   	<link href="/css/prettify.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="/js/prettify.js"></script>
+	<script>
+		$(document).ready(function(){
+		  if($('code').length>0){
+		    $('code').parent().addClass('prettyprint');
+		    prettyPrint();
+		  };
+		});
+	</script>
 </head>
 	<body>
 		<div id="Previous">
@@ -27,7 +38,7 @@
 
 		<div id="Post">
 	    	<article id="articlePost">
-	        	<p><a href="http://blog.163.com/xingchao_gan/blog/static/183374228201173174316813/">devise介绍+使用</a>
+	    		<p><a href="http://blog.163.com/xingchao_gan/blog/static/183374228201173174316813/">devise介绍+使用</a>
 <a href="https://github.com/plataformatec/devise/wiki/How-To:-Allow-users-to-sign-in-using-their-username-or-email-address">同时使用用户名或邮箱登录</a></p>
 
 <p>1：Encryptable:除了内置的Bcrypt(默认)，增加支持认证机制   </p>
@@ -146,6 +157,10 @@
 <p>4：重启服务-效果成功   </p>
 
 	    	</article>
+
+	    	<!-- 回到顶部 -->
+            <div id="go_top" style="display: none;"><img src="/images/go_top.jpg"></div>
+            <script type="text/javascript">goTopEx();</script>
 
 	    	
 				<div style="height: 64px"></div>

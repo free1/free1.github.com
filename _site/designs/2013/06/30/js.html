@@ -14,6 +14,17 @@
 
     <script type="text/javascript" src="/js/compatible.js"></script>
 
+    <!-- 代码高亮 -->
+   	<link href="/css/prettify.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="/js/prettify.js"></script>
+	<script>
+		$(document).ready(function(){
+		  if($('code').length>0){
+		    $('code').parent().addClass('prettyprint');
+		    prettyPrint();
+		  };
+		});
+	</script>
 </head>
 	<body>
 		<div id="Previous">
@@ -27,7 +38,7 @@
 
 		<div id="Post">
 	    	<article id="articlePost">
-	        	<ul>
+	    		<ul>
 <li><p><code>null</code> 和 <code>undefined</code> 不是对象，其他所有变量都是对象。</p></li>
 <li><p>有两种方式来访问对象的属性，点操作符或者中括号操作符。两种语法是等价的，但是中括号操作符在下面两种情况下依然有效 - 1.动态设置属性 - 2.属性名不是一个有效的变量名（比如属性名中包含空格，或者属性名是JS的关键词)。</p></li>
 <li><p>方法会在执行前被解析，因此它存在于当前上下文的任意一个地方， 即使在函数定义体的上面被调用也是对的。    </p></li>
@@ -47,6 +58,10 @@
 bar(); // 出错：ReferenceError
 </code></pre></div>
 	    	</article>
+
+	    	<!-- 回到顶部 -->
+            <div id="go_top" style="display: none;"><img src="/images/go_top.jpg"></div>
+            <script type="text/javascript">goTopEx();</script>
 
 	    	
 				<div style="height: 64px"></div>

@@ -14,6 +14,17 @@
 
     <script type="text/javascript" src="/js/compatible.js"></script>
 
+    <!-- 代码高亮 -->
+   	<link href="/css/prettify.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="/js/prettify.js"></script>
+	<script>
+		$(document).ready(function(){
+		  if($('code').length>0){
+		    $('code').parent().addClass('prettyprint');
+		    prettyPrint();
+		  };
+		});
+	</script>
 </head>
 	<body>
 		<div id="Previous">
@@ -21,15 +32,39 @@
 		</div>
 
 		<div id="Title">
-	    	<h1>常用布局问题</h1>
+	    	<h1>CSS常用布局问题</h1>
 	    	<p><b>03 Jun 2013</b>, by <b>Free</b></p>
 		</div>
 
 		<div id="Post">
 	    	<article id="articlePost">
-	        	<p><a href="http://zh.learnlayout.com/">学习CSS布局</a></p>
+	    		<p><a href="http://zh.learnlayout.com/">学习CSS布局</a></p>
 
 <p>body 中加入 font-family: &#39;Helvetica Neue&#39;, Arial, &#39;liberation Sans&#39;, FreeSans, &#39;Hiragino Sans GB&#39;, sans-serif; 字体会从第一个开始往后寻找浏览器能够识别的字体。   </p>
+
+<h2>避免“多类症”，“多div症”</h2>
+
+<p>使用后代选择器减少class的使用，使用特定标签减少div的使用</p>
+
+<h2>!important重要次序</h2>
+
+<ul>
+<li>标为!important的用户样式</li>
+<li>标为!important的作者样式</li>
+<li>作者样式</li>
+<li>用户样式</li>
+<li>浏览器/用户代理应用的样式</li>
+</ul>
+
+<h2>空白边叠加</h2>
+
+<h2>绝对定位与z-index</h2>
+
+<p>绝对定位会覆盖元素，所以可以通过z-index来加以控制，绝对定位的位置是相对于最近已定位祖先元素，父类元素可以使用<code>position: relative</code></p>
+
+<h2>相对定位</h2>
+
+<p>相对定位是相对于它出现在文档流中的相对位置</p>
 
 <h2>清除浮动:</h2>
 
@@ -179,6 +214,10 @@ ul li { display: inline-block; }   导航横向排列(不要使用浮动)
 </ul>
 
 	    	</article>
+
+	    	<!-- 回到顶部 -->
+            <div id="go_top" style="display: none;"><img src="/images/go_top.jpg"></div>
+            <script type="text/javascript">goTopEx();</script>
 
 	    	
 				<div style="height: 64px"></div>

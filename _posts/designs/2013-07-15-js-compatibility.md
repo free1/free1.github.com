@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 浏览器兼容
+title: JS浏览器兼容
 category: designs
 description: Javascript
 disqus: false

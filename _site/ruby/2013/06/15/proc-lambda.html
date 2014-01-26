@@ -14,6 +14,17 @@
 
     <script type="text/javascript" src="/js/compatible.js"></script>
 
+    <!-- 代码高亮 -->
+   	<link href="/css/prettify.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="/js/prettify.js"></script>
+	<script>
+		$(document).ready(function(){
+		  if($('code').length>0){
+		    $('code').parent().addClass('prettyprint');
+		    prettyPrint();
+		  };
+		});
+	</script>
 </head>
 	<body>
 		<div id="Previous">
@@ -27,7 +38,7 @@
 
 		<div id="Post">
 	    	<article id="articlePost">
-	        	<ul>
+	    		<ul>
 <li><p>proc的行为与代码块类似，而lambda的行为则与方法类似，它们都是Proc类的实例。用block，用lambda，不要用proc，让proc做好自己的幕后工作就好了(一般block可以代替proc)。</p></li>
 <li><p>lambda的 succ = lambda { |x| x+1 } 可以写成 succ = -&gt;(x) { x+1 }</p></li>
 </ul>
@@ -142,6 +153,10 @@ lambda则必须声明同样多的参数对它进行调用:
     l.call(*[1,2])   # 显式实现将数组解开   
 </code></pre></div>
 	    	</article>
+
+	    	<!-- 回到顶部 -->
+            <div id="go_top" style="display: none;"><img src="/images/go_top.jpg"></div>
+            <script type="text/javascript">goTopEx();</script>
 
 	    	
 				<div style="height: 64px"></div>

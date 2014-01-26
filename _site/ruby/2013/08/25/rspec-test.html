@@ -14,6 +14,17 @@
 
     <script type="text/javascript" src="/js/compatible.js"></script>
 
+    <!-- 代码高亮 -->
+   	<link href="/css/prettify.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="/js/prettify.js"></script>
+	<script>
+		$(document).ready(function(){
+		  if($('code').length>0){
+		    $('code').parent().addClass('prettyprint');
+		    prettyPrint();
+		  };
+		});
+	</script>
 </head>
 	<body>
 		<div id="Previous">
@@ -27,7 +38,7 @@
 
 		<div id="Post">
 	    	<article id="articlePost">
-	        	<p><a href="https://www.relishapp.com/rspec/rspec-rails/docs">rspec文档</a><br>
+	    		<p><a href="https://www.relishapp.com/rspec/rspec-rails/docs">rspec文档</a><br>
 <a href="https://github.com/rspec/rspec-rails">rspec源码</a></p>
 
 <h2>命令行运行测试</h2>
@@ -300,6 +311,10 @@ end
 end
 </code></pre></div>
 	    	</article>
+
+	    	<!-- 回到顶部 -->
+            <div id="go_top" style="display: none;"><img src="/images/go_top.jpg"></div>
+            <script type="text/javascript">goTopEx();</script>
 
 	    	
 				<div style="height: 64px"></div>

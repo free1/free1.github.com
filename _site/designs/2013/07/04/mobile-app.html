@@ -14,6 +14,17 @@
 
     <script type="text/javascript" src="/js/compatible.js"></script>
 
+    <!-- 代码高亮 -->
+   	<link href="/css/prettify.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="/js/prettify.js"></script>
+	<script>
+		$(document).ready(function(){
+		  if($('code').length>0){
+		    $('code').parent().addClass('prettyprint');
+		    prettyPrint();
+		  };
+		});
+	</script>
 </head>
 	<body>
 		<div id="Previous">
@@ -27,7 +38,7 @@
 
 		<div id="Post">
 	    	<article id="articlePost">
-	        	<p><a href="http://www.cnblogs.com/lhb25/archive/2012/12/04/css3-media-queries.html">CSS3 Media Queries 实现响应式设计</a></p>
+	    		<p><a href="http://www.cnblogs.com/lhb25/archive/2012/12/04/css3-media-queries.html">CSS3 Media Queries 实现响应式设计</a></p>
 
 <h2>viewport 设置适应移动设备屏幕大小</h2>
 
@@ -47,6 +58,10 @@ minimum-scale 指定允许用户缩放的最小比例。<br>
 user-scalable 指定是否允许手动缩放。   </p>
 
 	    	</article>
+
+	    	<!-- 回到顶部 -->
+            <div id="go_top" style="display: none;"><img src="/images/go_top.jpg"></div>
+            <script type="text/javascript">goTopEx();</script>
 
 	    	
 				<div style="height: 64px"></div>

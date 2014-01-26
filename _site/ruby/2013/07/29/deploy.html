@@ -14,6 +14,17 @@
 
     <script type="text/javascript" src="/js/compatible.js"></script>
 
+    <!-- 代码高亮 -->
+   	<link href="/css/prettify.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="/js/prettify.js"></script>
+	<script>
+		$(document).ready(function(){
+		  if($('code').length>0){
+		    $('code').parent().addClass('prettyprint');
+		    prettyPrint();
+		  };
+		});
+	</script>
 </head>
 	<body>
 		<div id="Previous">
@@ -27,7 +38,7 @@
 
 		<div id="Post">
 	    	<article id="articlePost">
-	        	<h2>修改hosts文件，给你的项目一个本地域名, 比如xxx</h2>
+	    		<h2>修改hosts文件，给你的项目一个本地域名, 比如xxx</h2>
 
 <ul>
 <li>$ sudo subl /etc/hosts (编辑器打开)<br>
@@ -86,6 +97,10 @@ nginx: configuration file /usr/local/nginx/conf/nginx.conf test is successful<br
 <p>http://xxx   </p>
 
 	    	</article>
+
+	    	<!-- 回到顶部 -->
+            <div id="go_top" style="display: none;"><img src="/images/go_top.jpg"></div>
+            <script type="text/javascript">goTopEx();</script>
 
 	    	
 				<div style="height: 64px"></div>

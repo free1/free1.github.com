@@ -14,6 +14,17 @@
 
     <script type="text/javascript" src="/js/compatible.js"></script>
 
+    <!-- 代码高亮 -->
+   	<link href="/css/prettify.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="/js/prettify.js"></script>
+	<script>
+		$(document).ready(function(){
+		  if($('code').length>0){
+		    $('code').parent().addClass('prettyprint');
+		    prettyPrint();
+		  };
+		});
+	</script>
 </head>
 	<body>
 		<div id="Previous">
@@ -27,7 +38,7 @@
 
 		<div id="Post">
 	    	<article id="articlePost">
-	        	<p>Ruby正则表达式编辑器：<a href="http://www.rubular.com/">Rubular</a></p>
+	    		<p>Ruby正则表达式编辑器：<a href="http://www.rubular.com/">Rubular</a></p>
 
 <p>Ruby的正则表达式以/pattern/为模式，表达式返回一个RegExp的对象。可以通过内省方法来查看：</p>
 
@@ -203,6 +214,10 @@ puts test[0] #-&gt; Nil
 <p>例如，puts &quot;test 1 2 and test 3 4&quot;.scan(/\d/)会输出［&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;]。 </p>
 
 	    	</article>
+
+	    	<!-- 回到顶部 -->
+            <div id="go_top" style="display: none;"><img src="/images/go_top.jpg"></div>
+            <script type="text/javascript">goTopEx();</script>
 
 	    	
 				<div style="height: 64px"></div>

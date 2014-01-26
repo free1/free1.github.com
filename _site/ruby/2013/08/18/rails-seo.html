@@ -14,6 +14,17 @@
 
     <script type="text/javascript" src="/js/compatible.js"></script>
 
+    <!-- 代码高亮 -->
+   	<link href="/css/prettify.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="/js/prettify.js"></script>
+	<script>
+		$(document).ready(function(){
+		  if($('code').length>0){
+		    $('code').parent().addClass('prettyprint');
+		    prettyPrint();
+		  };
+		});
+	</script>
 </head>
 	<body>
 		<div id="Previous">
@@ -27,9 +38,13 @@
 
 		<div id="Post">
 	    	<article id="articlePost">
-	        	<p><a href="http://gogojimmy.net/2013/09/26/basic-seo-for-rails-developer/">給 Rails Developer 的基本SEO</a></p>
+	    		<p><a href="http://gogojimmy.net/2013/09/26/basic-seo-for-rails-developer/">給 Rails Developer 的基本SEO</a></p>
 
 	    	</article>
+
+	    	<!-- 回到顶部 -->
+            <div id="go_top" style="display: none;"><img src="/images/go_top.jpg"></div>
+            <script type="text/javascript">goTopEx();</script>
 
 	    	
 				<div style="height: 64px"></div>

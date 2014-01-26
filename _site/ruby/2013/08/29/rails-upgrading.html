@@ -14,6 +14,17 @@
 
     <script type="text/javascript" src="/js/compatible.js"></script>
 
+    <!-- 代码高亮 -->
+   	<link href="/css/prettify.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="/js/prettify.js"></script>
+	<script>
+		$(document).ready(function(){
+		  if($('code').length>0){
+		    $('code').parent().addClass('prettyprint');
+		    prettyPrint();
+		  };
+		});
+	</script>
 </head>
 	<body>
 		<div id="Previous">
@@ -27,11 +38,15 @@
 
 		<div id="Post">
 	    	<article id="articlePost">
-	        	<p>在model中使用某个属性不要使用 <code>attr_accessible</code> 而在controller中使用 <code>permit</code> 方法，例如：<code>params.require(:model).permit(:attribute)</code> ，不经过controller的可以使用 <code>attr_accessor</code>   </p>
+	    		<p>在model中使用某个属性不要使用 <code>attr_accessible</code> 而在controller中使用 <code>permit</code> 方法，例如：<code>params.require(:model).permit(:attribute)</code> ，不经过controller的可以使用 <code>attr_accessor</code>   </p>
 
 <p><a href="https://github.com/JuanitoFatas/Guides/blob/master/guides/edge-translation/upgrading-ruby-on-rails-zh_CN.md">Rails 从3.2升级到4.0</a></p>
 
 	    	</article>
+
+	    	<!-- 回到顶部 -->
+            <div id="go_top" style="display: none;"><img src="/images/go_top.jpg"></div>
+            <script type="text/javascript">goTopEx();</script>
 
 	    	
 				<div style="height: 64px"></div>

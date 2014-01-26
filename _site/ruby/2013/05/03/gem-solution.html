@@ -14,6 +14,17 @@
 
     <script type="text/javascript" src="/js/compatible.js"></script>
 
+    <!-- 代码高亮 -->
+   	<link href="/css/prettify.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="/js/prettify.js"></script>
+	<script>
+		$(document).ready(function(){
+		  if($('code').length>0){
+		    $('code').parent().addClass('prettyprint');
+		    prettyPrint();
+		  };
+		});
+	</script>
 </head>
 	<body>
 		<div id="Previous">
@@ -27,7 +38,7 @@
 
 		<div id="Post">
 	    	<article id="articlePost">
-	        	<h2>全文搜索<a href="https://github.com/sunspot/sunspot">Sunspot</a> 出现 RSolr::Error::Http - 500 Internal Server Error 解决方法:</h2>
+	    		<h2>全文搜索<a href="https://github.com/sunspot/sunspot">Sunspot</a> 出现 RSolr::Error::Http - 500 Internal Server Error 解决方法:</h2>
 
 <p>log:   </p>
 
@@ -62,6 +73,10 @@ Permission denied - /Users/free/.rvm/gems/ruby-1.9.3-p327/cache/sqlite3-1.3.6.ge
 <p>解决方法：chown -R free ~/.rvm，然后再安装，sudo gem install sqlite3。</p>
 
 	    	</article>
+
+	    	<!-- 回到顶部 -->
+            <div id="go_top" style="display: none;"><img src="/images/go_top.jpg"></div>
+            <script type="text/javascript">goTopEx();</script>
 
 	    	
 				<div style="height: 64px"></div>

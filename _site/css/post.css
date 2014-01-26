@@ -18,40 +18,39 @@ body {
 }
 
 div#Title {
-	position: absolute;
-	left: 36%;
-    top: 128px;
-	width: 30%;
-	
 	text-align: center;
-    color: #102040;
+    color: black;
     text-shadow: 0 0 16px #fff;
     border-radius: 8px;
 	box-shadow: 0 0 8px 0 #fff;
 	opacity: 0.88;
-    background-color: #dadee2;
+    background-color: white;
+
+    position: absolute;
+	left: 33%;
+    top: 128px;
+	width: 40%;
+	
 }
 
 div#Post {
-	position: absolute;
-	left: 23%;
-    top: 234px;
-	width: 56%;
-	padding: 16px;
-	
-	background-color: #dadee2;
+	background-color: #959595;
 	border-radius: 8px;
 	box-shadow: 0 0 8px 0 #fff;
 	opacity: 0.88;
 	color: #fff;
+
+	position: absolute;
+	left: 16%;
+    top: 234px;
+	width: 70%;
+	padding: 16px;
 }
 
 div#Post article#articlePost {
 	padding: 16px;
     margin-bottom: 16px;
-
     overflow: auto;
-
     background-color: #fff;
 	border-radius: 8px;
 	box-shadow: 0 0 8px 0 #102040;
@@ -74,7 +73,6 @@ div#Previous a {
 	font-style: oblique;
 	font-weight: bold;
 	color: blue;
-
 	text-decoration: none;
 }
 
@@ -83,19 +81,10 @@ div#Previous a:hover {
 	color: #6ecefd;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* 回到顶部 */
+div#go_top {
+    position: fixed;
+    bottom: 35px;
+    cursor: pointer;
+    right: 0;
+}

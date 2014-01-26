@@ -14,6 +14,17 @@
 
     <script type="text/javascript" src="/js/compatible.js"></script>
 
+    <!-- 代码高亮 -->
+   	<link href="/css/prettify.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="/js/prettify.js"></script>
+	<script>
+		$(document).ready(function(){
+		  if($('code').length>0){
+		    $('code').parent().addClass('prettyprint');
+		    prettyPrint();
+		  };
+		});
+	</script>
 </head>
 	<body>
 		<div id="Previous">
@@ -27,7 +38,7 @@
 
 		<div id="Post">
 	    	<article id="articlePost">
-	        	<p>国内的设计师大都喜欢用px，而国外的网站大都喜欢用em，那么两者有什么区别，又各自有什么优劣呢?</p>
+	    		<p>国内的设计师大都喜欢用px，而国外的网站大都喜欢用em，那么两者有什么区别，又各自有什么优劣呢?</p>
 
 <ol>
 <li><p>IE无法调整那些使用px作为单位的字体大小;</p></li>
@@ -63,6 +74,10 @@
 <p><code>&lt;!--body{font-size:63%;}--&gt; font-size:1.2em (可以调整) font-size:12px (不能调整)</code>你可以通过IE顶部菜单中的“察看-文字大小“来调整字体显示尺寸</p>
 
 	    	</article>
+
+	    	<!-- 回到顶部 -->
+            <div id="go_top" style="display: none;"><img src="/images/go_top.jpg"></div>
+            <script type="text/javascript">goTopEx();</script>
 
 	    	
 				<div style="height: 64px"></div>
