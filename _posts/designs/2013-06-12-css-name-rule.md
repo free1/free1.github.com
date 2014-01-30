@@ -1,10 +1,12 @@
 ---
 layout: post
-title: css命名规则 
+title: CSS命名规范 
 category: designs
 description: CSS
 disqus: false
 ---
+
+[CSS命名规范](http://m.baidu.com/from=2001a/bd_page_type=1/ssid=0/uid=0/pu=usm%400%2Csz%401320_1003%2Cta%40iphone_2_2.3_1_9.2/baiduid=2F20914A35E1050EFC7EF9D09F3777FA/w=0_10_css%E6%8A%80%E5%B7%A7/t=iphone/l=3/tc?baiduid=40C0FB4B1EFD94F61D90BEE0DD96A9A1&ref=www_iphone&lid=12906289273515140470&vit=osres&m=8&srd=1&cltj=cloud_title&dict=21&sec=35908&di=cd1eab301cbf72e1&src=http%3A%2F%2Fwww.divcss5.com%2Fjiqiao%2Fj4.shtml)   
 
 头：header　　   
 内容：content/container　　   
