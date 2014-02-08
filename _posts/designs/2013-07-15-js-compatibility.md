@@ -11,10 +11,10 @@ disqus: false
 ```
 	//IE6-8
 	//oUl.firstChild.style.background='red';
-	
+
 	//高级浏览器
 	//oUl.firstElementChild.style.background='red';
-	
+
 	if(oUl.firstElementChild)
 	{
 		oUl.firstElementChild.style.background='red';
@@ -23,4 +23,22 @@ disqus: false
 	{
 		oUl.firstChild.style.background='red';
 	}
+```
+
+## 获取外部（使用<link>）和内部（使用<style>）样式表中的样式
+
+```
+function getStyle(obj, name)
+{
+	if(obj.currentStyle)
+	{
+		//IE6-8
+		return obj.currentStyle[name];
+	}
+	else
+	{
+		//高级浏览器
+		return getComputedStyle(obj, false)[name];
+	}
+}
 ```

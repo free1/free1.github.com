@@ -7,4 +7,4 @@ disqus: true
 ---
 
 * [百度网盘](http://pan.baidu.com/disk/home)
-  新浪微博登录
+  QQ登录

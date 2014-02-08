@@ -12,7 +12,7 @@ disqus: false
 ```
 {
     "tab_size": 2,
-    "translate_tabs_to_spaces": true 
+    "translate_tabs_to_spaces": true
 }
 ```
 
@@ -36,4 +36,10 @@ disqus: false
         // 为true时，保存文件时会删除每行结束后多余的空格
         "trim_trailing_white_space_on_save": true
 }
+```
+
+## 在终端打开sublime text2
+
+```
+sudo ln -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" /usr/bin/subl
 ```
