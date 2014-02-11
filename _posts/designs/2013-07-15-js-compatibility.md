@@ -25,7 +25,7 @@ disqus: false
 	}
 ```
 
-## 获取外部（使用<link>）和内部（使用<style>）样式表中的样式
+## 获取外部（使用link）和内部（使用style）样式表中的样式
 
 ```
 function getStyle(obj, name)
