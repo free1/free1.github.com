@@ -60,13 +60,6 @@ Web设计（包括CSS3、响应式设计等）、Web开发（HTML5、JavaScript�
 * [Rails官方教程](http://guides.rubyonrails.org/)
 * [Rails官方教程译文](https://github.com/JuanitoFatas/Guides/blob/master/guides/index.md)
 
-* [javascript代码风格](https://github.com/airbnb/javascript)
-
-* [ruby-style-guide](https://github.com/bbatsov/ruby-style-guide)
-* [Ruby代码风格向导](http://blog.csdn.net/kucss/article/details/7040146)译文
-
-* [A guide for programming in style](https://github.com/thoughtbot/guides)
-
 * [爬虫专栏](http://www.v2sk.com/)
 
 * [google](http://www.google.com.hk/)
