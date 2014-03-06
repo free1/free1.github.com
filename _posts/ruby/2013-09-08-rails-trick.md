@@ -9,23 +9,33 @@ disqus: false
 ## View开发技巧
 * [表单中的虚拟属性](http://cn.asciicasts.com/episodes/16-virtual-attributes)   
   视图使用的属性不对应数据库中的字段。
+
 * [非数据库数据模型](http://cn.asciicasts.com/episodes/219-active-model)   
   不依赖于后端数据库的表单。
+
 * [嵌套模型的form第一部分](http://cn.asciicasts.com/episodes/196-nested-model-form-part-1)，[嵌套模型的form第二部分](http://cn.asciicasts.com/episodes/197-nested-model-form-part-2)   
   `accepts_nested_attributes_for`:   
   需要`has_one/has_many`这样的从属关系，但是又不想再单独为被包含的对象建一个表的时候用。   
   比如`user has_one profile`，`profile`包括`name，address，phone`等等。
   不想单独建一个profile表，但是全部作为User的属性又显得很乱，就可以把profile嵌入到user里面，实际上还在user表里，但是有了`has_one/has_many`这样的从属关系，逻辑上更清晰。
 
+* [多步骤表单](http://railscasts.com/episodes/217-multistep-forms)
+  将表单的填写分成多个页面，类似支付，可以下一步和上一步。
+
+
 ## Model开发技巧
 * [Rails 3中的Active Record的查询](http://cn.asciicasts.com/episodes/202-active-record-queries-in-rails-3)   
   model中的查询和scope的使用。
+
 * [Rails 3 中的高级查询](http://cn.asciicasts.com/episodes/215-advanced-queries-in-rails-3)   
   用类方法代替Scopes等高级查询。
+
 * [Include vs Joins](http://cn.asciicasts.com/episodes/181-include-vs-joins)   
   modle查询中include和joins的区别。
+
 * [多态关联](http://cn.asciicasts.com/episodes/154-polymorphic-association)   
   多个model对应同一个model，减少关联关系复杂性。
+  
 * [嵌入关联](http://cn.asciicasts.com/episodes/189-embedded-association)   
   角色的权限验证系统Role。
 
