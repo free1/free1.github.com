@@ -16,5 +16,9 @@ disqus: false
 * 多多利用内存，减少磁盘 IO
 * 用 id desc 代替 created_at desc 来实现最新记录的排序
 
-[最佳實踐如何變成了最慢實踐 ](http://blog.xdite.net/posts/2012/11/20/rubyconf-china-2012-ten-slow-things-you-dont-know/)
-[](http://robbinfan.com/blog/40/ruby-off-rails)
+[最佳實踐如何變成了最慢實踐](http://blog.xdite.net/posts/2012/11/20/rubyconf-china-2012-ten-slow-things-you-dont-know/)
+[ruby-off-rails](http://robbinfan.com/blog/40/ruby-off-rails)
+
+[New Relic](https://rpm.newrelic.com/accounts/646781/applications/setup?destination=web)
+
+[Web应用的缓存设计模式](http://robbinfan.com/blog/38/orm-cache-sumup)
