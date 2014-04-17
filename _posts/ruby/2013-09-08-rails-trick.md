@@ -43,6 +43,7 @@ disqus: false
 * [Routing in Rails 3](http://cn.asciicasts.com/episodes/203-routing-in-rails-3)   
   :as具名路由，可选参数，Constraints限定等用法。
 
+
 ## 功能开发技巧
 * [发送email](http://cn.asciicasts.com/episodes/206-actionmailer-in-rails3)   
   系统自动发送email功能。
@@ -52,6 +53,11 @@ disqus: false
   用户关注功能。
 * [Seed Data](http://cn.asciicasts.com/episodes/179-seed-data)   
   初始化数据(seeds.rb)显示用户使用的操作系统等。
+* [Trees with Ancestry](http://railscasts.com/episodes/262-trees-with-ancestry?view=asciicast)
+  类似新闻评论上的楼中楼。
+* [Tree Based Navigation](http://railscasts.com/episodes/162-tree-based-navigation)
+  树形导航,面包屑。
+
 
 ## 开发好用的gem
 * [Bundler使用](http://cn.asciicasts.com/episodes/201-bundler)
