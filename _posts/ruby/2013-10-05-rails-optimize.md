@@ -22,3 +22,5 @@ disqus: false
 [New Relic](https://rpm.newrelic.com/accounts/646781/applications/setup?destination=web)
 
 [Web应用的缓存设计模式](http://robbinfan.com/blog/38/orm-cache-sumup)
+
+[Rails-with-massive-data](http://blog.xdite.net/posts/2012/08/22/rails-with-massive-data/)
