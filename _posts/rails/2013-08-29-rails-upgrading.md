@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Rails 从3.2升级到4.0
-category: ruby
+category: rails
 description: Rails(转载)
 disqus: false
 ---

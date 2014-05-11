@@ -1,7 +1,7 @@
 ---
 layout: post
 title: devise的使用方法
-category: ruby
+category: rails
 description: Gem(转载)
 disqus: false
 ---

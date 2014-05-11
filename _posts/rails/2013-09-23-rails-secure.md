@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Rails安全方面
-category: ruby
+category: rails
 description: Rails
 disqus: false
 ---

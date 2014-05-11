@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Rails小技巧
-category: ruby
+category: rails
 description: Rails
 disqus: false
 ---

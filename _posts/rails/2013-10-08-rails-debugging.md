@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Rails中调试技巧
-category: ruby
+category: rails
 description: Rails
 disqus: false
 ---

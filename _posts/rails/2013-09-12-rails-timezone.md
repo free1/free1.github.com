@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Rails时区设置问题
-category: ruby
+category: rails
 description: Rails
 disqus: false
 ---

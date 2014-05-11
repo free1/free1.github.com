@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Rails中报错页面
-category: ruby
+category: rails
 description: Rails
 disqus: false
 ---

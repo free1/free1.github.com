@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Rails优化
-category: ruby
+category: rails
 description: Rails
 disqus: false
 ---

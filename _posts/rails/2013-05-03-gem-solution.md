@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Gem使用常见问题
-category: ruby
+category: rails
 description: Rails
 disqus: false
 ---

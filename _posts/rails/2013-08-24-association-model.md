@@ -1,7 +1,7 @@
 ---
 layout: post
 title: ActiveRecord资料表关系
-category: ruby
+category: rails
 description: Rails(转载)
 disqus: false
 ---

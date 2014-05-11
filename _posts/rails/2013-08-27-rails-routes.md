@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Rails Routes
-category: ruby
+category: rails
 description: Rails(转载)
 disqus: false
 ---

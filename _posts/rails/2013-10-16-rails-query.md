@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Rails中复杂查询
-category: ruby
+category: rails
 description: Rails
 disqus: false
 ---

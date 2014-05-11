@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Rails中使用命名空间
-category: ruby
+category: rails
 description: Rails
 disqus: false
 ---

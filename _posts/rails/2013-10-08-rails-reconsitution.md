@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Rails中重构技巧
-category: ruby
+category: rails
 description: Rails
 disqus: false
 ---
