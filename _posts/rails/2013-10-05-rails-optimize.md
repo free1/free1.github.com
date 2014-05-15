@@ -24,3 +24,5 @@ disqus: false
 [Web应用的缓存设计模式](http://robbinfan.com/blog/38/orm-cache-sumup)
 
 [Rails-with-massive-data](http://blog.xdite.net/posts/2012/08/22/rails-with-massive-data/)
+
+[Advanced Bitmask Attributes for SQL](https://gist.github.com/hooopo/9cb0c327141314437510)
