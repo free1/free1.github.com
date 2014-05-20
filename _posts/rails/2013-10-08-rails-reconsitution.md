@@ -11,3 +11,7 @@ disqus: false
 [Preload, Eagerload, Includes 和 Joins](http://zhaowen.me/blog/2014/03/13/preload-eagerload-includes-and-joins/)
 
 [Rails文档](http://www.rubycc.com/column/rails3.2.3/railsdoc.htm)
+
+[重构 Rails 项目之最佳实践](http://yedingding.com/2013/03/04/steps-to-refactor-controller-and-models-in-rails-projects.html)
+
+[『风车』技术架构介绍](http://yedingding.com/2014/03/20/fengcheco-architecture.html)
