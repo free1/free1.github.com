@@ -15,6 +15,7 @@ disqus: false
 * [总结 web 应用中常用的各种 cache](http://ruby-china.org/topics/19389)
 * [Varnish缓存服务器配置](http://www.360doc.com/content/10/1026/11/737570_64093653.shtml#)
 * [Web应用的缓存设计模式](http://robbinfan.com/blog/38/orm-cache-sumup)
+* [Cache 在 Ruby China 里面的应用](http://ruby-china.org/topics/19436#reply20)
 
 ## 总结 web 应用中常用的各种 cache
 
@@ -259,6 +260,83 @@ body
 - cache_if !user_signed_in?, "xxx", :expires_in => 1.day do
 ```
 
-* 数据查询缓存
+* 数据查询缓存   
+通常来说web应用性能瓶颈都出现在DB IO上，做好数据查询缓存，减少数据库的查询次数，可以极大提高整体响应时间。   
+数据查询缓存分2种：   
+A. 同一个请求周期内的缓存   
+举一个显示文章列表的例子，输出文章标题和文章类别，对应代码如下   
+
+```
+# controller
+  def index
+    @articles = Article.first(10)
+  end
+
+# view
+- @articles.each do |article|
+  h1 = article.name
+  span = article.category.name
+```
+
+会发生10条类似的sql查询：   
+
+```
+SELECT `categories`.* FROM `categories` WHERE `categories`.`id` = ?
+```
+
+rails内置了query cache （ [https://github.com/rails/rails/blob/master/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb](https://github.com/rails/rails/blob/master/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb) ），在同一个请求周期内，如果没有update/delete/insert的操作，会对相同的sql查询进行缓存，如果文章类别都是相同的话，真正去查询数据库只会有1次。   
+
+如果文章类别都不一样，就会出现N+1查询问题（常见的性能瓶颈），rails推荐的解决方法是用Eager Loading Associations ( [http://guides.rubyonrails.org/active_record_querying.html#eager-loading-associations](http://guides.rubyonrails.org/active_record_querying.html#eager-loading-associations) )   
+
+```
+  def index
+    @articles = Article.includes(:category).first(10)
+  end
+```
+
+查询语句会变成   
+
+```
+SELECT `categories`.* FROM `categories` WHERE `categories`.`id` in (?,?,?...)
+```
+
+B. 跨请求周期的缓存   
+同请求周期缓存所带来性能优化是很有限的，很多时候我们需要用跨请求周期的缓存，将一些常用的数据（比如User model）缓存，对于active record来说，利用统一的查询接口来fetch cache，利用callback来expire cache，就很容易实现，而且有一些现成的gem可以来用。   
+
+比如说 identity_cache ( [https://github.com/Shopify/identity_cache](https://github.com/Shopify/identity_cache) )
+
+```
+class User < ActiveRecord::Base
+  include IdentityCache
+end
+
+class Article < ActiveRecord::Base
+  include IdentityCache
+  cached_belongs_to :user
+end
+
+# 都会命中缓存
+User.fetch(1)
+Article.find(2).user
+```
+
+这个gem的优点是代码实现简单，cache设置灵活，也方便扩展，缺点是需要用不同的查询方法名（fetch），以及额外的关系定义。   
+
+如果想在无数据缓存的应用无缝加入缓存功能，推荐@hooopo 做的`second_level_cache` ( [https://github.com/hooopo/second_level_cache](https://github.com/hooopo/second_level_cache) ) 。   
+
+```
+class User < ActiveRecord::Base
+  acts_as_cached(:version => 1, :expires_in => 1.week)
+end
+
+#还是使用find方法，就会命中缓存
+User.find(1)
+#无需额外用不一样的belongs_to定义
+Article.find(2).user
+```
+
+实现原理是扩展了active record底层arel sql ast处理 （ [https://github.com/hooopo/second_level_cache/blob/master/lib/second_level_cache/arel/wheres.rb](https://github.com/hooopo/second_level_cache/blob/master/lib/second_level_cache/arel/wheres.rb) ）
+它的优点是无缝接入，缺点是扩展比较困难，对于只获取少量字段的查询无法缓存。
+
 
 * 数据库缓存
