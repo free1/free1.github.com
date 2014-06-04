@@ -13,3 +13,5 @@ disqus: false
 [Brakeman 2.4.0 Released](http://brakemanscanner.org/)
 
 [Rails 不安全的默认配置 —— 需要了解的13个安全陷阱](http://www.oschina.net/translate/rails-insecure-defaults?cmp)
+
+[前端之困 · XSS CookBook](http://zhuanlan.zhihu.com/wooyun/19756127)

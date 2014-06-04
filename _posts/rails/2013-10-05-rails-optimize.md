@@ -26,3 +26,7 @@ disqus: false
 [Rails-with-massive-data](http://blog.xdite.net/posts/2012/08/22/rails-with-massive-data/)
 
 [Advanced Bitmask Attributes for SQL](https://gist.github.com/hooopo/9cb0c327141314437510)
+
+[MySQL 数据库性能优化之SQL优化](http://isky000.com/database/mysql-performance-tuning-sql)
+
+[Ruby Performance Tricks](http://greyblake.com/blog/2012/09/02/ruby-perfomance-tricks/)
