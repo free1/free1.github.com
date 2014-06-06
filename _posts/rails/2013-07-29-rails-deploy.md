@@ -29,6 +29,10 @@ disqus: false
 
 ## 常见问题
 
-* 当用户权限不够时可以使用root用户登录或者使用chmod命令修改权限: `chmod 600 authorized_keys`
+* 当用户权限不够时可以使用root用户登录或者使用 `chmod` 命令修改权限: `chmod 600 authorized_keys` 。
 
-* 当进入项目安装rails时提示gem不兼容就要指定rails版本: `gem install rails -v=4.0.2`
+* 当进入项目安装rails时提示gem不兼容就要指定rails版本: `gem install rails -v=4.0.2` 。
+
+* 当使用rvm时，有时sudo不能获取权限就要使用rvmsudo。
+
+* chown 命令可以更改拥有者。
