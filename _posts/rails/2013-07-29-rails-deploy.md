@@ -26,6 +26,16 @@ disqus: false
 ## [在阿里云 (aliyun) 服务器上搭建Ruby On Rails生产环境](http://zhifangzi.com/posts/dingnAn/built_ruby_on_rails_production_environment_on_aliyun)
 
 
+## mysql远程访问。
+
+* 进入远程数据库输入: `grant all PRIVILEGES on 数据库.表名(所有表*) to root(用户名)@'%(ip)' identified by '密码';` 。
+* 进入远程数据库输入: `netstat -an |grep 3306` 查看mysql状态。
+* 确认防火墙的3306端口开着(本地输入): `ufw status`。
+* 确认本地可以访问远程数据库: `telnet ip 3306`
+* `/etc/mysql/my.cnf` 数据库配置文件中 `bind-address=127.0.0.1` 改为 `0.0.0.0`
+* 重启: `sudo/etc/init.d/mysql restart(stop,start)`, `sudo restart mysql`, `sudo service mysql restart`
+* [iptables防火墙](http://www.jb51.net/os/Ubuntu/45291.html)
+
 
 ## 常见问题
 
@@ -36,3 +46,21 @@ disqus: false
 * 当使用rvm时，有时sudo不能获取权限就要使用rvmsudo。
 
 * chown 命令可以更改拥有者。
+
+* `Mysql2::Error: Data too long for column` 的解决方案(使用utf8mb4)
+
+[MySQL utf8mb4 字符集](http://www.linuxidc.com/Linux/2013-05/84360.htm)
+
+修改database、table和column字符集
+
+```
+For each database: 
+ALTER DATABASE database_name CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
+For each table: 
+ALTER TABLE table_name CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+For each column: 
+ALTER TABLE table_name CHANGE column_name column_name VARCHAR(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+```
+
+
+
