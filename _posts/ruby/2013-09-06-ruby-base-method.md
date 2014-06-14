@@ -6,6 +6,9 @@ description: Rails
 disqus: false
 ---
 
+## [大家来贴一下常用的小技巧吧](https://ruby-china.org/topics/541)
+## [Hidden features of Ruby](http://stackoverflow.com/questions/63998/hidden-features-of-ruby)
+
 ## 字符串操作
 
 * split: 字符串分割
@@ -50,6 +53,7 @@ disqus: false
 * take: 选出前n个元素
 * uniq: 把重复元素去掉
 * unshift: 在数组第一个元素前添加元素
+* Hash[* ]: 将Array按顺序转换为Hash的键值
 
 
 1.返回字符串的长度 (length)
