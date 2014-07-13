@@ -38,3 +38,8 @@ The solution:
     Permission denied - /Users/free/.rvm/gems/ruby-1.9.3-p327/cache/sqlite3-1.3.6.gem
 
 解决方法：chown -R free ~/.rvm，然后再安装，sudo gem install sqlite3。
+
+
+## gem libv8 install 出错
+
+[therubyracer installation on windows with libv8 installed --with-system-v8](http://stackoverflow.com/questions/19126019/therubyracer-installation-on-windows-with-libv8-installed-with-system-v8)
