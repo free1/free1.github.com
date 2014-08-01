@@ -19,6 +19,8 @@ telnet 127.0.0.1 11211
 ps -ef|grep 11211
 查看状态:
 stats
+退出:
+control + ]
 清除所有缓存:
 flush_all
 ```

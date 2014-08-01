@@ -6,6 +6,7 @@ description: Rails(转载)
 disqus: false
 ---
 
+[Rails3 Route 用法集锦](http://blog.sina.com.cn/s/blog_6721c4c70100ooeb.html)
 [Rails Routes 中的两件事](http://ruby-china.org/topics/15270)
 
 ## 使用命名空间
