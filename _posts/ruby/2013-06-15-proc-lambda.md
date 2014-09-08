@@ -11,7 +11,7 @@ disqus: false
 * lambda的 succ = lambda { |x| x+1 } 可以写成 succ = ->(x) { x+1 }
 
 ## 代码块，proc和lambda中的return语句。
-	在一个代码块中的return语句不仅仅会从调用代码块的迭代器返回，
+	Proc在一个代码块中的return语句不仅仅会从调用代码块的迭代器返回，
 	它还会从调用迭代器的方法返回。
 
 ```ruby

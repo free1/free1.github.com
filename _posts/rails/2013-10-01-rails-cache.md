@@ -6,16 +6,19 @@ description: Rails
 disqus: false
 ---
 
+* [Rails Cache](http://hideto.iteye.com/blog/87588)
+* [来自Rails Envy的Rails Cache教程 part2 ](http://blog.csdn.net/joliny/article/details/2152244)
+* [总结 web 应用中常用的各种 cache](http://ruby-china.org/topics/19389)
+* [Cache 在 Ruby China 里面的应用](http://ruby-china.org/topics/19436)
 * [Rails中使用缓存：概述](http://guides.ruby-china.org/caching_with_rails.html)
 * [Scaling Rails – 第八章 Memcached](http://wp.xdite.net/?p=1029)
 * [Advanced Caching in Rails](http://hawkins.io/2011/05/advanced_caching_in_rails/)
 * [屌丝程序员如何打造日PV百万的网站架构](https://speakerdeck.com/shiningray/diao-si-cheng-xu-yuan-ru-he-da-zao-ri-pvbai-mo-de-wang-zhan-jia-gou)
 * [如何使用 memcached 做快取](http://ihower.tw/blog/archives/1768)
 * [MAC OSX 环境下搭建 memcached 环境](http://www.blogways.net/blog/2013/05/01/demo-libmemcached-at-mac.html)
-* [总结 web 应用中常用的各种 cache](http://ruby-china.org/topics/19389)
-* [Varnish缓存服务器配置](http://www.360doc.com/content/10/1026/11/737570_64093653.shtml#)
 * [Web应用的缓存设计模式](http://robbinfan.com/blog/38/orm-cache-sumup)
-* [Cache 在 Ruby China 里面的应用](http://ruby-china.org/topics/19436#reply20)
+* [Varnish缓存服务器配置](http://www.360doc.com/content/10/1026/11/737570_64093653.shtml#)
+* [真实世界中的 Rails: Rails 中的缓存](http://www.ibm.com/developerworks/cn/web/wa-rails1/)
 
 ## 总结 web 应用中常用的各种 cache
 

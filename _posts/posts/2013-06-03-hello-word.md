@@ -49,6 +49,8 @@ Web设计（包括CSS3、响应式设计等）、Web开发（HTML5、JavaScript�
 * [gitcafe](https://gitcafe.com/): 国内代码托管网站(支持中文)
 
 ## 其他
+* [新知社区](http://get.jobdeer.com/)
+
 * [Bootstrap中文版](http://www.bootcss.com/)
 
 * [微软、Google等面试题](http://zhedahht.blog.163.com/)
