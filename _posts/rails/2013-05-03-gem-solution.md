@@ -43,3 +43,9 @@ The solution:
 ## gem libv8 install 出错
 
 [therubyracer installation on windows with libv8 installed --with-system-v8](http://stackoverflow.com/questions/19126019/therubyracer-installation-on-windows-with-libv8-installed-with-system-v8)
+
+
+
+## rails s 出错
+
+[rails s](http://stackoverflow.com/questions/17645041/why-doesnt-rails-s-work-from-the-app-directory)

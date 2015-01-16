@@ -16,6 +16,8 @@ disqus: false
 * 以空间换时间。
 * 过早优化是万恶之源。
 
+## [refactoring-ruby-with-monads](http://codon.com/refactoring-ruby-with-monads)
+
 ## [Ruby中的性能差异](http://ruby-china.org/topics/19207)
 * Proc#call versus yield
 
