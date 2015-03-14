@@ -11,3 +11,5 @@ disqus: false
 * database.yml中加入
 
 `collation: utf8mb4_unicode_ci`
+
+## [数据库索引](https://ruby-china.org/topics/6735)

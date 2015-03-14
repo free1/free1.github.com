@@ -6,6 +6,16 @@ description: 编辑器的使用
 disqus: false
 ---
 
+## 必要安装
+
+[packagecontrol](https://packagecontrol.io/installation#st2)
+
+* sublimelisten 错误提示
+* emmet html快捷补全
+* AdvancedNewFile 快速创建文件
+* Sass 支持sass
+* SublimeErb erb快捷补全
+
 ## 设置缩进参数
 * 菜单栏: Preferences -> Settings - More -> Syntax Specific - User。然后添加设置代码就可以了，文件保存在$Packages/User下：
 
