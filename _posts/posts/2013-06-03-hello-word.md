@@ -6,6 +6,18 @@ description:
 disqus: true
 ---
 
+## 文档
+
+[ruby&&rails](http://doc.rubyfans.com/index.html)
+
+## 插件
+
+[octotree](https://github.com/buunguyen/octotree)
+
+## 论坛
+
+[ruby-forum](https://www.ruby-forum.com/)
+
 ## 课程
 * [网易公开课](http://open.163.com/)
 
