@@ -6,6 +6,30 @@ description: Rails
 disqus: false
 ---
 
+## rake
+
+* [invalid byte sequence in US-ASCII](https://ruby-china.org/topics/19564)
+```
+将下面一行添加到.bashrc 就ok了
+export RUBYOPT="-U -Ku -E utf-8:utf-8"
+
+更新
+source ~/.bashrc
+```
+
+## sphinx
+
+* mysql连不上
+`rake ts:configure ts:restart`
+
+## whenever
+
+* You will have to execute
+`whenever -i`
+to add the jobs to crontab
+
+* crontab -l
+
 
 ## 全文搜索[Sunspot](https://github.com/sunspot/sunspot) 出现 RSolr::Error::Http - 500 Internal Server Error 解决方法:
 

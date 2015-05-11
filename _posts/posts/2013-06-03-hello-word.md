@@ -8,7 +8,13 @@ disqus: true
 
 ## 文档
 
-[ruby&&rails](http://doc.rubyfans.com/index.html)
+[ruby&&rails中文](http://doc.rubyfans.com/index.html)
+[ruby&&rails](http://www.rubydoc.info/gems/html-pipeline/frames)
+[jquery](http://www.jquery123.com/api/)
+
+## 博客
+
+[安装和配置 Postfix邮件服务器](http://chloerei.com/2015/04/22/install-and-configure-postfix/)
 
 ## 插件
 
