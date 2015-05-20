@@ -54,6 +54,26 @@ The solution:
 *   rake sunspot:solr:start
 *   rake sunspot:solr:reindex
 
+## Sunspot
+
+* sunspot等需要java环境，快速安装。
+
+```
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get install oracle-java7-installer
+
+bundle exec rake sunspot:solr:start
+```
+
+* mac install java
+
+```
+brew tap caskroom/cask
+brew install brew-cask
+brew cask install java
+```
+
 
 ## 使用rvm安装gem出现权限错误 
 
