@@ -59,6 +59,7 @@ The solution:
 * sunspot等需要java环境，快速安装。
 
 ```
+sudo apt-get install python-software-properties
 sudo add-apt-repository ppa:webupd8team/java
 sudo apt-get update
 sudo apt-get install oracle-java7-installer
