@@ -87,7 +87,7 @@ brew cask install java
 
 ## gem libv8 install 出错
 
-[therubyracer installation on windows with libv8 installed --with-system-v8](http://stackoverflow.com/questions/19126019/therubyracer-installation-on-windows-with-libv8-installed-with-system-v8)
+[therubyracer installation on windows with libv8 installed --with-system-v8](http://stackoverflow.com/questions/19126019/therubyracer-installation-on-windows-with-libv8-installed-with-system-v8)   
 `gem install libv8 -v 3.16.14.3 -- --with-system-v8`
 
 
