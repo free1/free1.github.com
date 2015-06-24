@@ -11,6 +11,15 @@ disqus: true
 [ruby&&rails中文](http://doc.rubyfans.com/index.html)
 [ruby&&rails](http://www.rubydoc.info/gems/html-pipeline/frames)
 [jquery](http://www.jquery123.com/api/)
+[react](http://wiki.jikexueyuan.com/project/react-native/style.html)
+[redis内部实现](http://redisbook.com/)
+[nginx内部实现](http://tengine.taobao.org/book/index.html)
+[docker讲解](https://csphere.cn/training)
+[算法心得](http://taop.marchtea.com/)
+
+## 监控
+
+[监控宝](http://www.jiankongbao.com/dashboard)
 
 ## 博客
 
