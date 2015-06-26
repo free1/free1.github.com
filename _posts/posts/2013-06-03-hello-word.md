@@ -16,6 +16,8 @@ disqus: true
 [nginx内部实现](http://tengine.taobao.org/book/index.html)
 [docker讲解](https://csphere.cn/training)
 [算法心得](http://taop.marchtea.com/)
+[w3c标准](http://www.w3.org/TR/css3-content/)
+[w3cplus](http://www.w3cplus.com/)
 
 ## 监控
 

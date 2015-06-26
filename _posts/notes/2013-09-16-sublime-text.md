@@ -16,6 +16,7 @@ disqus: false
 * Sass 支持sass
 * SublimeErb erb快捷补全
 * react自动补全 reactjs-snippets
+* [插件](http://aibusy.com/blog/?p=226)
 
 ## 设置缩进参数
 * 菜单栏: Preferences -> Settings - More -> Syntax Specific - User。然后添加设置代码就可以了，文件保存在$Packages/User下：
