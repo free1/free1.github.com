@@ -30,6 +30,7 @@ disqus: false
 
 ```
 {
+        "auto_complete_commit_on_tab": true,
         "auto_complete": true,
         "default_encoding": "UTF-8",
         "font_size": 15.0,
