@@ -31,3 +31,19 @@ disqus: false
 搜索:    
 `Product.search('xxx').results.map { |r| r._source }`   
 `Product.search(query: {multi_match: {query: '裤', fields: ['title']}}).results.map { |r| r._source }`
+```
+Topic.search(
+      query: {
+        more_like_this: {
+          fields: ['title', 'body'],
+          like_text: title + '\n' + body
+        }
+      },
+      filter: {
+        and: [
+          { term: { trashed: false } },
+          { not: { term: { id: id } } }
+        ]
+      }
+    ).limit(num).records.to_a rescue []
+```
