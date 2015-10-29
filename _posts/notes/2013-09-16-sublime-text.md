@@ -6,6 +6,10 @@ description: 编辑器的使用
 disqus: false
 ---
 
+## 快捷键
+
+* 格式化代码: `ctrl+alt+f`
+
 ## 必要安装
 
 [packagecontrol](https://packagecontrol.io/installation#st2)
@@ -15,7 +19,7 @@ disqus: false
 * AdvancedNewFile 快速创建文件
 * Sass 支持sass
 * SublimeErb erb快捷补全
-* react自动补全 reactjs-snippets
+* react自动补全 reactjs-snippets, [sublime-react](https://github.com/reactjs/sublime-react)
 * [插件](http://aibusy.com/blog/?p=226)
 
 ## 设置缩进参数
