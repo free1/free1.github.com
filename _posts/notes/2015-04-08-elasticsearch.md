@@ -6,6 +6,14 @@ description: db
 disqus: false
 ---
 
+## 基本命令
+
+* 查看es：`curl -XGET http://ip-172-31-15-169.cn-north-1.compute.internal:9200/products-production/product/_search?pretty`
+* 关闭索引：`curl -X POST 'http://localhost:9200/products/_close'`
+* 打开索引：`curl -X POST 'http://localhost:9200/products/_open'`
+* 删除mapping：`curl -X DELETE 'http://localhost:9200/products/product/_mapping'`
+* 更新数据：`curl -X PUT http://ip-172-31-15-169.cn-north-1.compute.internal:9200/products/product/1`
+
 ## [elasticsearch-rails]()
 * 先建立索引(Model.__elasticsearch__.create_index! force: true)再导入数据(Model.import)
 
@@ -58,6 +66,14 @@ def as_indexed_json(options={})
     #   },
     #   categories: categories.map(&:name)
     # )
+  end
+
+  def as_indexed_json(options={})
+    as_json(
+      only: [:id, :full_name, :email],  # mysql字段
+      include: [:phone_numbers],
+      methods: [:full_name]  # 虚拟属性
+    )
   end
 ```
 
