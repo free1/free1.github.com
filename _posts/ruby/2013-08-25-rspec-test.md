@@ -9,6 +9,15 @@ disqus: false
 [rspec文档](https://www.relishapp.com/rspec/rspec-rails/docs)   
 [rspec源码](https://github.com/rspec/rspec-rails)
 
+## 简单命令
+
+```
+./bin/rspec spec/controllers/api/v1/
+rake db:drop RAILS_ENV=test
+rake db:create RAILS_ENV=test
+rake db:migrate RAILS_ENV=test
+```
+
 ## 命令行运行测试
 * 安装rspec：
 $ `rails generate rspec:install`

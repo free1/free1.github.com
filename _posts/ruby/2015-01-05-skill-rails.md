@@ -10,6 +10,10 @@ disqus: false
 
 `.select('DISTINCT project_id')`
 
+* 过滤掉问文本中的html标签
+
+` ActionController::Base.helpers.sanitize(self.description, tags: %w(li br)).gsub(/(<[^>]+>|&nbsp;|\r)/,"\n")`
+
 * gsub!
 
 `"<<<www>>>,2, <<<fff>>>".gsub!(/<<<(.+?)>>>/) { $1 }` #=> "www,2, fff"

@@ -13,6 +13,7 @@ disqus: false
 * 打开索引：`curl -X POST 'http://localhost:9200/products/_open'`
 * 删除mapping：`curl -X DELETE 'http://localhost:9200/products/product/_mapping'`
 * 更新数据：`curl -X PUT http://ip-172-31-15-169.cn-north-1.compute.internal:9200/products/product/1`
+* 查看index: `http://localhost:9200/_cat/indices?pretty`
 
 ## [elasticsearch-rails]()
 * 先建立索引(Model.__elasticsearch__.create_index! force: true)再导入数据(Model.import)
@@ -110,4 +111,29 @@ search(
           ]
         }
       })
+```
+
+
+```
+module ArticleImport
+  def self.import
+    Article.includes(:author, :tags).find_in_batches do |articles|
+      bulk_index(articles)
+    end
+  end
+
+  def self.prepare_records(articles)
+    articles.map do |article|
+      { index: { _id: article.id, data: article.as_indexed_json } }
+    end
+  end
+
+  def self.bulk_index(articles)
+    Article.__elasticsearch__.client.bulk({
+      index: ::Article.__elasticsearch__.index_name,
+      type: ::Article.__elasticsearch__.document_type,
+      body: prepare_records(articles)
+    })
+  end
+end
 ```
