@@ -18,6 +18,7 @@ disqus: true
 [算法心得](http://taop.marchtea.com/)
 [w3c标准](http://www.w3.org/TR/css3-content/)
 [w3cplus](http://www.w3cplus.com/)
+[kindle电子书格式转换](http://cn.epubee.com/)
 
 ## 代码托管网站
 

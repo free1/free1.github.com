@@ -6,6 +6,10 @@ description: Ruby
 disqus: false
 ---
 
+## 方法寻找
+
+* 同名方法先找module再找父class。
+
 ## 区别Ruby的require,load,和include
 相同之处：三者均在kernel中定义的，均含有包含进某物之意。
 不同之处：
