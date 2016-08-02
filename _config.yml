@@ -1,4 +1,4 @@
 baseurl:  /
 markdown: redcarpet
-pygments: true
+highlighter: true
 exclude: [Rakefile, README.md]
