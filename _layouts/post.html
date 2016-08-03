@@ -19,57 +19,57 @@ generator: Jekyll 1.0.2
     <script type="text/javascript" src="/js/compatible.js"></script>
 
     <!-- 代码高亮 -->
-   	<link href="/css/prettify.css" type="text/css" rel="stylesheet" />
-	<script type="text/javascript" src="/js/prettify.js"></script>
-	<script>
-		$(document).ready(function(){
-		  if($('code').length>0){
-		    $('code').parent().addClass('prettyprint');
-		    prettyPrint();
-		  };
-		});
-	</script>
+    <link href="/css/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="/js/prettify.js"></script>
+  <script>
+    $(document).ready(function(){
+      if($('code').length>0){
+        $('code').parent().addClass('prettyprint');
+        prettyPrint();
+      };
+    });
+  </script>
 </head>
-	<body>
-		<div id="Previous">
-			<a href="http://free1.github.com/"> <-Home </a>
-		</div>
+  <body>
+    <div id="Previous">
+      <a href="http://free1.github.com/"> <-Home </a>
+    </div>
 
-		<div id="Title">
-	    	<h1>{{ page.title }}</h1>
-	    	<p><b>{{ page.date | date_to_string }}</b>, by <b>{{ page.author }}</b></p>
-		</div>
+    <div id="Title">
+        <h1>{{ page.title }}</h1>
+        <p><b>{{ page.date | date_to_string }}</b>, by <b>{{ page.author }}</b></p>
+    </div>
 
-		<div id="Post">
-	    	<article id="articlePost">
-	    		{{ content }}
-	    	</article>
+    <div id="Post">
+        <article id="articlePost">
+          {{ content }}
+        </article>
 
-	    	<!-- 回到顶部 -->
+        <!-- 回到顶部 -->
             <div id="go_top" style="display: none;"><img src="/images/go_top.jpg"></div>
             <script type="text/javascript">goTopEx();</script>
 
-	    	{% if page.disqus == true %}
-	    	<!-- Duoshuo Comment BEGIN -->
-				<div class="ds-thread"></div>
-				<script type="text/javascript">
-					var duoshuoQuery = {short_name:"free1"};
-					(function() {
-					var ds = document.createElement('script');
-					ds.type = 'text/javascript';ds.async = true;
-					ds.src = 'http://static.duoshuo.com/embed.js';
-					ds.charset = 'UTF-8';
-					(document.getElementsByTagName('head')[0] 
-					|| document.getElementsByTagName('body')[0]).appendChild(ds);
-					})();
-				</script>
-			<!-- Duoshuo Comment END -->
-			{% else %}
-				<div style="height: 64px"></div>
-    		{% endif %}
-		</div>
-		
-	</body>
+        {% if page.disqus == true %}
+        <!-- Duoshuo Comment BEGIN -->
+        <div class="ds-thread"></div>
+        <script type="text/javascript">
+          var duoshuoQuery = {short_name:"free1"};
+          (function() {
+          var ds = document.createElement('script');
+          ds.type = 'text/javascript';ds.async = true;
+          ds.src = 'http://static.duoshuo.com/embed.js';
+          ds.charset = 'UTF-8';
+          (document.getElementsByTagName('head')[0] 
+          || document.getElementsByTagName('body')[0]).appendChild(ds);
+          })();
+        </script>
+      <!-- Duoshuo Comment END -->
+      {% else %}
+        <div style="height: 64px"></div>
+        {% endif %}
+    </div>
+    
+  </body>
 </html>
 
 

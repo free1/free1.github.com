@@ -6,6 +6,47 @@ body {
   font-size: 13px;
 }
 
+ul {
+  list-style: none;
+}
+
+ul li {
+  display: inline;
+}
+
+header {
+  background: #222;
+  height: 70px;
+  width: 100%;
+  border-bottom: #464647 1px solid;
+  margin-top: 10px;
+}
+
+header nav {
+  margin: 0 auto;
+  width: 1000px;
+  padding-top: 5px;
+}
+
+header nav li {
+  margin-right: 30px;
+  line-height: 40px;
+}
+
+header nav li a{
+  padding: 15px;
+}
+
+header nav li a:hover{
+  background: rgba(20, 20, 20, 0.8);
+  box-shadow: 0px 1px 0px rgba(255,255,255,.1), inset 0px 1px 1px rgba(0,0,0,.7);
+  border-radius: 6px;
+}
+
+.container {
+
+}
+
 div#Logo {
     position: fixed;
     left: 16px;
@@ -31,9 +72,15 @@ div#Clock div.time {
   margin-top: 35px;
 }
 
-.date img { position: relative; }
-.pos2 { margin-left: 10px; }
-.num { width: 25px; }
+.date img { 
+  position: relative; 
+  width: 10px; 
+}
+
+.week { 
+  margin-left: 5px; 
+  width: 20px !important;
+}
 .num2 { width: 38px; }
 
 /* 标签云 */

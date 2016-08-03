@@ -1,90 +1,76 @@
 body {
-	margin: 0;
-	padding: 0;
-
-	background-attachment: fixed;
-	/*background-color: #6ca2e0;*/
-	background-image: url("/images/page_bg.gif");
-	background-position: top center;
-	background-repeat: no-repeat;
-	
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-    
-	font-family: 'DejaVu Sans Condensed', 'Arial';
-	font-size: 13px;
+  margin: 0;
+  padding: 0;
+  background: #333;
+  font-family: 'DejaVu Sans Condensed', 'Arial';
+  font-size: 13px;
 }
 
 div#Title {
-	text-align: center;
-    color: black;
-    text-shadow: 0 0 16px #fff;
-    border-radius: 8px;
-	box-shadow: 0 0 8px 0 #fff;
-	opacity: 0.88;
-    background-color: white;
-
-    position: absolute;
-	left: 33%;
-    top: 128px;
-	width: 40%;
-	
+  width: 40%; 
+  text-align: center;
+  color: black;
+  text-shadow: 0 0 16px #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 8px 0 #fff;
+  opacity: 0.88;
+  background-color: white;
+  position: absolute;
+  left: 33%;
+  top: 128px;
 }
 
 div#Post {
-	background-color: #959595;
-	border-radius: 8px;
-	box-shadow: 0 0 8px 0 #fff;
-	opacity: 0.88;
-	color: #fff;
-
-	position: absolute;
-	left: 16%;
-    top: 234px;
-	width: 70%;
-	padding: 16px;
+  width: 70%;
+  padding: 16px;
+  background-color: #959595;
+  border-radius: 8px;
+  box-shadow: 0 0 8px 0 #fff;
+  opacity: 0.88;
+  color: #fff;
+  position: absolute;
+  left: 16%;
+  top: 234px;
 }
 
 div#Post article#articlePost {
-	padding: 16px;
-    margin-bottom: 16px;
-    overflow: auto;
-    background-color: #fff;
-	border-radius: 8px;
-	box-shadow: 0 0 8px 0 #102040;
-	opacity: 0.88;
-	font-size: 15px;
-	line-height: 150%;
-    color: black;
+  padding: 16px;
+  margin-bottom: 16px;
+  overflow: auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 8px 0 #102040;
+  opacity: 0.88;
+  font-size: 15px;
+  line-height: 150%;
+  color: black;
 }
 
 div#Previous {
-	position: absolute;
-	left: 20%;
-    top: 160px;
-	width: 30%;
+  position: absolute;
+  left: 20%;
+  top: 160px;
+  width: 30%;
 }
 
 
 div#Previous a {
-	font-size: 30px;
-	font-style: oblique;
-	font-weight: bold;
-	color: blue;
-	text-decoration: none;
+  font-size: 30px;
+  font-style: oblique;
+  font-weight: bold;
+  color: blue;
+  text-decoration: none;
 }
 
 div#Previous a:hover {
-	font-size: 35px;
-	color: #6ecefd;
+  font-size: 35px;
+  color: #6ecefd;
 }
 
 /* 回到顶部 */
 div#go_top {
-    position: fixed;
-    bottom: 35px;
-    cursor: pointer;
-    right: 0;
+  position: fixed;
+  bottom: 35px;
+  cursor: pointer;
+  right: 0;
 }
