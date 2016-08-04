@@ -9,6 +9,7 @@ disqus: false
 ## rake
 
 * [invalid byte sequence in US-ASCII](https://ruby-china.org/topics/19564)
+
 ```
 将下面一行添加到.bashrc 就ok了
 export RUBYOPT="-U -Ku -E utf-8:utf-8"

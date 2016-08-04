@@ -1,39 +1,35 @@
 ---
 layout: post
-title: Rails Routes
+title: Rails Route基础
 category: rails
 description: Rails(转载)
 disqus: false
 ---
 
-[Rails3 Route 用法集锦](http://blog.sina.com.cn/s/blog_6721c4c70100ooeb.html)
-[Rails Routes 中的两件事](http://ruby-china.org/topics/15270)
+## 路由中member与collection区别:
+* member 方法作用是，设置这两个动作对应的 URL 地址中应该包含用户的 id，例如: /users/1/following生成 `following_user_path(1)`
+* 如果是show edit这种只处理一个。　就是member。
+* collection 方法，但 URL 中就没有用户 id 了，例如: /users/tigers生成 `tigers_users_url`
+* 如果index　`bulk_edit` 这样一次操作多个。就是collection。
+
+
+## restful路由规则
+
+```
+HTTP 请求   URI   动作                   具名路由   作用   
+GET         /users  index                  users_path   显示所有用户的页面
+GET         /users/1  show                 user_path(user) 显示某个用户的页面
+GET       /users/new  new                  new_user_path  创建（注册）新用户的页面
+POST       /users   create                users_path  创建新用户
+GET    /users/1/edit  edit            edit_user_path(user) 编辑 id 为 1的用户页面
+PUT       /users/1  update            user_path(user) 更新用户信息
+DELETE     /users/1   destroy        user_path(user)  删除用户
+```
+
 
 ## 使用命名空间
-Account 进行 devise:   
-routes.rb   
 
-`devise_for :accounts, :controllers => { :sessions => "admin/sessions" }`
-
-然后将sessions_controller.rb拷贝到如下目录:   
-
-`app/controllers/admin/`
-
-同时新建以下view:   
-
-`app/views/admin/sessions/new.html.erb   #登陆页面`
-
-## devise路由
-
-写在前面：在看devise的源码过程中，发现Devise在做Routes Mapping时，使用了Rails自己的@constraints。于是查查文档，笔记两件事。
-
-以下内容粗略翻译自Ruby on Rails 4.0.1， ActionDispatch::Routing::Mapper::Scoping 。
-
-位置：actionpack/lib/action_dispatch/routing/mapper.rb
-第一件事，通过routes访问资源。
-
-这种写法很熟悉的。
-
+```
 namespace "admin" do
   resources :posts, :comments
 end
@@ -58,8 +54,11 @@ end
 
 resources :posts, path: "/admin/posts"
 
-第二件事，限制访问。
+```
 
+## 限制访问。
+
+```
 比如允许 /posts/1.1 访问，而禁止 /posts/1，那么代码如下：
 
 constraints(id: /\d+\.\d+/) do
@@ -94,12 +93,7 @@ class Iphone
   end
 end
 
-下面这句话有待验证，暂时不译：
-
-An expected place for this code would be lib/constraints.
-
-This class is then used like this:
-
 constraints(Iphone) do
   resources :iphones
 end
+```

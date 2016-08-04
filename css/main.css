@@ -47,14 +47,14 @@ header nav li a:hover{
 
 }
 
-div#Logo {
+#Logo {
     position: fixed;
     left: 16px;
     bottom: 80px;
 }
 
 /* 时钟 */
-div#Clock {
+#Clock {
   width: 400px;
   height: 190px;
 
@@ -63,18 +63,18 @@ div#Clock {
   top: 120px;
 }
 
-div#Clock div.year {
+#Clock .year {
   margin-left: 20px;
 }
 
-div#Clock div.time {
+#Clock .time {
   margin-left: 20px;
   margin-top: 35px;
 }
 
 .date img { 
   position: relative; 
-  width: 10px; 
+  /*width: 20px; */
 }
 
 .week { 
@@ -84,7 +84,7 @@ div#Clock div.time {
 .num2 { width: 38px; }
 
 /* 标签云 */
-div#Tag {
+#Tag {
   width: 350px;
   height: 350px;
   margin: 20px auto 0;
@@ -94,30 +94,30 @@ div#Tag {
   top: 360px;
 }
 
-div#Tag a {
+#Tag a {
   font-family: Microsoft YaHei;
   color: #fff;
   font-weight: bold;
   text-decoration: none;
   padding: 3px 6px;
 }
-div#Tag a:hover {
+#Tag a:hover {
   border: 1px solid #eee;
   background: #000;
 }
 
-div#Tag .blue {
+#Tag .blue {
   color: blue;
 }
-div#Tag .red {
+#Tag .red {
   color: red;
 }
-div#Tag .yellow {
+#Tag .yellow {
   color: yellow;
 }
 
 /* 导航 */
-div#Banner {
+#Banner {
   position: absolute;
   left: 38%;
     top: 100px;
@@ -130,11 +130,11 @@ div#Banner {
     text-shadow: 0 0 16px #fff;
 }
 
-div#Banner div#Signature {
+#Banner #Signature {
     text-align: center;
 }
 
-div#Left {
+#Left {
   position: absolute;
   right: 57%;
     top: 110px;
@@ -142,7 +142,7 @@ div#Left {
     padding-right: 32px;
 }
 
-div#Right {
+#Right {
   position: absolute;
   left: 69%;
     top: 384px;
@@ -151,7 +151,7 @@ div#Right {
 }
 
 
-div.Category {
+.Category {
   position: relative;
   padding: 16px;
   margin-bottom: 16px;
@@ -163,7 +163,7 @@ div.Category {
   color: #6ecefd;
 }
 
-div.Category h1.hTitle1 {
+.Category h1.hTitle1 {
   position: relative;
   top: -8px;
 
@@ -171,7 +171,7 @@ div.Category h1.hTitle1 {
   font-weight: bold;
 }
 
-div.Category div.ExtLinks {
+.Category .ExtLinks {
   position: absolute;
   right: 16px;
     top: 16px;
@@ -181,7 +181,7 @@ div.Category div.ExtLinks {
 }
 
 
-div.Category div.Index {
+.Category .Index {
   position: relative;
   margin-bottom: 4px;
 
@@ -191,7 +191,7 @@ div.Category div.Index {
   -o-transition: all 0.2s ease-out;
 }
 
-div.Category div.Index:hover {
+.Category .Index:hover {
     border-radius: 4px;
   box-shadow: 0 0 0 2px #fb7d0e;
 
@@ -199,12 +199,12 @@ div.Category div.Index:hover {
   color: #fb7d0e;
 }
 
-div.Category div.IndexTitle {
+.Category .IndexTitle {
   left: 0;
   width: 100%;
 }
 
-div.Category div.IndexDate {
+.Category .IndexDate {
   position: relative;
   left: 70%;
     top: 0;
@@ -219,7 +219,7 @@ a {
 }
 
 /*鼠标移动效果*/
-div.mousemove {
+.mousemove {
   width: 10px;
   height: 10px;
   background: red;
