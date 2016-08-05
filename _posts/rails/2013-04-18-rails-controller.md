@@ -2,7 +2,7 @@
 layout: post
 title: Rails Controller基础
 category: rails
-description: 部署
+description: Rails
 disqus: false
 ---
 

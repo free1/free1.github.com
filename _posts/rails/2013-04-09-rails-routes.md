@@ -2,7 +2,7 @@
 layout: post
 title: Rails Route基础
 category: rails
-description: Rails(转载)
+description: Rails
 disqus: false
 ---
 

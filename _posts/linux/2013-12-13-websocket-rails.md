@@ -1,8 +1,8 @@
 ---
-layout: post
-title: 即时通讯
+layout: linux
+title: Websocket基础
 category: rails
-description: Rails
+description: Websocket
 disqus: false
 ---
 

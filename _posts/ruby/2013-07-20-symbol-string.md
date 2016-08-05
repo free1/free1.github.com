@@ -2,7 +2,7 @@
 layout: post
 title: Symbol与String
 category: ruby
-description: Ruby(转载)
+description: Ruby
 disqus: false
 ---
 

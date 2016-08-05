@@ -49,6 +49,27 @@ disqus: false
 直接新建一个 migration，把 schema.rb 里的内容拷到 setup 里，然后把老的所有 migration 文件删掉。重新 migrate 一下更新 schema.rb。  
 
 
+## 时间设置  
+
+```
+在application.rb中添加以下两条配置:   
+config.time_zone = 'Beijing'   
+config.active_record.default_timezone = :local   
+如果不想在页面中显示本地时区及时差的话:   
+created_at.localtime(:db).to_s
+```
+
+
+## 常见优化
+* 合理的给数据库加上索引
+* 尽可能的减少数据的访问，避免 N+1 查询，避免 Join
+* 避免重复执行的代码
+* 避免在循环里面再次调用数据库查询
+* 重的 IO 请求 (Email 发送, 调用远程 API...) 等动作尽量用异步的方式实现
+* 多多利用内存，减少磁盘 IO
+* 用 id desc 代替 created_at desc 来实现最新记录的排序
+
+
 ## 关于判定布尔值(blank?, empty?, nil?, any?)
 * blank?和empty?(没有内容返回 true, 有内容返回false)
 

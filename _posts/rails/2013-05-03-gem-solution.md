@@ -18,10 +18,11 @@ export RUBYOPT="-U -Ku -E utf-8:utf-8"
 source ~/.bashrc
 ```
 
-## sphinx
 
-* mysql连不上
-`rake ts:configure ts:restart`
+## simple-form
+
+`<%= f.input :is_private, as: :select, label: false, include_blank: false, priority: ["public", "仅团队成员可见"], collection: [["仅团队成员可见", "true"], ["公开可见", "false"]], label_html: { class: "select optional" } %>`   
+
 
 ## whenever
 
@@ -30,6 +31,12 @@ source ~/.bashrc
 to add the jobs to crontab
 
 * crontab -l
+
+
+## sphinx
+
+* mysql连不上
+`rake ts:configure ts:restart`
 
 
 ## 全文搜索[Sunspot](https://github.com/sunspot/sunspot) 出现 RSolr::Error::Http - 500 Internal Server Error 解决方法:

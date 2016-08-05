@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Rails好用的技巧
+title: Rails技巧
 category: rails
 description: Rails
 disqus: false

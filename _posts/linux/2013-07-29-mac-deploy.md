@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: linux
 title: mac本地部署
 category: rails
 description: 部署
