@@ -1,0 +1,19 @@
+aside {
+  width: 310px;
+  float: left;
+  margin: 20 0px;
+}
+
+aside h2 {
+  font-size: 16px;
+  text-shadow: #000 1px 1px 1px;
+  color: #ccc;
+}
+
+aside .category {
+  padding: 15px;
+  box-shadow: 0px 1px 0px rgba(255,255,255,.1), inset 0px 1px 1px rgba(0,0,0,.7);
+  border-radius: 6px;
+  background: #222;
+  overflow: hidden;
+}

@@ -1,4 +1,20 @@
-baseurl:  /
+baseurl:  ""
 markdown: redcarpet
 highlighter: true
 exclude: [Rakefile, README.md]
+
+# Site settings
+title:        "Free's blog"
+description:  "Free's personal blog"
+categories: [Ruby, Rails, Database, Linux, HTML/CSS, Javascript, Note, Test]
+navigation:
+- text: 首页
+  url: /
+- text: 技术
+  url: /cn/tech/
+- text: 笔记
+  url: /cn/note/
+- text: 日志
+  url: /cn/blog/
+- text: 关于我
+  url: /cn/about/

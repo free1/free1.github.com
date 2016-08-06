@@ -22,14 +22,23 @@ header {
   margin-top: 10px;
 }
 
+.container {
+  width: 970px;
+  margin: 0 auto;
+}
+
 header nav {
   margin: 0 auto;
   width: 1000px;
   padding-top: 5px;
 }
 
+header nav ul {
+  text-align: center;
+}
+
 header nav li {
-  margin-right: 30px;
+  margin-right: 80px;
   line-height: 40px;
 }
 
@@ -41,10 +50,6 @@ header nav li a:hover{
   background: rgba(20, 20, 20, 0.8);
   box-shadow: 0px 1px 0px rgba(255,255,255,.1), inset 0px 1px 1px rgba(0,0,0,.7);
   border-radius: 6px;
-}
-
-.container {
-
 }
 
 #Logo {

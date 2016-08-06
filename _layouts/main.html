@@ -14,26 +14,31 @@ description: Hello Word
 
     <link rel="stylesheet" type="text/css" href="/css/main.css" media="all" />
     <link rel="stylesheet" type="text/css" href="/css/mobile.css" media="all and (max-width:1023px)" />
+    <link rel="stylesheet" type="text/css" href="/css/card.css" media="all" />
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script type="text/javascript" src="/js/compatible.js"></script>
     <script type="text/javascript" src="/js/clock.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
 
     <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico" sizes="57x57" />
 
 </head>
     <body>
+        <!-- 导航 -->
         <header>
             <nav class="navbar">
                 <ul>
-                    <li><a href="#">Ruby</a></li>
-                    <li><a href="#">Rails</a></li>
-                    <li><a href="#">Database</a></li>
-                    <li><a href="#">Linux</a></li>
-                    <li><a href="#">HTML/CSS</a></li>
-                    <li><a href="#">Javascript</a></li>
-                    <li><a href="#">Note</a></li>
-                    <li><a href="#">Test</a></li>
+                    {% for link in site.navigation %}
+                      {% assign current = nil %}
+                      {% if page.url == link.url or page.layout == link.layout %}
+                        {% assign current = 'current' %}
+                      {% endif %}
+
+                      <li class="{% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %}">
+                        <a class="{{ current }}" href="{{ link.url }}">{{ link.text }}</a>
+                      </li>
+                    {% endfor %}
                 </ul>
             </nav>
         </head>
