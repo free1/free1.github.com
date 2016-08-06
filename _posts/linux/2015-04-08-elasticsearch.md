@@ -1,8 +1,8 @@
 ---
 layout: post
 title: ElasticSearch
-category: notes
-description: db
+category: linux
+description: 搜索
 disqus: false
 ---
 

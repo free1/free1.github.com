@@ -1,0 +1,16 @@
+<div class="article-body">
+  <div class="ti"></div>
+  <!-- <div class="ci"></div> -->
+  <div class="card">
+    {% for post in site.posts reversed %}
+      {% if post.layout == 'post' and post.category == include.param %}
+        <a href="{{ post.url }}">
+          <div class="article-list">
+            <div class="article-title">{{ post.title }}</div>
+            <div class="article-desc">{{ post.description }}</div>
+          </div>
+        </a>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>

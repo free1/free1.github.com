@@ -1,7 +1,7 @@
 ---
-layout: linux
+layout: post
 title: mac本地部署
-category: rails
+category: linux
 description: 部署
 disqus: false
 ---

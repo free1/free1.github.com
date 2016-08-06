@@ -1,8 +1,8 @@
 ---
 layout: post
 title: mysql知识
-category: notes
-description: 数据库
+category: database
+description: mysql
 disqus: false
 ---
 

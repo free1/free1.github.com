@@ -1,0 +1,10 @@
+<aside>
+  <div class="card">
+    <h2>分类</h2>
+    <ul>
+      {% for category in site.techcategories %}
+        <li><a href="/cn/list{{ category }}/">{{ category }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</aside>
