@@ -1,19 +1,87 @@
-aside {
-  width: 310px;
-  float: left;
+.article-body {
+  width: 630px;
   margin: 20 0px;
+  float: left;
+  position: relative;
 }
 
-aside h2 {
-  font-size: 16px;
+.article-body .ti {
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 0px 0 20px 22px;
+  border-color: transparent transparent transparent #111;
+  position: absolute;
+  top: 40px;
+  left: 630px;
+}
+
+.article-body .ci {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid #333;
+  background: #000;
+  position: absolute;
+  top: 16px;
+  left: 658px;
+}
+
+aside {
+  width: 310px;
+  margin: 20 0px;
+  float: right;
+}
+
+h2 {
+  font-size: 17px;
   text-shadow: #000 1px 1px 1px;
   color: #ccc;
 }
 
-aside .category {
+.card {
   padding: 15px;
   box-shadow: 0px 1px 0px rgba(255,255,255,.1), inset 0px 1px 1px rgba(0,0,0,.7);
   border-radius: 6px;
   background: #222;
   overflow: hidden;
+}
+
+.card li {
+  display: block;
+}
+
+.card a {
+  font-size: 16px;
+}
+
+.card .article-list {
+  margin-bottom: 8px;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.card a:hover {
+  border-radius: 4px;
+  box-shadow: 0 0 0 2px #fb7d0e;
+  color: #fb7d0e;
+}
+
+.article-body a {
+  display: block;
+}
+
+.article-list .article-title {
+  width: 100%;
+  font: 16px/50px "微软雅黑", "Microsoft YaHei", Arial, Helvetica, sans-serif;
+}
+
+.article-list .article-date {
+  width: 30%;
+  text-align: right;
+  font-size: 10px;
+
+  position: relative;
+  left: 70%;
+  top: 0;
 }

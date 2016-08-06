@@ -2,12 +2,28 @@
 layout: main
 ---
 
+<div class="article-body">
+  <div class="ti"></div>
+  <!-- <div class="ci"></div> -->
+  <div class="card">
+    {% for post in site.posts %}
+      <a href="{{ post.url }}">
+        <div class="article-list">
+          <div class="article-title">{{ post.title }}</div>
+          <div class="article-date">{{ post.description }}</div>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+</div>
+
 <aside>
-  <div class="category">
+  <div class="card">
     <h2>分类</h2>
     <ul>
-      <li>ss</li>
+      {% for category in site.techcategories %}
+        <li><a href="#">{{ category }}</a></li>
+      {% endfor %}
     </ul>
   </div>
 </aside>
-

@@ -34,7 +34,6 @@ description: Hello Word
                       {% if page.url == link.url or page.layout == link.layout %}
                         {% assign current = 'current' %}
                       {% endif %}
-
                       <li class="{% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %}">
                         <a class="{{ current }}" href="{{ link.url }}">{{ link.text }}</a>
                       </li>
