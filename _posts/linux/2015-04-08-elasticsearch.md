@@ -6,6 +6,14 @@ description: 搜索
 disqus: false
 ---
 
+## 基本概念
+* 和关系型数据库区别
+
+```
+Relational DB -> Databases(数据库) -> Tables(表) -> Rows(行) -> Columns(列)
+Elasticsearch -> Indices(索引)   -> Types(类型)  -> Documents(文档) -> Fields(字段)
+```
+
 ## 基本命令
 
 * 查看es：`curl -XGET http://ip-172-31-15-169.cn-north-1.compute.internal:9200/products-production/product/_search?pretty`

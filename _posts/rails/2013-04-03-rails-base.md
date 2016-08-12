@@ -16,6 +16,7 @@ disqus: false
 * 撤销模型代码：rails destroy model Foo
 * 查看关于数据库的rake任务：bundle exec rake -T db
 * 查看所有rake任务：bundle exec rake -T
+* 回退到某个migration版本：rake db:migrate:down VERSION=20100905201547
 * 迁移数据库：rake db:migrate
 * 在命令行使用开发数据库：sqlite3 -line db/development.sqlite3
 * 离开开发数据库：.quit
@@ -46,7 +47,13 @@ disqus: false
 
 
 ## 整理复杂的migrate文件   
-直接新建一个 migration，把 schema.rb 里的内容拷到 setup 里，然后把老的所有 migration 文件删掉。重新 migrate 一下更新 schema.rb。  
+* 直接新建一个 migration，把 schema.rb 里的内容拷到 setup 里，然后把老的所有 migration 文件删掉。重新 migrate 一下更新 schema.rb。  
+
+
+## turbolinks 加载load
+* `$(document).on('turbolinks:load', function(){...}`
+* `<%= link_to('xxx', @xxx, data: { no_turbolink: true }) %>`
+* `<%= link_to('xx', @xx, 'data-no-turbolink' => true) %>`
 
 
 ## 时间设置  
