@@ -10,9 +10,11 @@ disqus: false
 * 和关系型数据库区别
 
 ```
-Relational DB -> Databases(数据库) -> Tables(表) -> Rows(行) -> Columns(列)
-Elasticsearch -> Indices(索引)   -> Types(类型)  -> Documents(文档) -> Fields(字段)
+Relational DB(一般是以文档ID作为索引，以文档内容作为记录。) -> Databases(数据库) -> Tables(表) -> Rows(行) -> Columns(列)
+Elasticsearch(倒排索引将单词或记录作为索引，将文档ID作为记录) -> Indices(索引)   -> Types(类型)  -> Documents(文档) -> Fields(字段)
 ```
+* 分析器(analyzer)处理: 字符过滤器(字符过滤器能够去除HTML标记，或者转换"&"为"and"), 分词器, 标记过滤等。
+
 
 ## 基本命令
 
