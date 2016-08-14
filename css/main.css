@@ -16,7 +16,8 @@ ul li {
 }
 
 a {
-  color: #a6a6a6;
+  /*color: #a6a6a6;*/
+  color: #fff;
   text-decoration: none;
   -webkit-transition: All 1s ease;
 }
@@ -67,137 +68,23 @@ header nav li a:hover{
     bottom: 80px;
 }
 
-/* 时钟 */
-#Clock {
-  width: 400px;
-  height: 190px;
 
-  position: absolute;
-  left: 43%;
-  top: 120px;
+/*时钟*/
+.date {
+  float: left;
+}
+.date .year {
+  margin-bottom: 30px;
 }
 
-#Clock .year {
-  margin-left: 20px;
-}
 
-#Clock .time {
-  margin-left: 20px;
-  margin-top: 35px;
-}
-
-.date img { 
-  position: relative; 
-  /*width: 20px; */
-}
-
-.week { 
-  margin-left: 5px; 
-  width: 20px !important;
-}
-.num2 { width: 38px; }
-
-/* 标签云 */
-#Tag {
-  width: 350px;
-  height: 350px;
-  margin: 20px auto 0;
-
-  position: absolute;
-  left: 43%;
-  top: 360px;
-}
-
-#Tag a {
-  font-family: Microsoft YaHei;
+/*文字*/
+.banner {
+  float: right;
   color: #fff;
-  font-weight: bold;
-  text-decoration: none;
-  padding: 3px 6px;
-}
-#Tag a:hover {
-  border: 1px solid #eee;
-  background: #000;
+  text-shadow: 0 0 16px #fff;
 }
 
-#Tag .blue {
-  color: blue;
-}
-#Tag .red {
-  color: red;
-}
-#Tag .yellow {
-  color: yellow;
-}
-
-/* 导航 */
-#Banner {
-  position: absolute;
-  left: 38%;
-    top: 100px;
-  width: 56%;
-    padding: 32px;
-
-    text-align: right;
-    font-size: 16px;
-    color: #fff;
-    text-shadow: 0 0 16px #fff;
-}
-
-#Banner #Signature {
-    text-align: center;
-}
-
-#Left {
-  position: absolute;
-  right: 57%;
-    top: 110px;
-  width: 28%;
-    padding-right: 32px;
-}
-
-#Right {
-  position: absolute;
-  left: 69%;
-    top: 384px;
-  width: 28%;
-    padding-left: 32px;
-}
-
-
-.Category {
-  position: relative;
-  padding: 16px;
-  margin-bottom: 16px;
-
-  background-color: #3d3c3c;
-  border-radius: 8px;
-  box-shadow: 0 0 13px 0 #fff;
-  opacity: 0.85;
-  color: #6ecefd;
-}
-
-.Category h1.hTitle1 {
-  position: relative;
-  top: -8px;
-
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.Category .ExtLinks {
-  position: absolute;
-  right: 16px;
-    top: 16px;
-  width: 50%;
-
-  text-align: right;
-}
-
-a {
-  text-decoration: none;
-  color: #fff;
-}
 
 /*鼠标移动效果*/
 .mousemove {
