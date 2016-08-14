@@ -11,10 +11,10 @@ navigation:
 - text: 首页
   url: /
 - text: 技术
-  url: /cn/tech/
+  url: /cn/tech
 - text: 笔记
-  url: /cn/note/
+  url: /cn/note
 - text: 日志
-  url: /cn/blog/
+  url: /cn/blog
 - text: 关于我
-  url: /cn/about/
+  url: /cn/about
