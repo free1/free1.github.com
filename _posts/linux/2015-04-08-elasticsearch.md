@@ -25,6 +25,11 @@ Elasticsearch(倒排索引将单词或记录作为索引，将文档ID作为记�
 * 更新数据：`curl -X PUT http://ip-172-31-15-169.cn-north-1.compute.internal:9200/products/product/1`
 * 查看index: `http://localhost:9200/_cat/indices?pretty`
 
+
+## 参考资料
+* [分布式搜索技术](http://www.searchtech.pro/)
+* [基本用法](http://es.xiaoleilu.com/030_Data/05_Document.html)
+
 ## [elasticsearch-rails]()
 * 先建立索引(Model.__elasticsearch__.create_index! force: true)再导入数据(Model.import)
 

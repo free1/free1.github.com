@@ -28,6 +28,17 @@ disqus: false
 * 当需要立即使用时使用includes，否则使用joins节省资源消耗。
 
 
+## 关联表排行榜统计例子
+
+```
+Model.where_time(self.start_end_time(time))
+          .where_records(type_id)
+          .group(:user_id)
+          .select("user_id, sum(column_name) as rank")
+          .order("rank desc")
+          .map(&:user_id)
+```
+
 ## `Mysql2::Error: Data too long for column` 的解决方案(使用utf8mb4)
 [MySQL utf8mb4 字符集](http://www.linuxidc.com/Linux/2013-05/84360.htm)
 修改database、table和column字符集   
