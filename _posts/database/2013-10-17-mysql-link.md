@@ -11,3 +11,5 @@ disqus: false
 ## [数据库主从设置](http://369369.blog.51cto.com/319630/790921)
 
 ## [MySQL的Grant命令](http://www.cnblogs.com/hcbin/archive/2010/04/23/1718379.html)
+
+## [SQL Server索引进阶](http://blog.51cto.com/zt/376)

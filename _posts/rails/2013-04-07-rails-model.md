@@ -6,6 +6,15 @@ description: Rails
 disqus: false
 ---
 
+## 约定column不可用字段
+* `id`:  主键
+* `{tablename}_id`:  外键
+* `created_at,updated_at,created_on,updated_on`:  时间
+* `{tablename}_count`: Counter cache功能使用
+* `type`:  STI功能(单表继承)
+* `lock_version`:  乐观锁功能
+
+
 ## Model常见方法
 * `find` 查找
 * `order("published_at desc")` 排序(接收sql语句)

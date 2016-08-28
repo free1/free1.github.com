@@ -12,7 +12,7 @@ navigation:
   url: /
 - text: 技术
   url: /cn/tech
-- text: 笔记
+- text: 博客
   url: /cn/note
 - text: 日志
   url: /cn/blog

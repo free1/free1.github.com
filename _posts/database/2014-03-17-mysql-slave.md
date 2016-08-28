@@ -15,7 +15,7 @@ master将改变记录到二进制日志(binary log)中, slave将master的binary 
 * Mixed: 默认采用基于语句的复制，一旦发现基于语句的无法精确的复制时，就会采用基于行的复制。
 
 
-## 主从复制命令
+## 基于日志点主从复制
 * 建立新用户:  `create user 'dba'@'ip' identified by '123456';`
 * 授权从数据库:  `grant replication slave on *.* to dba@'ip';`
 * 备份主数据库数据:  `mysqldump --single-transaction --master-data=2 --triggers --routines --all-databases -uroot -p > xx.sql`
