@@ -13,3 +13,5 @@ disqus: false
 ## [MySQL的Grant命令](http://www.cnblogs.com/hcbin/archive/2010/04/23/1718379.html)
 
 ## [SQL Server索引进阶](http://blog.51cto.com/zt/376)
+
+## [MySQL百万级数据库优化方案](http://simpleframework.net/news/view?newsId=bfa7fdce73724978ac8c3e42caa17957)

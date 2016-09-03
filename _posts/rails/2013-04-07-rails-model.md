@@ -29,6 +29,7 @@ disqus: false
 * `includes(:模型名)` 动态选择preload或eager_load                   
 * `joins(:模型名)` 使用 INNER JOIN 来加载关联数据
 * `scope` 定义一个类方法完成查询，使用lambda可以使方法传递参数，真正使用时才执行(延迟执行)
+* `delegate`: 委托方法，类似include，但只引入单个方法
 
 
 ## Record查询中joins和include的区别
