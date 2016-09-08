@@ -6,6 +6,20 @@ description: 搜索
 disqus: false
 ---
 
+## [简单安装](https://www.elastic.co/downloads/elasticsearch)
+* 安装java8:
+
+```
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get install oracle-java8-installer
+```
+* 下载:  `wget elasticsearch-2.4.0.deb`
+* 安装:  `sudo dpkg -i elasticsearch-2.4.0.deb`
+* 放入init.d中:  `sudo update-rc.d elasticsearch defaults 95 10`
+* 启动:  `sudo /etc/init.d/elasticsearch start`
+
+
 ## 基本概念
 * 和关系型数据库区别
 
