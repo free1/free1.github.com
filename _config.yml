@@ -6,7 +6,7 @@ exclude: [Rakefile, README.md]
 # Site settings
 title:        "Free's blog"
 description:  "Free's personal blog"
-techcategories: [Ruby, Rails, Database, Linux, Designs, Javascript, Test, Tool]
+techcategories: [Ruby, Rails, Java, Database, Linux, Designs, Javascript, Test, Tool]
 navigation:
 - text: 首页
   url: /
