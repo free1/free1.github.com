@@ -8,6 +8,13 @@ disqus: false
 
 [CSS3 Media Queries 实现响应式设计](http://www.cnblogs.com/lhb25/archive/2012/12/04/css3-media-queries.html)
 
+## 关闭电话号码自动识别
+
+```
+<meta name="format-detection" content="telephone=no" />
+```
+
+
 ## viewport 设置适应移动设备屏幕大小
 * viewport 虚拟窗口是在 meta 元素中定义的,其主要作用是设置 Web 页面适应移动 设备的屏幕大小。
 
