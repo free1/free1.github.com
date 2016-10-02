@@ -47,7 +47,6 @@ Elasticsearch(倒排索引将单词或记录作为索引，将文档ID作为记�
 ## [elasticsearch-rails]()
 * 先建立索引(Model.__elasticsearch__.create_index! force: true)再导入数据(Model.import)
 
-* [简单搭建使用](http://www.cnblogs.com/lishouguang/p/4560930.html)
 
 * [简单使用](http://es.xiaoleilu.com/010_Intro/10_Installing_ES.html)
 * 先安装java, mac 安装直接用homebrew

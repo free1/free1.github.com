@@ -6,8 +6,7 @@ description: mysql
 disqus: false
 ---
 
-## select for update      
-"select * from where xxx for update" 时，在 repeat read的隔离级别下
+## 更新数据("select * from where xxx for update" 时，在 repeat read的隔离级别下)
 * 如果name没有索引, 则锁全表(表锁)
 * 如果name有普通索引, 则锁一个区间 - range lock
 * 如果name是唯一索引, 仅仅锁一行(行级锁)
