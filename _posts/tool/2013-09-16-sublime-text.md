@@ -75,5 +75,5 @@ disqus: false
 ## 在终端打开sublime text2
 
 ```
-sudo ln -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" /usr/bin/subl
+sudo ln -s "/Applications/Sublime Text 3.app/Contents/SharedSupport/bin/subl" /usr/bin/subl
 ```
