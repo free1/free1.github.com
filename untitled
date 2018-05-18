@@ -1,0 +1,241 @@
+
+
+CREATE TABLE IF NOT EXISTS `Block`(
+
+  `id` INT UNSIGNED AUTO_INCREMENT,
+  PRIMARY KEY `id`(`id`),
+  `Hash` VARCHAR(256),
+  `Confirminations` INT,
+  `MinerInfo` VARCHAR(256)
+
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `BlockData`(
+
+  `id` INT UNSIGNED AUTO_INCREMENT,
+  PRIMARY KEY `id`(`id`),
+  `blockHash` VARCHAR(256),
+  `Version` INT,
+  `PrevBlockHash` VARCHAR(256),
+  `TransactionsRoot` VARCHAR(256),
+  `Timestamp` INT,
+  `Height` INT,
+  `Nonce` INT,
+  `Difficulty` VARCHAR(256),
+  `BlockSize` INT,
+  `Hash` VARCHAR(256)
+  
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `AuxPow`(
+
+  `id` INT UNSIGNED AUTO_INCREMENT,
+  PRIMARY KEY `id`(`id`),
+  `blockHash` VARCHAR(256),
+  `Version` INT,
+  `PrevBlock` VARCHAR(256),
+  `MerkleRoot` VARCHAR(256),
+  `Timestamp` INT,
+  `Bits` INT,
+  `Nonce` INT
+
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `Transactions`(
+
+  `id` INT UNSIGNED AUTO_INCREMENT,
+  PRIMARY KEY `id`(`id`),
+  `blockHash` VARCHAR(256),
+  `TxType` INT,
+  `PayloadVersion` INT,
+  `LockTime` INT,
+  `Timestamp` INT,
+  `Confirminations` INT,
+  `TxSize` INT,
+  `Hash` VARCHAR(256)
+  
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `Payload`(
+  
+  `id` INT UNSIGNED AUTO_INCREMENT,
+  PRIMARY KEY `id`(`id`),
+  `TransactionHash` VARCHAR(256),
+  `CoinbaseData` VARCHAR(256),
+
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `Attributes`(
+
+  `id` INT UNSIGNED AUTO_INCREMENT,
+  PRIMARY KEY `id`(`id`),
+  `TransactionHash` VARCHAR(256),
+  `Usage` INT,
+  `Data` VARCHAR(256),
+  `index` int
+
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `UTXOInputs`(
+  
+  `id` INT UNSIGNED AUTO_INCREMENT,
+  PRIMARY KEY `id`(`id`),
+  `TransactionHash` VARCHAR(256),
+  `ReferTxID` VARCHAR(256),
+  `ReferTxOutputIndex` VARCHAR(256),
+  `Sequence` BIGINT,
+  `Address` VARCHAR(256),
+  `Value` BIGINT,
+  `index` int
+
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `Outputs`(
+  
+  `id` INT UNSIGNED AUTO_INCREMENT,
+  PRIMARY KEY `id`(`id`),
+  `TransactionHash` VARCHAR(256),
+  `AssetID` VARCHAR(256),
+  `Value` BIGINT,
+  `Address` VARCHAR(256),
+  `OutputLock` INT,
+  `index` int
+
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `Programs`(
+
+  `id` INT UNSIGNED AUTO_INCREMENT,
+  PRIMARY KEY `id`(`id`),
+  `TransactionHash` VARCHAR(256),
+  `Code` VARCHAR(256),
+  `Parameter` VARCHAR(256),
+  `index` int
+
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `BalanceInputs`(
+  
+  `id` INT UNSIGNED AUTO_INCREMENT,
+  PRIMARY KEY `id`(`id`)
+
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `AssetOutputs`(
+  
+  `id` INT UNSIGNED AUTO_INCREMENT,
+  PRIMARY KEY `id`(`id`)
+
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `AssetInputAmount`(
+  
+  `id` INT UNSIGNED AUTO_INCREMENT,
+  PRIMARY KEY `id`(`id`)
+
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+0.升级策略
+ 本次节点与钱包的升级版本功能上不存在依赖关系。由于钱包升级后需要同步区块数据，故先升级节点，在25个节点全部升级结束后再对钱包进行升级操作。
+
+1.升级前准备
+ 1.1 升级内容
+   * 节点程序升级为http://git.elastos.org/elastos/Elastos.ELA/commits/deploy_0.0.2 commit为1fcaa6032bd7d4bb96801b757e18abd01c12a3f0
+   * 钱包及浏览器升级为1.0.15
+ 1.2 升级文件准备
+   * 编译节点程序版本
+   * 将节点程序上传至服务器deploy目录
+   * 检验程序hash值是否一致
+2.升级步骤
+ 2.1. 关闭钱包及浏览器网络服务
+  * 登录到钱包和区块链浏览器服务器关闭nginx
+  * 登录到部署机器${DEPLOY_HOME}/worker目录下执行fab product stop，关闭worker服务
+ 2.2 在temp001节点，检查各节点交易池是否为0
+  python3 ~/work/Tools/InspectTxPool.py
+ 2.3 升级节点  依次对**MainNet001-MainNet025**进行升级操作
+     1. 关闭节点
+     2. 将~/work/目录下节点程序替换为deploy目录下版本
+     3. 检查节点配置文件
+  * 只有MainNet-009节点的config.json中：automining=true，矿工地址为8VYXVxKKSAxkmRrfmGpQR2Kc66XhG6m3ta
+     4. 启动节点
+     5. 检查节点log信息是否存在报错信息，各节点高度是否一致，如log正常、节点高度一致则继续升级下一个节点
+ 2.4 升级钱包及浏览器服务器
+      * 登录区块链浏览器服务器，删掉blockchain数据库
+      * 发布区块浏览器
+        $ cd ${DEPLOY_HOME}/browser
+        $ fab product init:dc-1.0.15-release/browser
+        $ fab product install_config
+        $ fab product deploy
+        $ fab product change_server
+        $ cd ${DEPLOY_HOME}/worker
+        $ fab product init:dc-1.0.15-release/browser
+        $ fab product install_config
+        $ fab product deploy
+        $ fab product change_server
+      * 发布api
+        $ cd ${DEPLOY_HOME}/api
+        $ fab product init:dc-1.0.15-release/api
+        $ fab product install_config
+        $ fab product deploy
+        $ fab product change_server
+      * 等待区块链浏览器同步
+      * 发布钱包
+        $ cd ${DEPLOY_HOME}/wallet
+        $ fab product init:dc-1.0.15-release/wallet/www
+        $ fab product install_config
+        $ fab product deploy
+      * 同步后，对钱包及浏览器进行测试
+ 2.5 增加挖矿节点
+   * 如节点工作正常、钱包及浏览器测试正常，增加MainNet-010位挖矿节点
+   1. 修改MainNet-010节点的config.json：automining=true，矿工地址为8VYXVxKKSAxkmRrfmGpQR2Kc66XhG6m3ta
+   2. 关闭并重启节点MainNet-010
+
+   * 至此，3月8日升级操作完成，并由监控程序持续观察mainnet节点高度变化
+
+   3月10日，20:00，如节点状态正常，继续增加第3、4个挖矿节点
+ 2.6 增加MainNet-011、MainNet-012为挖矿节点
+   1.修改mainnet-011、mainnet-012的config.json：automining=true，矿工地址为8VYXVxKKSAxkmRrfmGpQR2Kc66XhG6m3ta
+   2. 重启节点
+   3. 观察出块速度及节点同步状态
+
+   3月11日，20:00，如节点状态正常，继续增加第5个挖矿节点
+ 2.7 增加MainNet-013为挖矿节点
+   1.修改mainnet-013的config.json：automining=true，矿工地址为8VYXVxKKSAxkmRrfmGpQR2Kc66XhG6m3ta
+   2. 重启节点
+   3. 观察出块速度及节点同步状态
+   * 至此，本次升级操作完成，转入对mainnet节点状态的日常监测。
+
+3. 预计升级操作时间：
+ 节点升级时间：30分钟
+  升级后节点监测程序每10分钟检查一次节点高度情况
+ 钱包升级时间：
+  更新代码时间：30分钟
+  数据库同步时间：90分钟
+  钱包及浏览器验证性测试：30分钟
+
+
