@@ -79,5 +79,6 @@ exports.run = function(options) {
 * 通过bin目录下与全局命令相同的js文件(如king.js)处理command的输入【如：king start】
 
 
-
+## 小技巧
+* 忽略权限: sudo npm install node-sass  --unsafe-perm=true --allow-root
 
