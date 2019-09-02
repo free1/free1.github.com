@@ -17,7 +17,7 @@ disqus: false
 * 跳转到第几行: `command+g`
 * 关闭当前打开文件: `command+w`
 * 关闭所有打开文件: `command+w+shift`
-* 选择行: `command+l`
+* 选择行: `control+l`
 * 删除当前行: `command+x`
 * 软撤销: `command+u`
 * 在当前行前插入新行: `command+shift+enter`
@@ -25,6 +25,7 @@ disqus: false
 * 前往 method: `command+r`
 * 新建窗口: `command+n`
 * 注释当前行: `command+/`
+* 变量全选:  `Ctrl+Command+G`
 
 
 ## 必要安装
