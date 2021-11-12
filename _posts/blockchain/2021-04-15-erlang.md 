@@ -1,0 +1,20 @@
+---
+layout: post
+title: erlang
+category: erlang
+description: blockchain
+disqus: false
+---
+
+## 笔记
+
+* 打印log:
+
+```
+require Logger
+  Logger.warn("-=-=-=-=-=-=-=-=-==-=-ddddd==-=-=-=-=-=-=-=: #{inspect(results_plus_one)}")
+```
+
+```
+Logger.warn(fn -> ["Could not decode input data for transaction: ", Hash.to_iodata(hash)] end)
+```
