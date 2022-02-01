@@ -18,3 +18,13 @@ require Logger
 ```
 Logger.warn(fn -> ["Could not decode input data for transaction: ", Hash.to_iodata(hash)] end)
 ```
+
+* if作用域问题导致warning
+
+`_ = var!(payload)`
+
+
+
+* mix建立migrate表
+
+`mix ecto.gen.migration five_topic_add_logs_column`
